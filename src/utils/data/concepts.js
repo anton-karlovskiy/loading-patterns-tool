@@ -5,7 +5,13 @@ id: 'static-import',
 optionName: 'Static Import',
 codeSnippet:
 `import Static_Import from 'static-import';`,
-textDescription: 'static-import-text-description',
+// ray test touch <
+textDescription: `
+1.  Component: PascalCase \`e.g. LeftSideDrawer/index.js\`
+2.  Secondary File: kebab-case \`e.g. left-side-drawer.css (left-side-drawer.module.css)\`
+3.  Constants: UPPER SNAKE_CASE \`e.g. API_KEY\`
+`,
+// ray test touch >
 refLinks: []
 },
 {

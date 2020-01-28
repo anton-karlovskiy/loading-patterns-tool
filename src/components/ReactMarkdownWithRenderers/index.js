@@ -1,4 +1,5 @@
 
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
 
 import ReactCodeBlock from 'components/ReactCodeBlock';

@@ -1,13 +1,15 @@
 
 import React from 'react';
-// TODO: unused
-// import 'github-markdown-css'; 
-// import styles from './style.module.css';
+import 'github-markdown-css';
 
-const GitHubMarkdownWrapper = ({ children, className }) => (
-  <div className={className}>
-    {children}
-  </div>
-);
+import './style.css';
+
+const GitHubMarkdownWrapper = ({ children }) => {
+  return (
+    <div className='markdown-body'>
+      {children}
+    </div>
+    );
+};
 
 export default GitHubMarkdownWrapper;
