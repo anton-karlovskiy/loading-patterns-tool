@@ -1,8 +1,13 @@
 
 import React from 'react';
 
-const ConeptOptionListItem = () => (
-  <div>ConeptOptionListItem</div>
+import styles from './style.module.css';
+
+const ConeptOptionListItem = ({ value, caption }) => (
+  <div className={styles['flex']}>
+    <input type='radio' name='react-loading-patterns' value={value} />
+    <span>&nbsp;{caption}</span>
+  </div>
 );
 
 export default ConeptOptionListItem;

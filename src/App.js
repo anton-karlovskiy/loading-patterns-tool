@@ -1,14 +1,13 @@
 
 import React from 'react';
 
-import './App.css';
+import ReactLoadingPatterns from 'containers/ReactLoadingPatterns';
+import styles from 'App.module.css';
 
-const App = () => {
-  return (
-    <div className='App'>
-      App        
-    </div>
-  );
-};
+const App = () => (
+  <div className={styles['App']}>
+    <ReactLoadingPatterns />
+  </div>
+);
 
 export default App;
