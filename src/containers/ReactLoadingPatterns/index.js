@@ -17,8 +17,8 @@ const ReactLoadingPatterns = () => {
   return (
     <div className={styles['flex']}>
       <div className={styles['grown-flex']}>
-        <CodeArea />
-        <TextDescription />
+        <CodeArea selectedPatternId={selectedPatternId} />
+        <TextDescription selectedPatternId={selectedPatternId} />
       </div>
       <ConceptOptionList
         selectOption={selectPatternHandler}

@@ -3,13 +3,17 @@ import React from 'react';
 
 import GitHubMarkdownWrapper from 'hoc/GitHubMarkdownWrapper';
 import ReactCodeBlock from 'components/ReactCodeBlock';
-
 import styles from './style.module.css';
+import { reactLoadingPatterns } from 'utils/data/concepts';
 
-const CodeArea = () => (
-  <GitHubMarkdownWrapper className={styles['root']}>
-    <ReactCodeBlock value={`import FOOTER_MENU_ITEMS from 'utils/links/footer-menu-items';`} />
-  </GitHubMarkdownWrapper>
-);
+const CodeArea = ({ selectedPatternId }) => {
+  const pattern = reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
+
+  return (
+    <GitHubMarkdownWrapper className={styles['root']}>
+      <ReactCodeBlock value={pattern.codeSnippet} />
+    </GitHubMarkdownWrapper>
+  );
+};
 
 export default CodeArea;
