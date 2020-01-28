@@ -4,21 +4,30 @@ const reactLoadingPatterns = [
 id: 'static-import',
 optionName: 'Static Import',
 codeSnippet:
-`import Static_Import from 'static-import';`,
-// ray test touch <
-textDescription: `
-1.  Component: PascalCase \`e.g. LeftSideDrawer/index.js\`
-2.  Secondary File: kebab-case \`e.g. left-side-drawer.css (left-side-drawer.module.css)\`
-3.  Constants: UPPER SNAKE_CASE \`e.g. API_KEY\`
-`,
-// ray test touch >
+`import sortBy from 'lodash.sortby';
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
+  const sortedValues = sortBy(values);
+});`,
+textDescription:
+`static-import-text-description`,
 refLinks: []
 },
 {
 id: 'dynamic-import',
 optionName: 'Dynamic Import',
 codeSnippet:
-`import Dynamic_Import from 'dynamic-import';`,
+`import React, { lazy, Suspense } from 'react';
+
+const AvatarComponent = lazy(() => import('./AvatarComponent'));
+
+const DetailsComponent = () => (
+  <Suspense fallback={<p>Loading</p>}>
+    <AvatarComponent />
+  </Suspense>
+);`,
 textDescription: 'dynamic-import-text-description',
 refLinks: []
 },
@@ -26,7 +35,40 @@ refLinks: []
 id: 'dynamic-with-error-boundary',
 optionName: 'Dynamic w/Error Boundary',
 codeSnippet:
-`import Dynamic_Error_Boundary from 'dynamic-with-error-boundary';`,
+`import React, { lazy, Suspense, Component } from 'react';
+
+const AvatarComponent = lazy(() => import('./AvatarComponent'));
+const InfoComponent = lazy(() => import('./InfoComponent'));
+const MoreInfoComponent = lazy(() => import('./MoreInfoComponent'));
+
+class ErrorBoundary extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {hasError: false};
+  }
+
+  static getDerivedStateFromError(error) {
+    return {hasError: true};
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <p>Loading failed! Please reload.</p>;
+    }
+
+    return this.props.children;
+  }
+}
+
+const DetailsComponent = () => (
+  <ErrorBoundary>
+    <Suspense fallback={<p>Loading</p>}>
+      <AvatarComponent />
+      <InfoComponent />
+      <MoreInfoComponent />
+    </Suspense>
+  </ErrorBoundary>
+);`,
 textDescription: 'dynamic-with-error-boundary-text-description',
 refLinks: []
 },
@@ -34,7 +76,15 @@ refLinks: []
 id: 'import-on-interaction',
 optionName: 'Import on interaction',
 codeSnippet:
-`import Import_On_Interaction from 'import-on-interaction';`,
+`form.addEventListener('submit', e => { 
+	e.preventDefault();
+	import('lodash.sortby')
+		.then(module => module.default)
+		.then((sortBy) => {
+       const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
+       const sortedValues = sortBy(values);
+    });
+});`,
 textDescription: 'import-on-interaction-text-description',
 refLinks: []
 },

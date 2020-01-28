@@ -5,7 +5,7 @@ import okaidia from 'react-syntax-highlighter/dist/esm/styles/prism/okaidia';
 
 const ReactCodeBlock = ({ value, linesInPrimary = [], linesInSecondary = [] }) => (
   <SyntaxHighlighter
-    wrapLines={true}
+    wrapLines
     lineProps={lineNumber => {
       let style = {display: 'block'};
       if (linesInPrimary.includes(lineNumber)) {
@@ -15,7 +15,7 @@ const ReactCodeBlock = ({ value, linesInPrimary = [], linesInSecondary = [] }) =
       }
       return {style};
     }}
-    showLineNumbers
+    showLineNumbers // TODO: remove when finished
     language='jsx'
     style={okaidia}>
     {value}
