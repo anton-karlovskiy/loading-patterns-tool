@@ -3,9 +3,15 @@ import React from 'react';
 
 import styles from './style.module.css';
 
-const ConeptOptionListItem = ({ value, caption }) => (
+const ConeptOptionListItem = ({ value, caption, checked, selectOption }) => (
   <div className={styles['flex']}>
-    <input type='radio' name='react-loading-patterns' value={value} />
+    <input
+      checked={checked}
+      onChange={selectOption}
+      className={styles['radio']}
+      type='radio'
+      name='react-loading-patterns'
+      value={value} />
     <span>&nbsp;{caption}</span>
   </div>
 );
