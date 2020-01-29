@@ -1,4 +1,5 @@
 
+// ray test touch <
 const reactLoadingPatterns = [
 {
 id: 'static-import',
@@ -12,8 +13,14 @@ form.addEventListener('submit', e => {
   const sortedValues = sortBy(values);
 });`,
 textDescription:
-`static-import-text-description`,
-refLinks: []
+`
+The static \`import\` statement is used to import bindings which are exported by another module.  
+Imported modules are in \`strict mode\` whether you declare them as such or not. The \`import\` statement cannot be used in embedded scripts unless such script has a \`type="module"\`.  
+
+References:  
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import,
+`,
+linesInPrimary: [1]
 },
 {
 id: 'dynamic-import',
@@ -29,7 +36,7 @@ const DetailsComponent = () => (
   </Suspense>
 );`,
 textDescription: 'dynamic-import-text-description',
-refLinks: []
+linesInPrimary: []
 },
 {
 id: 'dynamic-with-error-boundary',
@@ -70,7 +77,7 @@ const DetailsComponent = () => (
   </ErrorBoundary>
 );`,
 textDescription: 'dynamic-with-error-boundary-text-description',
-refLinks: []
+linesInPrimary: []
 },
 {
 id: 'import-on-interaction',
@@ -86,7 +93,7 @@ codeSnippet:
     });
 });`,
 textDescription: 'import-on-interaction-text-description',
-refLinks: []
+linesInPrimary: []
 },
 {
 id: 'import-on-visibility',
@@ -94,7 +101,7 @@ optionName: 'Import on visibility',
 codeSnippet:
 `import Import_On_Visibility from 'import-on-visibility';`,
 textDescription: 'import-on-visibility-text-description',
-refLinks: []
+linesInPrimary: []
 },
 {
 id: 'loadable-component-ssr',
@@ -102,7 +109,7 @@ optionName: 'Loadable Component (SSR)',
 codeSnippet:
 `import Loadable_Component_SSR from 'loadable-component-ssr';`,
 textDescription: 'loadable-component-ssr-text-description',
-refLinks: []
+linesInPrimary: []
 },
 {
 id: 'prefetch',
@@ -110,7 +117,7 @@ optionName: 'Prefetch',
 codeSnippet:
 `import Prefetch from 'prefetch';`,
 textDescription: 'prefetch-text-description',
-refLinks: []
+linesInPrimary: []
 },
 {
 id: 'preload',
@@ -118,10 +125,11 @@ optionName: 'Preload',
 codeSnippet:
 `import Preload from 'preload';`,
 textDescription: 'preload-text-description',
-refLinks: []
+linesInPrimary: []
 }
 ];
 
 export {
   reactLoadingPatterns
 };
+// ray test touch >

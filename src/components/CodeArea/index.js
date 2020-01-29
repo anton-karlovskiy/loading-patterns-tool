@@ -10,7 +10,9 @@ const CodeArea = ({ selectedPatternId }) => {
 
   return (
     <div className={styles['root']}>
-      <ReactCodeBlock value={pattern.codeSnippet} />
+      <ReactCodeBlock
+        linesInPrimary={pattern.linesInPrimary}
+        value={pattern.codeSnippet} />
     </div>
   );
 };
