@@ -2,8 +2,8 @@
 .App {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 8px;
+  padding-top: 24px;
   color: white;
   background-color: #282c34;
   min-height: 100vh;
