@@ -1,7 +1,10 @@
 
 import React from 'react';
-import { PrismAsyncLight as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { PrismLight as SyntaxHighlighter } from 'react-syntax-highlighter';
 import okaidia from 'react-syntax-highlighter/dist/esm/styles/prism/okaidia';
+import jsx from 'react-syntax-highlighter/dist/esm/languages/prism/jsx';
+
+SyntaxHighlighter.registerLanguage('jsx', jsx);
 
 const ReactCodeBlock = ({ value, linesInPrimary = [], linesInSecondary = [] }) => (
   <SyntaxHighlighter
