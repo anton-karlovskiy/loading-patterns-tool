@@ -145,7 +145,8 @@ codeSnippet:
 textDescription:
 `
 Instead of waiting for the 'submit' event to take place to load sorting functionality from the lodash library, you can prefetch this resource to increase the chances of having it available in the cache by the time the user submits the form. webpack allows that using the [magic comments](https://webpack.js.org/api/module-methods/#magic-comments) inside \`import()\`.  
-This tells webpack to inject the \`<link rel="prefetch">\` tag into the HTML document: \`<link rel="prefetch" as="script" href="1.bundle.js">\`  
+This tells webpack to inject the \`<link rel="prefetch">\` tag into the HTML document:  
+\`<link rel="prefetch" as="script" href="1.bundle.js">\`  
 
 References:  
 [(web.dev) Prefetch resources to speed up future navigations / Prefetching JavaScript modules with webpack magic comments](https://web.dev/link-prefetch/#prefetching-javascript-modules-with-webpack-magic-comments)  
@@ -170,7 +171,8 @@ textDescription:
 `
 By preloading a certain resource, you are telling the browser that you would like to fetch it sooner than the browser would otherwise discover it because you are certain that it is important for the current page.  
 Preloading works best if you [split](https://web.dev/reduce-javascript-payloads-with-code-splitting) your JavaScript bundles and only preload critical chunks.
-With webpack version 4.6.0 or later, preloading is supported through the use of [magic comments](https://webpack.js.org/api/module-methods/#magic-comments) inside \`import()\`: \`import(_/* webpackPreload: true */_ "CriticalChunk")\`
+With webpack version 4.6.0 or later, preloading is supported through the use of [magic comments](https://webpack.js.org/api/module-methods/#magic-comments) inside \`import()\`:  
+\`import(_/* webpackPreload: true */_ "CriticalChunk")\`
 
 References:  
 [(MDN web docs) Preloading content with rel="preload"](https://developer.mozilla.org/en-US/docs/Web/HTML/Preloading_content)  
