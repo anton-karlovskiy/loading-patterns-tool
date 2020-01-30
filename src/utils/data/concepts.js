@@ -1,5 +1,4 @@
 
-// ray test touch <
 const reactLoadingPatterns = [
 {
 id: 'static-import',
@@ -187,4 +186,3 @@ linesInPrimary: [3, 4, 5, 6]
 export {
   reactLoadingPatterns
 };
-// ray test touch >
