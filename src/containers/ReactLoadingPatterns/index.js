@@ -15,14 +15,19 @@ const ReactLoadingPatterns = () => {
   };
 
   return (
-    <div className={styles['flex']}>
-      <div className={styles['grown-flex']}>
-        <CodeArea selectedPatternId={selectedPatternId} />
-        <TextDescription selectedPatternId={selectedPatternId} />
+    <div className={styles['root']}>
+      <h2>React Loading Patterns</h2>
+      <div className={styles['flex']}>
+        <div className={styles['grown-flex']}>
+          <CodeArea
+            className={styles['code-area']}
+            selectedPatternId={selectedPatternId} />
+          <TextDescription selectedPatternId={selectedPatternId} />
+        </div>
+        <ConceptOptionList
+          selectOption={selectPatternHandler}
+          selectedOptionId={selectedPatternId} />
       </div>
-      <ConceptOptionList
-        selectOption={selectPatternHandler}
-        selectedOptionId={selectedPatternId} />
     </div>
   );
 };

@@ -6,3 +6,12 @@
 .grown-flex {
   flex-grow: 1;
 }
+
+.root {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
+.code-area {
+  margin-bottom: 16px;
+}
