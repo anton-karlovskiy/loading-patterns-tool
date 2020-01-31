@@ -13,6 +13,7 @@ const CodeArea = ({ selectedPatternId, className }) => {
     <div className={clsx(styles['root'], className)}>
       <ReactCodeBlock
         linesInPrimary={pattern.linesInPrimary}
+        linesInSecondary={pattern.linesInSecondary}
         value={pattern.codeSnippet} />
     </div>
   );

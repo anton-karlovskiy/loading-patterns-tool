@@ -6,11 +6,21 @@ optionName: 'Static Import',
 codeSnippet:
 `import sortBy from 'lodash.sortby';
 
-form.addEventListener('submit', e => {
-  e.preventDefault()
-  const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
-  const sortedValues = sortBy(values);
-});`,
+const FormComponent = () => {
+  ...
+  const onSubmitHandler = event => {
+    event.preventDefault();
+    const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
+    const sortedValues = sortBy(values);
+    ...
+  };
+
+  return (
+    <form onSubmit={onSubmitHandler}>
+    ...
+    </form>
+  );
+};`,
 textDescription:
 `
 The static \`import\` statement is used to import bindings which are exported by another module.  
@@ -19,7 +29,7 @@ Imported modules are in \`strict mode\` whether you declare them as such or not.
 References:  
 [(MDN web docs) import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import,)
 `,
-linesInPrimary: [1]
+linesInPrimary: [1, 8]
 },
 {
 id: 'dynamic-import',
@@ -30,7 +40,7 @@ codeSnippet:
 const AvatarComponent = lazy(() => import('./AvatarComponent'));
 
 const DetailsComponent = () => (
-  <Suspense fallback={<p>Loading</p>}>
+  <Suspense fallback={<p>Loading...</p>}>
     <AvatarComponent />
   </Suspense>
 );`,
@@ -76,7 +86,7 @@ class ErrorBoundary extends Component {
 
 const DetailsComponent = () => (
   <ErrorBoundary>
-    <Suspense fallback={<p>Loading</p>}>
+    <Suspense fallback={<p>Loading...</p>}>
       <AvatarComponent />
       <InfoComponent />
       <MoreInfoComponent />
@@ -97,15 +107,25 @@ linesInPrimary: [13, 14, 15, 27, 33]
 id: 'import-on-interaction',
 optionName: 'Import on interaction',
 codeSnippet:
-`form.addEventListener('submit', e => {
-	e.preventDefault();
-	import('lodash.sortby')
-    .then(module => module.default)
-    .then(sortBy => {
-      const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
-      const sortedValues = sortBy(values);
-    });
-});`,
+`const FormComponent = () => {
+  ...
+  const onSubmitHandler = event => {
+    event.preventDefault();
+    import('lodash.sortby')
+      .then(module => module.default)
+      .then(sortBy => {
+        const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
+        const sortedValues = sortBy(values);
+        ...
+      });
+  };
+
+  return (
+    <form onSubmit={onSubmitHandler}>
+    ...
+    </form>
+  );
+};`,
 textDescription:
 `
 The code that makes up the module does not get included into the initial bundle and is now lazy loaded, or provided to the user only when it is needed after the form submission.  
@@ -113,7 +133,7 @@ The code that makes up the module does not get included into the initial bundle 
 References:  
 [(web.dev) Reduce JavaScript payloads with code splitting](https://web.dev/reduce-javascript-payloads-with-code-splitting/)
 `,
-linesInPrimary: [3, 4, 5, 6, 7, 8]
+linesInPrimary: [5, 6, 7, 8, 9, 10, 11]
 },
 {
 id: 'import-on-visibility',
@@ -135,13 +155,30 @@ linesInPrimary: []
 id: 'prefetch',
 optionName: 'Prefetch',
 codeSnippet:
-`form.addEventListener('submit', e => {
-  e.preventDefault();
-  import(/* webpackPrefetch: true */ 'lodash.sortby')
-    .then(module => module.default)
-    .then(sortInput()) 
-    .catch(err => {alert(err);});
-});`,
+`const FormComponent = () => {
+  ...
+  const sortInput = () => {
+    return sortBy => {
+      const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
+      const sortedValues = sortBy(values);
+      ...
+    };
+  };
+
+  const onSubmitHandler = event => {
+    event.preventDefault();
+    import(/* webpackPrefetch: true */ 'lodash.sortby')
+      .then(module => module.default)
+      .then(sortInput()) 
+      .catch(err => {alert(err);});
+  };
+
+  return (
+    <form onSubmit={onSubmitHandler}>
+    ...
+    </form>
+  );
+};`,
 textDescription:
 `
 Instead of waiting for the 'submit' event to take place to load sorting functionality from the lodash library, you can prefetch this resource to increase the chances of having it available in the cache by the time the user submits the form. webpack allows that using the [magic comments](https://webpack.js.org/api/module-methods/#magic-comments) inside \`import()\`.  
@@ -154,19 +191,37 @@ References:
 [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [3, 4, 5, 6]
+linesInPrimary: [3, 6, 14, 15, 16],
+linesInSecondary: [13]
 },
 {
 id: 'preload',
 optionName: 'Preload',
 codeSnippet:
-`form.addEventListener('submit', e => {
-  e.preventDefault();
-  import(/* webpackPreload: true */ 'lodash.sortby')
-    .then(module => module.default)
-    .then(sortInput()) 
-    .catch(err => {alert(err);});
-});`,
+`const FormComponent = () => {
+  ...
+  const sortInput = () => {
+    return sortBy => {
+      const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
+      const sortedValues = sortBy(values);
+      ...
+    };
+  };
+
+  const onSubmitHandler = event => {
+    event.preventDefault();
+    import(/* webpackPreload: true */ 'lodash.sortby')
+      .then(module => module.default)
+      .then(sortInput()) 
+      .catch(err => {alert(err);});
+  };
+
+  return (
+    <form onSubmit={onSubmitHandler}>
+    ...
+    </form>
+  );
+};`,
 textDescription:
 `
 By preloading a certain resource, you are telling the browser that you would like to fetch it sooner than the browser would otherwise discover it because you are certain that it is important for the current page.  
@@ -181,7 +236,8 @@ References:
 [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [3, 4, 5, 6]
+linesInPrimary: [3, 6, 14, 15, 16],
+linesInSecondary: [13]
 }
 ];
 
