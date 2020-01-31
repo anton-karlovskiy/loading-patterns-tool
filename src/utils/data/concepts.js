@@ -144,12 +144,34 @@ textDescription: 'import-on-visibility-text-description',
 linesInPrimary: []
 },
 {
-id: 'loadable-component-ssr',
-optionName: 'Loadable Component (SSR)',
+id: 'loadable-components-ssr',
+optionName: 'Loadable Components (SSR)',
 codeSnippet:
-`import Loadable_Component_SSR from 'loadable-component-ssr';`,
-textDescription: 'loadable-component-ssr-text-description',
-linesInPrimary: []
+`import React from 'react';
+import loadable from '@loadable/component';
+import ErrorBoundary from './ErrorBoundary';
+
+const AvatarComponent = loadable(() => import('./AvatarComponent'), {
+  fallback: <div>Loading...</div>
+});
+
+const DetailsComponent = () => (
+  <ErrorBoundary>
+    <AvatarComponent />
+  </ErrorBoundary>
+);`,
+textDescription:
+`
+\`React.lazy\` is the recommended solution for Code Splitting. It uses Suspense and it is maintained by React.  
+But if you feel limited or if you need SSR, then \`@loadable/component\` is the solution.  
+Suspense is not available server-side and \`React.lazy\` can only work with Suspense. However \`@loadable/component\` can be used without Suspense. That's why today, \`React.lazy\` is not an option if you need Server Side Rendering.
+
+Refereneces:  
+[(Loadable Components doc) Comparison with React.lazy](https://loadable-components.com/docs/loadable-vs-react-lazy/)  
+[(Loadable Components doc) Error Boundaries](https://loadable-components.com/docs/error-boundaries/)  
+[(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
+`,
+linesInPrimary: [5, 6, 7, 10, 12]
 },
 {
 id: 'prefetch',
