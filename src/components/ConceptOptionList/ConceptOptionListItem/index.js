@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './style.module.css';
 
-const ConeptOptionListItem = ({ value, caption, checked, selectOption }) => (
+const ConceptOptionListItem = ({ value, caption, checked, selectOption }) => (
   <div className={styles['flex']}>
     <input
       checked={checked}
@@ -16,4 +16,4 @@ const ConeptOptionListItem = ({ value, caption, checked, selectOption }) => (
   </div>
 );
 
-export default ConeptOptionListItem;
+export default ConceptOptionListItem;

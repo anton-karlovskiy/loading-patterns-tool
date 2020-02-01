@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import ConeptOptionListItem from './ConeptOptionListItem';
+import ConceptOptionListItem from './ConceptOptionListItem';
 import { reactLoadingPatterns } from 'utils/data/concepts';
 import styles from './style.module.css';
 
@@ -10,7 +10,7 @@ const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
     {reactLoadingPatterns.map(reactLoadingPattern => {
       const checked = reactLoadingPattern.id === selectedOptionId;
       return (
-        <ConeptOptionListItem
+        <ConceptOptionListItem
           checked={checked}
           selectOption={selectOption}
           key={reactLoadingPattern.id}

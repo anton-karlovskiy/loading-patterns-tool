@@ -2,5 +2,5 @@
 .flex-column {
   display: flex;
   flex-direction: column;
-  min-width: 480px;
+  flex: 0 0 280px;
 }
