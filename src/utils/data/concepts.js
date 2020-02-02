@@ -70,10 +70,10 @@ id: 'dynamic-with-error-boundary',
 optionName: 'Dynamic w/Error Boundary',
 codeSnippet:
 `import React, { lazy, Suspense, Component } from 'react';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
 
-const AvatarComponent = lazy(() => import('./AvatarComponent'));
-const InfoComponent = lazy(() => import('./InfoComponent'));
-const MoreInfoComponent = lazy(() => import('./MoreInfoComponent'));
+const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
 class ErrorBoundary extends Component {
   constructor(props) {
@@ -94,15 +94,23 @@ class ErrorBoundary extends Component {
   }
 }
 
-const DetailsComponent = () => (
-  <ErrorBoundary>
-    <Suspense fallback={<p>Loading...</p>}>
-      <AvatarComponent />
-      <InfoComponent />
-      <MoreInfoComponent />
-    </Suspense>
-  </ErrorBoundary>
-);`,
+const Chat = () => {
+  ...
+
+  return (
+    <ErrorBoundary>
+      <div>
+        <Messages />
+        <MessageForm />
+        {isEmojiPickerOpen && (
+          <Suspense fallback={<p>Loading...</p>}>
+            <EmojiPicker />
+          </Suspense>
+        )}
+      </div>
+    </ErrorBoundary>
+  );
+};`,
 textDescription:
 `
 Error boundaries are React components that \`catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI\` instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them.  
@@ -111,7 +119,7 @@ References:
 [(React docs) Error Boundaries](https://reactjs.org/docs/error-boundaries.html)  
 [(web.dev) Code splitting with React.lazy and Suspense / Handle loading failures](https://web.dev/code-splitting-suspense/#handle-loading-failures)
 `,
-linesInPrimary: [13, 14, 15, 27, 33]
+linesInPrimary: [13, 14, 15, 30, 40]
 },
 {
 id: 'import-on-interaction',
