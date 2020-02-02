@@ -10,7 +10,6 @@ import EmojiPicker from './EmojiPicker';
 
 const Chat = () => {
   ...
-
   return (
     <div>
       <Messages />
@@ -41,7 +40,6 @@ const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
 const Chat = () => {
   ...
-
   return (
     <div>
       <Messages />
@@ -96,7 +94,6 @@ class ErrorBoundary extends Component {
 
 const Chat = () => {
   ...
-
   return (
     <ErrorBoundary>
       <div>
