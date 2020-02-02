@@ -31,12 +31,13 @@ const ReactLoadingPatterns = () => {
     <div className={styles['root']}>
       <h2>React Loading Patterns</h2>
       <div className={styles['flex']}>
+        <ConceptOptionList
+          className={styles['concept-option-list']}
+          selectOption={selectPatternHandler}
+          selectedOptionId={selectedPatternId} />
         <CodeArea
           className={styles['code-area']}
           selectedPatternId={selectedPatternId} />
-        <ConceptOptionList
-          selectOption={selectPatternHandler}
-          selectedOptionId={selectedPatternId} />
       </div>
       <TextDescription selectedPatternId={selectedPatternId} />
     </div>

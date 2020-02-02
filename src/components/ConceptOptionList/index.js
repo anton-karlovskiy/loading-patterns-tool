@@ -3,10 +3,9 @@ import React from 'react';
 
 import ConceptOptionListItem from './ConceptOptionListItem';
 import { reactLoadingPatterns } from 'utils/data/concepts';
-import styles from './style.module.css';
 
-const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
-  <div className={styles['flex-column']}>
+const ConceptOptionList = ({ selectedOptionId, selectOption, className }) => (
+  <div className={className}>
     {reactLoadingPatterns.map(reactLoadingPattern => {
       const checked = reactLoadingPattern.id === selectedOptionId;
       return (

@@ -1,6 +1,7 @@
 
 .flex {
   display: flex;
+  flex-direction: column;
 }
 
 .root {
@@ -13,8 +14,27 @@
   flex-grow: 1;
 }
 
-@media screen and (max-width: 960px) {
+.concept-option-list {
+  display: flex;
+  overflow: auto;
+}
+
+.concept-option-list div {
+  flex: 0 0 240px;
+}
+
+@media screen and (min-width: 1200px) {
   .flex {
-    flex-direction: column;
+    flex-direction: row-reverse;
+  }
+
+  .concept-option-list {
+    display: unset;
+    flex: 0 0 260px;
+    overflow: unset;
+  }
+
+  .concept-option-list div {
+    flex: unset;
   }
 }
