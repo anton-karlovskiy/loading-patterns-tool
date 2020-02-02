@@ -34,14 +34,26 @@ id: 'dynamic-import',
 optionName: 'Dynamic Import',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
 
-const AvatarComponent = lazy(() => import('./AvatarComponent'));
+const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
-const DetailsComponent = () => (
-  <Suspense fallback={<p>Loading...</p>}>
-    <AvatarComponent />
-  </Suspense>
-);`,
+const Chat = () => {
+  ...
+
+  return (
+    <div>
+      <Messages />
+      <MessageForm />
+      {isEmojiPickerOpen && (
+        <Suspense fallback={<p>Loading...</p>}>
+          <EmojiPicker />
+        </Suspense>
+      )}
+    </div>
+  );
+};`,
 textDescription:
 `
 The \`React.lazy\` method makes it easy to code-split a React application on a component level using dynamic imports.
@@ -51,7 +63,7 @@ References:
 [(web.dev) Code splitting with React.lazy and Suspense](https://web.dev/code-splitting-suspense/)  
 [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
-linesInPrimary: [3, 6, 8]
+linesInPrimary: [5, 15, 17]
 },
 {
 id: 'dynamic-with-error-boundary',
