@@ -61,7 +61,7 @@ References:
 [(web.dev) Code splitting with React.lazy and Suspense](https://web.dev/code-splitting-suspense/)  
 [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
-linesInPrimary: [5, 15, 17]
+linesInPrimary: [5, 14, 16]
 },
 {
 id: 'dynamic-with-error-boundary',
@@ -116,7 +116,7 @@ References:
 [(React docs) Error Boundaries](https://reactjs.org/docs/error-boundaries.html)  
 [(web.dev) Code splitting with React.lazy and Suspense / Handle loading failures](https://web.dev/code-splitting-suspense/#handle-loading-failures)
 `,
-linesInPrimary: [13, 14, 15, 30, 40]
+linesInPrimary: [13, 14, 15, 29, 39]
 },
 {
 id: 'import-on-interaction',
@@ -173,19 +173,29 @@ linesInPrimary: []
 id: 'loadable-components-ssr',
 optionName: 'Loadable Components (SSR)',
 codeSnippet:
-`import React from 'react';
-import loadable from '@loadable/component';
+`import loadable from '@loadable/component';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
 import ErrorBoundary from './ErrorBoundary';
 
-const AvatarComponent = loadable(() => import('./AvatarComponent'), {
+const EmojiPicker = loadable(() => import('./EmojiPicker'), {
   fallback: <div>Loading...</div>
 });
 
-const DetailsComponent = () => (
-  <ErrorBoundary>
-    <AvatarComponent />
-  </ErrorBoundary>
-);`,
+const Chat = () => {
+  ...
+  return (
+    <ErrorBoundary>
+      <div>
+        <Messages />
+        <MessageForm />
+        {isEmojiPickerOpen && (
+          <EmojiPicker />
+        )}
+      </div>
+    </ErrorBoundary>
+  );
+};`,
 textDescription:
 `
 \`React.lazy\` is the recommended solution for Code Splitting. It uses Suspense and it is maintained by React.  
@@ -197,34 +207,30 @@ Refereneces:
 [(Loadable Components doc) Error Boundaries](https://loadable-components.com/docs/error-boundaries/)  
 [(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
 `,
-linesInPrimary: [5, 6, 7, 10, 12]
+linesInPrimary: [6, 7, 8, 13, 21]
 },
 {
 id: 'prefetch',
 optionName: 'Prefetch',
 codeSnippet:
-`const FormComponent = () => {
+`import React, { lazy, Suspense } from 'react';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
+
+const EmojiPicker = lazy(() => import(/* webpackPrefetch: true */ './EmojiPicker'));
+
+const Chat = () => {
   ...
-  const sortInput = () => {
-    return sortBy => {
-      const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
-      const sortedValues = sortBy(values);
-      ...
-    };
-  };
-
-  const onSubmitHandler = event => {
-    event.preventDefault();
-    import(/* webpackPrefetch: true */ 'lodash.sortby')
-      .then(module => module.default)
-      .then(sortInput()) 
-      .catch(err => {alert(err);});
-  };
-
   return (
-    <form onSubmit={onSubmitHandler}>
-    ...
-    </form>
+    <div>
+      <Messages />
+      <MessageForm />
+      {isEmojiPickerOpen && (
+        <Suspense fallback={<p>Loading...</p>}>
+          <EmojiPicker />
+        </Suspense>
+      )}
+    </div>
   );
 };`,
 textDescription:
@@ -239,35 +245,30 @@ References:
 [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [3, 6, 14, 15, 16],
-linesInSecondary: [13]
+linesInPrimary: [5]
 },
 {
 id: 'preload',
 optionName: 'Preload',
 codeSnippet:
-`const FormComponent = () => {
+`import React, { lazy, Suspense } from 'react';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
+
+const EmojiPicker = lazy(() => import(/* webpackPreload: true */ './EmojiPicker'));
+
+const Chat = () => {
   ...
-  const sortInput = () => {
-    return sortBy => {
-      const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
-      const sortedValues = sortBy(values);
-      ...
-    };
-  };
-
-  const onSubmitHandler = event => {
-    event.preventDefault();
-    import(/* webpackPreload: true */ 'lodash.sortby')
-      .then(module => module.default)
-      .then(sortInput()) 
-      .catch(err => {alert(err);});
-  };
-
   return (
-    <form onSubmit={onSubmitHandler}>
-    ...
-    </form>
+    <div>
+      <Messages />
+      <MessageForm />
+      {isEmojiPickerOpen && (
+        <Suspense fallback={<p>Loading...</p>}>
+          <EmojiPicker />
+        </Suspense>
+      )}
+    </div>
   );
 };`,
 textDescription:
@@ -284,8 +285,7 @@ References:
 [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [3, 6, 14, 15, 16],
-linesInSecondary: [13]
+linesInPrimary: [5]
 }
 ];
 
