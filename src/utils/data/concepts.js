@@ -125,23 +125,34 @@ linesInPrimary: [13, 14, 15, 30, 40]
 id: 'import-on-interaction',
 optionName: 'Import on interaction',
 codeSnippet:
-`const FormComponent = () => {
-  ...
-  const onSubmitHandler = event => {
-    event.preventDefault();
-    import('lodash.sortby')
+`import React, { useState, createElement } from 'react';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
+import ErrorBoundary from './ErrorBoundary';
+
+const Chat = () => {
+  const [emojiPickerComp, setEmojiPickerComp] = useState(null);
+
+  const openEmojiPickerHandler = () => {
+    import('./EmojiPicker')
       .then(module => module.default)
-      .then(sortBy => {
-        const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
-        const sortedValues = sortBy(values);
-        ...
+      .then(emojiPicker => {
+l       setEmojiPickerComp(createElement(emojiPicker));
       });
   };
 
+  const closeEmojiPickerHandler = () => {
+    setEmojiPickerComp(null);
+  };
+
   return (
-    <form onSubmit={onSubmitHandler}>
-    ...
-    </form>
+    <ErrorBoundary>
+      <div>
+        <Messages />
+        <MessageForm onClick={openEmojiPickerHandler} />
+        {emojiPickerComp}
+      </div>
+    </ErrorBoundary>
   );
 };`,
 textDescription:
@@ -151,7 +162,7 @@ The code that makes up the module does not get included into the initial bundle 
 References:  
 [(web.dev) Reduce JavaScript payloads with code splitting](https://web.dev/reduce-javascript-payloads-with-code-splitting/)
 `,
-linesInPrimary: [5, 6, 7, 8, 9, 10, 11]
+linesInPrimary: [10, 11, 12, 13, 14]
 },
 {
 id: 'import-on-visibility',
