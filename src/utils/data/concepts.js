@@ -4,21 +4,19 @@ const reactLoadingPatterns = [
 id: 'static-import',
 optionName: 'Static Import',
 codeSnippet:
-`import sortBy from 'lodash.sortby';
+`import Messages from './Messages';
+import MessageForm from './MessageForm';
+import EmojiPicker from './EmojiPicker';
 
-const FormComponent = () => {
+const Chat = () => {
   ...
-  const onSubmitHandler = event => {
-    event.preventDefault();
-    const values = [input1.valueAsNumber, input2.valueAsNumber, input3.valueAsNumber];
-    const sortedValues = sortBy(values);
-    ...
-  };
 
   return (
-    <form onSubmit={onSubmitHandler}>
-    ...
-    </form>
+    <div>
+      <Messages />
+      <MessageForm />
+      {isEmojiPickerOpen && <EmojiPicker />}
+    </div>
   );
 };`,
 textDescription:
@@ -29,7 +27,7 @@ Imported modules are in \`strict mode\` whether you declare them as such or not.
 References:  
 [(MDN web docs) import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import,)
 `,
-linesInPrimary: [1, 8]
+linesInPrimary: [1, 2, 3]
 },
 {
 id: 'dynamic-import',
