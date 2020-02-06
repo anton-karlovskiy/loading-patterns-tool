@@ -5,8 +5,11 @@
 }
 
 .root {
-  margin-left: 16px;
-  margin-right: 16px;
+  /* ray test touch < */
+  /* margin-left: 16px;
+  margin-right: 16px; */
+  margin: 0 8px;
+  /* ray test touch > */
 }
 
 .code-area {
