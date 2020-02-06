@@ -4,11 +4,9 @@
   flex-direction: column;
 }
 
-/* ray test touch < */
 .root {
   margin: 0 16px;
 }
-/* ray test touch > */
 
 .code-area {
   margin-bottom: 16px;
@@ -35,10 +33,8 @@
   }
 }
 
-/* ray test touch < */
 @media only screen and (max-width: 600px) {
   .root{
     margin: 0 4px;
   }
 }
-/* ray test touch > */

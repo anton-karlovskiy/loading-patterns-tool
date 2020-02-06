@@ -134,7 +134,7 @@ const Chat = () => {
     import('./EmojiPicker')
       .then(module => module.default)
       .then(emojiPicker => {
-l       setEmojiPickerComp(createElement(emojiPicker));
+        setEmojiPickerComp(createElement(emojiPicker));
       });
   };
 

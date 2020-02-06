@@ -1,15 +1,11 @@
 
 .root {
   background-color: #272822;
-  /* ray test touch < */
   font-size: 16px;
-  /* ray test touch > */
 }
 
-/* ray test touch < */
 @media only screen and (max-width: 600px) {
   .root{
     font-size: 8px;
   }
 }
-/* ray test touch > */
