@@ -171,7 +171,7 @@ import MessageForm from './MessageForm';
 import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
-  fallback: <div>Loading...</div>
+  fallback: <p>Loading...</p>
 });
 
 const Chat = () => {
@@ -201,14 +201,36 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 `,
 linesInPrimary: [6, 7, 8, 13, 21]
 },
+// ray test touch <
 {
-  id: 'import-on-visibility',
-  optionName: 'Import on visibility',
-  codeSnippet:
-  `import Import_On_Visibility from 'import-on-visibility';`,
-  textDescription: 'import-on-visibility-text-description',
-  linesInPrimary: []
+id: 'import-on-visibility',
+optionName: 'Import on visibility',
+codeSnippet:
+`import React, { lazy, Suspense } from 'react';
+import loadableVisibility from 'react-loadable-visibility/loadable-components';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
+
+const EmojiPicker = loadableVisibility(() => import('./EmojiPicker'), {
+  fallback: <p>Loading...</p>
+});
+
+const Chat = () => {
+  ...
+  return (
+    <div>
+      <Messages />
+      <MessageForm />
+      {isEmojiPickerOpen && (
+        <EmojiPicker />
+      )}
+    </div>
+  );
+};`,
+textDescription: 'import-on-visibility-text-description',
+linesInPrimary: [2, 6, 7, 8, 16, 17, 18]
 },
+// ray test touch >
 {
 id: 'prefetch',
 optionName: 'Prefetch',
