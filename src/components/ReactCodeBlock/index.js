@@ -18,7 +18,6 @@ const ReactCodeBlock = ({ value, linesInPrimary = [], linesInSecondary = [] }) =
       }
       return {style};
     }}
-    showLineNumbers // TODO: remove when finished
     language='jsx'
     style={okaidia}>
     {value}

@@ -4,13 +4,11 @@
   flex-direction: column;
 }
 
+/* ray test touch < */
 .root {
-  /* ray test touch < */
-  /* margin-left: 16px;
-  margin-right: 16px; */
-  margin: 0 4px;
-  /* ray test touch > */
+  margin: 0 16px;
 }
+/* ray test touch > */
 
 .code-area {
   margin-bottom: 16px;
@@ -36,3 +34,11 @@
     flex: 0 0 260px;
   }
 }
+
+/* ray test touch < */
+@media only screen and (max-width: 600px) {
+  .root{
+    margin: 0 4px;
+  }
+}
+/* ray test touch > */
