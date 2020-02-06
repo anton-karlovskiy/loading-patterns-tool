@@ -1,5 +1,8 @@
 
 .root {
-  min-height: 364px;
   background-color: #272822;
+  /* ray test touch < */
+  /* min-height: 364px; */
+  font-size: 6px;
+  /* ray test touch > */
 }
