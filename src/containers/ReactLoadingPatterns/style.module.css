@@ -16,7 +16,7 @@
 
 .concept-option-list {
   display: flex;
-  overflow: auto;
+  flex-wrap: wrap;
 }
 
 .concept-option-list div {
@@ -31,10 +31,5 @@
   .concept-option-list {
     display: unset;
     flex: 0 0 260px;
-    overflow: unset;
-  }
-
-  .concept-option-list div {
-    flex: unset;
   }
 }
