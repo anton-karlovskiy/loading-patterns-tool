@@ -201,7 +201,6 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 `,
 linesInPrimary: [6, 7, 8, 13, 21]
 },
-// ray test touch <
 {
 id: 'import-on-visibility',
 optionName: 'Import on visibility',
@@ -227,10 +226,17 @@ const Chat = () => {
     </div>
   );
 };`,
-textDescription: 'import-on-visibility-text-description',
+textDescription:
+`
+[react-loadable-visibility](https://github.com/stratiformltd/react-loadable-visibility) is a handy library that provides a wrapper around [loadable-components](https://github.com/gregberge/loadable-components) and [Intersection Observer](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API). You can use it to load components as they become visible within the device viewport when the user scrolls the page.  
+Therefore, it will only function in [browsers that have the IntersectionObserver API](http://caniuse.com/#feat=intersectionobserver).
+
+#### References:  
+[react-loadable-visibility README](https://github.com/stratiformltd/react-loadable-visibility)  
+[progressive react](https://houssein.me/progressive-react)
+`,
 linesInPrimary: [2, 6, 7, 8, 16, 17, 18]
 },
-// ray test touch >
 {
 id: 'prefetch',
 optionName: 'Prefetch',
