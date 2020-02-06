@@ -162,14 +162,6 @@ The code that makes up the module does not get included into the initial bundle 
 linesInPrimary: [10, 11, 12, 13, 14]
 },
 {
-id: 'import-on-visibility',
-optionName: 'Import on visibility',
-codeSnippet:
-`import Import_On_Visibility from 'import-on-visibility';`,
-textDescription: 'import-on-visibility-text-description',
-linesInPrimary: []
-},
-{
 id: 'loadable-components-ssr',
 optionName: 'Loadable Components (SSR)',
 codeSnippet:
@@ -208,6 +200,14 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 [(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
 `,
 linesInPrimary: [6, 7, 8, 13, 21]
+},
+{
+  id: 'import-on-visibility',
+  optionName: 'Import on visibility',
+  codeSnippet:
+  `import Import_On_Visibility from 'import-on-visibility';`,
+  textDescription: 'import-on-visibility-text-description',
+  linesInPrimary: []
 },
 {
 id: 'prefetch',
