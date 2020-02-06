@@ -61,7 +61,7 @@ The \`React.lazy\` function provides a built-in way to separate components in an
 [(web.dev) Code splitting with React.lazy and Suspense](https://web.dev/code-splitting-suspense/)  
 [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
-linesInPrimary: [5, 14, 16]
+linesInPrimary: [1, 5, 14, 16]
 },
 {
 id: 'dynamic-with-error-boundary',
@@ -116,7 +116,7 @@ Error boundaries are React components that \`catch JavaScript errors anywhere in
 [(React docs) Error Boundaries](https://reactjs.org/docs/error-boundaries.html)  
 [(web.dev) Code splitting with React.lazy and Suspense / Handle loading failures](https://web.dev/code-splitting-suspense/#handle-loading-failures)
 `,
-linesInPrimary: [13, 14, 15, 29, 39]
+linesInPrimary: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 29, 39]
 },
 {
 id: 'import-on-interaction',
@@ -199,13 +199,13 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 [(Loadable Components doc) Error Boundaries](https://loadable-components.com/docs/error-boundaries/)  
 [(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
 `,
-linesInPrimary: [6, 7, 8, 13, 21]
+linesInPrimary: [1, 6, 7, 8, 13, 21]
 },
 {
 id: 'import-on-visibility',
 optionName: 'Import on visibility',
 codeSnippet:
-`import React, { lazy, Suspense } from 'react';
+`import React from 'react';
 import loadableVisibility from 'react-loadable-visibility/loadable-components';
 import Messages from './Messages';
 import MessageForm from './MessageForm';
