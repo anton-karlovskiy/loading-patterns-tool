@@ -8,7 +8,7 @@ codeSnippet:
 import MessageForm from './MessageForm';
 import EmojiPicker from './EmojiPicker';
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <div>
@@ -38,7 +38,7 @@ import MessageForm from './MessageForm';
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <div>
@@ -62,6 +62,39 @@ The \`React.lazy\` function provides a built-in way to separate components in an
 * [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
 linesInPrimary: [1, 5, 14, 16]
+},
+{
+id: 'route-based-code-splitting',
+optionName: 'Route-based code-splitting',
+codeSnippet:
+`import React, { lazy, Suspense } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
+const Home = lazy(() => import(/* webpackChunkName: "home" */ './Home'));
+const Chats = lazy(() => import(/* webpackChunkName: "chats" */ './Chats'));
+const Calls = lazy(() => import(/* webpackChunkName: "calls" */ './Calls'));
+const Contacts = lazy(() => import(/* webpackChunkName: "contacts" */ './Contacts'));
+
+const App = () => {
+  <Suspense fallback={<div>Loading...</div>}>
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/pages/chats" component={Chats} />
+      <Route path="/pages/calls" component={Calls} />
+      <Route path="/pages/contacts" component={Contacts} />
+    </Switch>
+  </Suspense>
+};`,
+textDescription:
+`
+Deciding where in your app to introduce code splitting can be a bit tricky. You want to make sure you choose places that will split bundles evenly, but won’t disrupt the user experience.  
+A good place to start is with routes. Most people on the web are used to page transitions taking some amount of time to load. You also tend to be re-rendering the entire page at once so your users are unlikely to be interacting with other elements on the page at the same time.  
+
+#### References:  
+* [(React docs) Code-Splitting / Route-based code splitting](https://reactjs.org/docs/code-splitting.html#route-based-code-splitting)  
+* [(developers.google) Reduce JavaScript Payloads with Code Splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/)  
+`,
+linesInPrimary: [1, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17]
 },
 {
 id: 'dynamic-with-error-boundary',
@@ -92,7 +125,7 @@ class ErrorBoundary extends Component {
   }
 }
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <ErrorBoundary>
@@ -127,7 +160,7 @@ import Messages from './Messages';
 import MessageForm from './MessageForm';
 import ErrorBoundary from './ErrorBoundary';
 
-const Chat = () => {
+const Chats = () => {
   const [emojiPickerComp, setEmojiPickerComp] = useState(null);
 
   const openEmojiPickerHandler = () => {
@@ -174,7 +207,7 @@ const EmojiPicker = loadable(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
 });
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <ErrorBoundary>
@@ -214,7 +247,7 @@ const EmojiPicker = loadableVisibility(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
 });
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <div>
@@ -247,7 +280,7 @@ import MessageForm from './MessageForm';
 
 const EmojiPicker = lazy(() => import(/* webpackPrefetch: true */ './EmojiPicker'));
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <div>
@@ -285,7 +318,7 @@ import MessageForm from './MessageForm';
 
 const EmojiPicker = lazy(() => import(/* webpackPreload: true */ './EmojiPicker'));
 
-const Chat = () => {
+const Chats = () => {
   ...
   return (
     <div>
