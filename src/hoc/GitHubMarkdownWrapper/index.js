@@ -25,7 +25,7 @@ const GitHubMarkdownWrapper = ({ children, className }) => {
     <div className={clsx('markdown-body', className)}>
       {children}
     </div>
-    );
+  );
 };
 
 export default GitHubMarkdownWrapper;

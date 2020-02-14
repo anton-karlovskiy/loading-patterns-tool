@@ -357,6 +357,102 @@ textDescription:`
 linesInPrimary: [4, 5, 10, 11, 12, 13, 15, 16, 17, 38, 39, 42, 43, 44, 45, 49, 54, 55, 56]
 },
 {
+id: 'streaming-rendering',
+optionName: 'Streaming Rendering',
+codeSnippet:
+`// server/index.js
+import express from 'express';
+import React from 'react';
+import { ChunkExtractor } from '@loadable/server';
+import { renderToNodeStream } from 'react-dom/server';
+
+const app = express();
+
+app.get('*', (req, res) => {
+  res.write('<html><head><title>Test</title></head><body>');
+  const statsFile = path.resolve('../dist/loadable-stats.json');
+  const extractor = new ChunkExtractor({statsFile});
+  const jsx = extractor.collectChunks(<App />);
+  const stream = renderToNodeStream(jsx);
+  
+  stream.pipe(res, {end: false});
+  stream.on('end', () => 
+    res.end(\`\${chunkExtractor.getScriptTags()}</body></html>\`)
+  );
+});
+...
+
+// client/index.js
+import React from 'react';
+import { hydrate } from 'react-dom';
+import { loadableReady } from '@loadable/component';
+import App from './App';
+
+loadableReady(() => {
+  const root = document.getElementById('root');
+  hydrate(<App />, root);
+});
+
+// client/App.js
+import React from 'react';
+import loadable from '@loadable/component';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
+import ErrorBoundary from './ErrorBoundary';
+
+const EmojiPicker = loadable(() => import('./EmojiPicker'), {
+  fallback: <p>Loading...</p>
+});
+
+const Chats = () => {
+  ...
+  return (
+    <ErrorBoundary>
+      <div>
+        <Messages />
+        <MessageForm />
+        {isEmojiPickerOpen && (
+          <EmojiPicker />
+        )}
+      </div>
+    </ErrorBoundary>
+  );
+};
+
+const App = () => (
+  <div>
+    ...
+    <Chats />
+  </div>
+);
+
+export default App;`,
+textDescription:`
+1. Install [@loadable/babel-plugin](https://www.npmjs.com/package/@loadable/babel-plugin) and setup \`.babelrc\` in order to transpile your server-side code.
+  \`\`\`
+  // .babelrc
+  {
+    "plugins": ["@loadable/babel-plugin"]
+  }
+  \`\`\`
+2. Install [@loadable/webpack-plugin](https://www.npmjs.com/package/@loadable/webpack-plugin) and setup \`webpack\` to generate the stats file \`loadable-stats.json\`.
+  \`\`\`
+  // webpack.config.js
+  const LoadablePlugin = require('@loadable/webpack-plugin');
+
+  module.exports = {
+    // ...
+    plugins: [new LoadablePlugin()],
+  }
+  \`\`\`
+
+#### References:  
+* [(Loadable Components doc) Server Side Rendering / Streaming rendering](https://loadable-components.com/docs/server-side-rendering/#streaming-rendering)
+* [(React docs) ReactDOMServer / renderToNodeStream()](https://reactjs.org/docs/react-dom-server.html#rendertonodestream)
+`,
+linesInPrimary: [10, 11, 12, 13, 14, 16, 17, 18, 19]
+},
+{
 id: 'import-on-visibility',
 optionName: 'Import on visibility',
 codeSnippet:
