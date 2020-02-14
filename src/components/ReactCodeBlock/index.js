@@ -34,6 +34,8 @@ const ReactCodeBlock = ({ value, linesInPrimary = [], linesInSecondary = [] }) =
       return {style};
     }}
     language='jsx'
+    // TODO: delete when release
+    // showLineNumbers
     style={okaidia}>
     {value}
   </SyntaxHighlighter>

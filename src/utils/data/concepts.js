@@ -210,8 +210,8 @@ The code that makes up the module does not get included into the initial bundle 
 linesInPrimary: [10, 11, 12, 13, 14]
 },
 {
-id: 'loadable-components-ssr',
-optionName: 'Loadable Components (SSR)',
+id: 'loadable-components',
+optionName: 'Loadable Components',
 codeSnippet:
 `import loadable from '@loadable/component';
 import Messages from './Messages';
@@ -245,9 +245,116 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 #### References:  
 * [(Loadable Components doc) Comparison with React.lazy](https://loadable-components.com/docs/loadable-vs-react-lazy/)  
 * [(Loadable Components doc) Error Boundaries](https://loadable-components.com/docs/error-boundaries/)  
-* [(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
 `,
 linesInPrimary: [1, 6, 7, 8, 13, 21]
+},
+{
+id: 'loadable-components-ssr',
+optionName: 'Loadable Components (SSR)',
+codeSnippet:
+`// server/index.js
+import express from 'express';
+import React from 'react';
+import { ChunkExtractor } from '@loadable/server';
+import { renderToString } from 'react-dom/server';
+
+const app = express();
+
+app.get('*', (req, res) => {
+  const statsFile = path.resolve('../dist/loadable-stats.json');
+  const extractor = new ChunkExtractor({statsFile});
+  const jsx = extractor.collectChunks(<App />);
+  const html = renderToString(jsx);
+  
+  const scriptTags = extractor.getScriptTags();
+  const linkTags = extractor.getLinkTags();
+  const styleTags = extractor.getStyleTags();
+
+  res.set('content-type', 'text/html');
+  res.send(\`
+    <!DOCTYPE html>
+    <html>
+      <head>
+      \${linkTags}
+      \${styleTags}
+      </head>
+      <body>
+        <div id='root'>\${html}</div>
+        \${scriptTags}
+      </body>
+    </html>
+  \`)
+});
+...
+
+// client/index.js
+import React from 'react';
+import { hydrate } from 'react-dom';
+import { loadableReady } from '@loadable/component';
+import App from './App';
+
+loadableReady(() => {
+  const root = document.getElementById('root');
+  hydrate(<App />, root);
+});
+
+// client/App.js
+import React from 'react';
+import loadable from '@loadable/component';
+import Messages from './Messages';
+import MessageForm from './MessageForm';
+import ErrorBoundary from './ErrorBoundary';
+
+const EmojiPicker = loadable(() => import('./EmojiPicker'), {
+  fallback: <p>Loading...</p>
+});
+
+const Chats = () => {
+  ...
+  return (
+    <ErrorBoundary>
+      <div>
+        <Messages />
+        <MessageForm />
+        {isEmojiPickerOpen && (
+          <EmojiPicker />
+        )}
+      </div>
+    </ErrorBoundary>
+  );
+};
+
+const App = () => (
+  <div>
+    ...
+    <Chats />
+  </div>
+);
+
+export default App;`,
+textDescription:`
+1. Install [@loadable/babel-plugin](https://www.npmjs.com/package/@loadable/babel-plugin) and setup \`.babelrc\` in order to transpile your server-side code.
+  \`\`\`
+  // .babelrc
+  {
+    "plugins": ["@loadable/babel-plugin"]
+  }
+  \`\`\`
+2. Install [@loadable/webpack-plugin](https://www.npmjs.com/package/@loadable/webpack-plugin) and setup \`webpack\` to generate the stats file \`loadable-stats.json\`.
+  \`\`\`
+  // webpack.config.js
+  const LoadablePlugin = require('@loadable/webpack-plugin');
+
+  module.exports = {
+    // ...
+    plugins: [new LoadablePlugin()],
+  }
+  \`\`\`
+
+#### References:  
+* [(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
+`,
+linesInPrimary: [4, 5, 10, 11, 12, 13, 15, 16, 17, 38, 39, 42, 43, 44, 45, 49, 54, 55, 56]
 },
 {
 id: 'import-on-visibility',
