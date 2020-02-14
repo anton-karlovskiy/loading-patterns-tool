@@ -16,12 +16,13 @@
 
 import React from 'react';
 import 'github-markdown-css';
+import clsx from 'clsx';
 
 import './style.css';
 
-const GitHubMarkdownWrapper = ({ children }) => {
+const GitHubMarkdownWrapper = ({ children, className }) => {
   return (
-    <div className='markdown-body'>
+    <div className={clsx('markdown-body', className)}>
       {children}
     </div>
     );

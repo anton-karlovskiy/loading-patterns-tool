@@ -19,12 +19,13 @@ import React from 'react';
 import GitHubMarkdownWrapper from 'hoc/GitHubMarkdownWrapper';
 import ReactMarkdownWithRenderers from 'components/ReactMarkdownWithRenderers';
 import { reactLoadingPatterns } from 'utils/data/concepts';
+import styles from './style.module.css';
 
 const TextDescription = ({ selectedPatternId }) => {
   const pattern = reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
 
   return (
-    <GitHubMarkdownWrapper>
+    <GitHubMarkdownWrapper className={styles['code-font']}>
       <ReactMarkdownWithRenderers source={pattern.textDescription} />
     </GitHubMarkdownWrapper>
   );
