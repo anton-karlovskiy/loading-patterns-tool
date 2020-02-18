@@ -337,6 +337,7 @@ textDescription:`
   \`\`\`
   // .babelrc
   {
+    ...
     "plugins": ["@loadable/babel-plugin"]
   }
   \`\`\`
@@ -346,9 +347,9 @@ textDescription:`
   const LoadablePlugin = require('@loadable/webpack-plugin');
 
   module.exports = {
-    // ...
-    plugins: [new LoadablePlugin()],
-  }
+    ...
+    plugins: [new LoadablePlugin()]
+  };
   \`\`\`
 
 #### References:  
@@ -432,6 +433,7 @@ textDescription:`
   \`\`\`
   // .babelrc
   {
+    ...
     "plugins": ["@loadable/babel-plugin"]
   }
   \`\`\`
@@ -441,9 +443,9 @@ textDescription:`
   const LoadablePlugin = require('@loadable/webpack-plugin');
 
   module.exports = {
-    // ...
-    plugins: [new LoadablePlugin()],
-  }
+    ...
+    plugins: [new LoadablePlugin()]
+  };
   \`\`\`
 
 #### References:  
