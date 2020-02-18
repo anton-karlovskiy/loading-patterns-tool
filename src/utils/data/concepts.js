@@ -283,7 +283,7 @@ app.get('*', (req, res) => {
         \${scriptTags}
       </body>
     </html>
-  \`)
+  \`);
 });
 ...
 
@@ -330,8 +330,7 @@ const App = () => (
     <Chats />
   </div>
 );
-
-export default App;`,
+...`,
 textDescription:`
 1. Install [@loadable/babel-plugin](https://www.npmjs.com/package/@loadable/babel-plugin) and setup \`.babelrc\` in order to transpile your server-side code.
   \`\`\`
@@ -426,8 +425,7 @@ const App = () => (
     <Chats />
   </div>
 );
-
-export default App;`,
+...`,
 textDescription:`
 1. Install [@loadable/babel-plugin](https://www.npmjs.com/package/@loadable/babel-plugin) and setup \`.babelrc\` in order to transpile your server-side code.
   \`\`\`
@@ -453,6 +451,92 @@ textDescription:`
 * [(React docs) ReactDOMServer / renderToNodeStream()](https://reactjs.org/docs/react-dom-server.html#rendertonodestream)
 `,
 linesInPrimary: [10, 11, 12, 13, 14, 16, 17, 18, 19]
+},
+{
+id: 'progressive-hydration',
+optionName: 'Progressive Hydration',
+codeSnippet:
+`// server/index.js
+import express from 'express';
+import React from 'react';
+import ReactDOMServer from 'react-dom/server';
+import App from './App';
+
+const app = express();
+
+app.get('*', (req, res) => {
+  const html = ReactDOMServer.renderToString(<App />);
+  
+  res.set('content-type', 'text/html');
+  res.send(\`
+    <!DOCTYPE html>
+    <html>
+      <head>
+      </head>
+      <body>
+        <div id='root'>\${html}</div>
+      </body>
+    </html>
+  \`);
+});
+...
+
+// client/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+
+const rootElement = document.getElementById('root');
+
+ReactDOM.createRoot(rootElement, {
+  hydrate: true
+}).render(<App />);
+
+// client/App.js
+import React, { lazy, Suspense } from 'react';
+import ErrorBoundary from './ErrorBoundary';
+
+const Messages = lazy(() => import('./Messages'));
+const MessageForm = lazy(() => import('./MessageForm'));
+const EmojiPicker = lazy(() => import('./EmojiPicker'));
+
+const Chats = () => {
+  ...
+  return (
+    <ErrorBoundary>
+      <div>
+        <Suspense fallback={<h2>Loading Messages...</h2>}>
+          <Messages />
+        </Suspense>
+        <Suspense fallback={<h2>Loading MessageForm...</h2>}>
+          <MessageForm />
+        </Suspense>
+        {isEmojiPickerOpen && (
+          <Suspense fallback={<h2>Loading EmojiPicker...</h2>}>
+            <EmojiPicker />
+          </Suspense>
+        )}
+      </div>
+    </ErrorBoundary>
+  );
+};
+
+const App = () => (
+  <div>
+    ...
+    <Chats />
+  </div>
+);
+...`,
+textDescription:`
+[Concurrent Mode](https://reactjs.org/docs/concurrent-mode-intro.html) enables Progressive Hydration — making individual React components interactive before all JS loads.  
+
+#### References:  
+* [(twitter) Progressive Hydration by Dan Abramov](https://twitter.com/dan_abramov/status/1200111677833973760?s=19)  
+* [(CodeSandBox) React Progressive Hydration Demo](https://codesandbox.io/s/floral-worker-xwbwv)
+* [(Glitch) React Chats App Demo with Progressive Hydration](https://anton-karlovskiy-cra-chats-demo-with-progressive-hydration.glitch.me)  
+`,
+linesInPrimary: [4, 10, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
 },
 {
 id: 'import-on-visibility',
