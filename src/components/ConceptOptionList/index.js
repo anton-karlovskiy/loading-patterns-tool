@@ -18,20 +18,39 @@ import React from 'react';
 
 import ConceptOptionListItem from './ConceptOptionListItem';
 import { reactLoadingPatterns } from 'utils/data/concepts';
+import styles from './style.module.css';
 
-const ConceptOptionList = ({ selectedOptionId, selectOption, className }) => (
-  <div className={className}>
-    {reactLoadingPatterns.map(reactLoadingPattern => {
-      const checked = reactLoadingPattern.id === selectedOptionId;
-      return (
-        <ConceptOptionListItem
-          checked={checked}
-          selectOption={selectOption}
-          key={reactLoadingPattern.id}
-          value={reactLoadingPattern.id}
-          caption={reactLoadingPattern.optionName} />
-      );
-    })}
+const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
+  <div className={styles['flex-container']}>
+    <h3 className={styles['title']}>
+      <strong>Category</strong>
+    </h3>
+    <select
+      className={styles['mobile']}
+      onChange={selectOption}>
+      {reactLoadingPatterns.map(reactLoadingPattern => {
+        return (
+          <option
+            key={reactLoadingPattern.id}
+            value={reactLoadingPattern.id}>
+            {reactLoadingPattern.optionName}
+          </option>
+        );
+      })}
+    </select>
+    <div className={styles['desktop']}>
+      {reactLoadingPatterns.map(reactLoadingPattern => {
+        const checked = reactLoadingPattern.id === selectedOptionId;
+        return (
+          <ConceptOptionListItem
+            checked={checked}
+            selectOption={selectOption}
+            key={reactLoadingPattern.id}
+            value={reactLoadingPattern.id}
+            caption={reactLoadingPattern.optionName} />
+        );
+      })}
+    </div>
   </div>
 );
 

@@ -45,9 +45,8 @@ const ReactLoadingPatterns = () => {
   return (
     <div className={styles['root']}>
       <h2>React Loading Patterns</h2>
-      <div className={styles['flex']}>
+      <div className={styles['flex-container']}>
         <ConceptOptionList
-          className={styles['concept-option-list']}
           selectOption={selectPatternHandler}
           selectedOptionId={selectedPatternId} />
         <CodeArea

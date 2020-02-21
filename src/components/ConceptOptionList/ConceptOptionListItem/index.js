@@ -19,7 +19,7 @@ import React from 'react';
 import styles from './style.module.css';
 
 const ConceptOptionListItem = ({ value, caption, checked, selectOption }) => (
-  <div className={styles['flex']}>
+  <div className={styles['flex-container']}>
     <input
       checked={checked}
       onChange={selectOption}

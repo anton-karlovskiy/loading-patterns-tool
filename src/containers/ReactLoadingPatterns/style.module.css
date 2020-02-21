@@ -1,5 +1,5 @@
 
-.flex {
+.flex-container {
   display: flex;
   flex-direction: column;
 }
@@ -13,28 +13,14 @@
   flex-grow: 1;
 }
 
-.concept-option-list {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.concept-option-list div {
-  flex: 0 0 240px;
-}
-
 @media screen and (min-width: 1200px) {
-  .flex {
+  .flex-container {
     flex-direction: row-reverse;
-  }
-
-  .concept-option-list {
-    display: unset;
-    flex: 0 0 260px;
   }
 }
 
 @media only screen and (max-width: 600px) {
-  .root{
+  .root {
     margin: 0 4px;
   }
 }
