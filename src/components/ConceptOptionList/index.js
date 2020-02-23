@@ -26,6 +26,7 @@ const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
       <strong>Category</strong>
     </h3>
     <select
+      value={selectedOptionId}
       className={styles['mobile']}
       onChange={selectOption}>
       {reactLoadingPatterns.map(reactLoadingPattern => {
