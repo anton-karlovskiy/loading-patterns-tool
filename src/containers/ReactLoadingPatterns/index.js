@@ -16,7 +16,7 @@
 
 import React, { useState, useEffect } from 'react';
 
-import CodeArea from 'components/CodeArea';
+import CodeSnippetArea from 'components/CodeSnippetArea';
 import ConceptOptionList from 'components/ConceptOptionList';
 import TextDescription from 'components/TextDescription';
 import styles from './style.module.css';
@@ -49,7 +49,7 @@ const ReactLoadingPatterns = () => {
         <ConceptOptionList
           selectOption={selectPatternHandler}
           selectedOptionId={selectedPatternId} />
-        <CodeArea
+        <CodeSnippetArea
           className={styles['code-area']}
           selectedPatternId={selectedPatternId} />
       </div>
