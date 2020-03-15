@@ -23,7 +23,7 @@ codeSnippet:
 import MessageInput from './MessageInput';
 import EmojiPicker from './EmojiPicker';
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <div>
@@ -53,7 +53,7 @@ import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <div>
@@ -86,16 +86,16 @@ codeSnippet:
 import { Switch, Route } from 'react-router-dom';
 
 const Home = lazy(() => import(/* webpackChunkName: "home" */ './Home'));
-const Chats = lazy(() => import(/* webpackChunkName: "chats" */ './Chats'));
-const Calls = lazy(() => import(/* webpackChunkName: "calls" */ './Calls'));
+const Channel = lazy(() => import(/* webpackChunkName: "channel" */ './Channel'));
+const Threads = lazy(() => import(/* webpackChunkName: "threads" */ './Threads'));
 const Contacts = lazy(() => import(/* webpackChunkName: "contacts" */ './Contacts'));
 
 const App = () => {
   <Suspense fallback={<div>Loading...</div>}>
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route path="/pages/chats" component={Chats} />
-      <Route path="/pages/calls" component={Calls} />
+      <Route path="/pages/channel?id=engineering" component={Channel} />
+      <Route path="/pages/threads" component={Threads} />
       <Route path="/pages/contacts" component={Contacts} />
     </Switch>
   </Suspense>
@@ -140,7 +140,7 @@ class ErrorBoundary extends Component {
   }
 }
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <ErrorBoundary>
@@ -175,7 +175,7 @@ import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
-const Chats = () => {
+const Channel = () => {
   const [emojiPickerComp, setEmojiPickerComp] = useState(null);
 
   const openEmojiPickerHandler = () => {
@@ -222,7 +222,7 @@ const EmojiPicker = loadable(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
 });
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <ErrorBoundary>
@@ -309,7 +309,7 @@ const EmojiPicker = loadable(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
 });
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <ErrorBoundary>
@@ -327,7 +327,7 @@ const Chats = () => {
 const App = () => (
   <div>
     ...
-    <Chats />
+    <Channel />
   </div>
 );
 ...`,
@@ -404,7 +404,7 @@ const EmojiPicker = loadable(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
 });
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <ErrorBoundary>
@@ -422,7 +422,7 @@ const Chats = () => {
 const App = () => (
   <div>
     ...
-    <Chats />
+    <Channel />
   </div>
 );
 ...`,
@@ -500,7 +500,7 @@ const MessageList = lazy(() => import('./MessageList'));
 const MessageInput = lazy(() => import('./MessageInput'));
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <ErrorBoundary>
@@ -524,7 +524,7 @@ const Chats = () => {
 const App = () => (
   <div>
     ...
-    <Chats />
+    <Channel />
   </div>
 );
 ...`,
@@ -551,7 +551,7 @@ const EmojiPicker = loadableVisibility(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
 });
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <div>
@@ -584,7 +584,7 @@ import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import(/* webpackPrefetch: true */ './EmojiPicker'));
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <div>
@@ -622,7 +622,7 @@ import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import(/* webpackPreload: true */ './EmojiPicker'));
 
-const Chats = () => {
+const Channel = () => {
   ...
   return (
     <div>
