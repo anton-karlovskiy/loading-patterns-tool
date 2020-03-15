@@ -19,16 +19,16 @@ const reactLoadingPatterns = [
 id: 'static-import',
 optionName: 'Static Import',
 codeSnippet:
-`import Messages from './Messages';
-import MessageForm from './MessageForm';
+`import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 import EmojiPicker from './EmojiPicker';
 
 const Chats = () => {
   ...
   return (
     <div>
-      <Messages />
-      <MessageForm />
+      <MessageList />
+      <MessageInput />
       {isEmojiPickerOpen && <EmojiPicker />}
     </div>
   );
@@ -48,8 +48,8 @@ id: 'dynamic-import',
 optionName: 'Dynamic Import',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
@@ -57,8 +57,8 @@ const Chats = () => {
   ...
   return (
     <div>
-      <Messages />
-      <MessageForm />
+      <MessageList />
+      <MessageInput />
       {isEmojiPickerOpen && (
         <Suspense fallback={<p>Loading...</p>}>
           <EmojiPicker />
@@ -116,8 +116,8 @@ id: 'dynamic-with-error-boundary',
 optionName: 'Dynamic w/Error Boundary',
 codeSnippet:
 `import React, { lazy, Suspense, Component } from 'react';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
@@ -145,8 +145,8 @@ const Chats = () => {
   return (
     <ErrorBoundary>
       <div>
-        <Messages />
-        <MessageForm />
+        <MessageList />
+        <MessageInput />
         {isEmojiPickerOpen && (
           <Suspense fallback={<p>Loading...</p>}>
             <EmojiPicker />
@@ -171,8 +171,8 @@ id: 'import-on-interaction',
 optionName: 'Import on interaction',
 codeSnippet:
 `import React, { useState, createElement } from 'react';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const Chats = () => {
@@ -193,8 +193,8 @@ const Chats = () => {
   return (
     <ErrorBoundary>
       <div>
-        <Messages />
-        <MessageForm onClick={openEmojiPickerHandler} />
+        <MessageList />
+        <MessageInput onClick={openEmojiPickerHandler} />
         {emojiPickerComp}
       </div>
     </ErrorBoundary>
@@ -214,8 +214,8 @@ id: 'loadable-components',
 optionName: 'Loadable Components',
 codeSnippet:
 `import loadable from '@loadable/component';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
@@ -227,8 +227,8 @@ const Chats = () => {
   return (
     <ErrorBoundary>
       <div>
-        <Messages />
-        <MessageForm />
+        <MessageList />
+        <MessageInput />
         {isEmojiPickerOpen && (
           <EmojiPicker />
         )}
@@ -301,8 +301,8 @@ loadableReady(() => {
 // client/App.js
 import React from 'react';
 import loadable from '@loadable/component';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
@@ -314,8 +314,8 @@ const Chats = () => {
   return (
     <ErrorBoundary>
       <div>
-        <Messages />
-        <MessageForm />
+        <MessageList />
+        <MessageInput />
         {isEmojiPickerOpen && (
           <EmojiPicker />
         )}
@@ -396,8 +396,8 @@ loadableReady(() => {
 // client/App.js
 import React from 'react';
 import loadable from '@loadable/component';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
@@ -409,8 +409,8 @@ const Chats = () => {
   return (
     <ErrorBoundary>
       <div>
-        <Messages />
-        <MessageForm />
+        <MessageList />
+        <MessageInput />
         {isEmojiPickerOpen && (
           <EmojiPicker />
         )}
@@ -496,8 +496,8 @@ ReactDOM.createRoot(rootElement, {
 import React, { lazy, Suspense } from 'react';
 import ErrorBoundary from './ErrorBoundary';
 
-const Messages = lazy(() => import('./Messages'));
-const MessageForm = lazy(() => import('./MessageForm'));
+const MessageList = lazy(() => import('./MessageList'));
+const MessageInput = lazy(() => import('./MessageInput'));
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
 const Chats = () => {
@@ -505,11 +505,11 @@ const Chats = () => {
   return (
     <ErrorBoundary>
       <div>
-        <Suspense fallback={<h2>Loading Messages...</h2>}>
-          <Messages />
+        <Suspense fallback={<h2>Loading MessageList...</h2>}>
+          <MessageList />
         </Suspense>
-        <Suspense fallback={<h2>Loading MessageForm...</h2>}>
-          <MessageForm />
+        <Suspense fallback={<h2>Loading MessageInput...</h2>}>
+          <MessageInput />
         </Suspense>
         {isEmojiPickerOpen && (
           <Suspense fallback={<h2>Loading EmojiPicker...</h2>}>
@@ -544,8 +544,8 @@ optionName: 'Import on visibility',
 codeSnippet:
 `import React from 'react';
 import loadableVisibility from 'react-loadable-visibility/loadable-components';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 
 const EmojiPicker = loadableVisibility(() => import('./EmojiPicker'), {
   fallback: <p>Loading...</p>
@@ -555,8 +555,8 @@ const Chats = () => {
   ...
   return (
     <div>
-      <Messages />
-      <MessageForm />
+      <MessageList />
+      <MessageInput />
       {isEmojiPickerOpen && (
         <EmojiPicker />
       )}
@@ -579,8 +579,8 @@ id: 'prefetch',
 optionName: 'Prefetch',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import(/* webpackPrefetch: true */ './EmojiPicker'));
 
@@ -588,8 +588,8 @@ const Chats = () => {
   ...
   return (
     <div>
-      <Messages />
-      <MessageForm />
+      <MessageList />
+      <MessageInput />
       {isEmojiPickerOpen && (
         <Suspense fallback={<p>Loading...</p>}>
           <EmojiPicker />
@@ -617,8 +617,8 @@ id: 'preload',
 optionName: 'Preload',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
-import Messages from './Messages';
-import MessageForm from './MessageForm';
+import MessageList from './MessageList';
+import MessageInput from './MessageInput';
 
 const EmojiPicker = lazy(() => import(/* webpackPreload: true */ './EmojiPicker'));
 
@@ -626,8 +626,8 @@ const Chats = () => {
   ...
   return (
     <div>
-      <Messages />
-      <MessageForm />
+      <MessageList />
+      <MessageInput />
       {isEmojiPickerOpen && (
         <Suspense fallback={<p>Loading...</p>}>
           <EmojiPicker />
