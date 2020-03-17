@@ -17,6 +17,9 @@
 import React, { useState, useEffect } from 'react';
 
 import CodeSnippetArea from 'components/CodeSnippetArea';
+// ray test touch <
+import PreviewArea from 'components/PreviewArea';
+// ray test touch >
 import ConceptOptionList from 'components/ConceptOptionList';
 import TextDescription from 'components/TextDescription';
 import styles from './style.module.css';
@@ -43,15 +46,18 @@ const ReactLoadingPatterns = () => {
   };
 
   return (
-    <div className={styles['root']}>
+    <div>
       <h2>React Loading Patterns</h2>
-      <div className={styles['flex-container']}>
+      <div className={styles['upper-section']}>
         <ConceptOptionList
           selectOption={selectPatternHandler}
           selectedOptionId={selectedPatternId} />
-        <CodeSnippetArea
-          className={styles['code-area']}
-          selectedPatternId={selectedPatternId} />
+        {/* ray test touch < */}
+        <div className={styles['left-side']}>
+          <CodeSnippetArea selectedPatternId={selectedPatternId} />
+          {/* <PreviewArea /> */}
+        </div>
+        {/* ray test touch > */}
       </div>
       <TextDescription selectedPatternId={selectedPatternId} />
     </div>

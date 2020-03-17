@@ -1,26 +1,16 @@
 
-.flex-container {
+.upper-section {
   display: flex;
   flex-direction: column;
-}
-
-.root {
-  margin: 0 16px;
-}
-
-.code-area {
   margin-bottom: 16px;
+}
+
+.left-side {
   flex-grow: 1;
 }
 
 @media screen and (min-width: 1200px) {
-  .flex-container {
+  .upper-section {
     flex-direction: row-reverse;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .root {
-    margin: 0 4px;
   }
 }
