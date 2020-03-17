@@ -13,9 +13,7 @@ import VideoGameAssetIcon from 'components/SvgIcons/VideoGameAssetIcon';
 import Toolbar from 'components/PreviewArea/Toolbar';
 import MessageList from 'components/PreviewArea/MessageList';
 import MessageInput from 'components/PreviewArea/MessageInput';
-// ray test touch <
 import { appTitle } from 'utils/constants';
-// ray test touch >
 
 const Channel = () => (
   <div className='message-panel'>

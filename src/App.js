@@ -17,10 +17,10 @@
 import React from 'react';
 
 import ReactLoadingPatterns from 'containers/ReactLoadingPatterns';
-import styles from 'App.module.css';
+import styles from 'style.module.css';
 
 const App = () => (
-  <div className={styles['App']}>
+  <div className={styles['app']}>
     <ReactLoadingPatterns />
   </div>
 );

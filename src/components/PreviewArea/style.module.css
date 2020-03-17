@@ -1,5 +1,4 @@
 
-/* ray test touch < */
 .scrollable {
   position: relative;
   overflow-y: auto;
@@ -10,4 +9,3 @@
   background: white;
   color: #000;
 }
-/* ray test touch > */

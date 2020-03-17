@@ -1,8 +1,6 @@
 
 .message-input {
-  /* ray test touch < */
   position: sticky;
-  /* ray test touch > */
   bottom: 0px;
   padding: 8px;
   width: 100%;

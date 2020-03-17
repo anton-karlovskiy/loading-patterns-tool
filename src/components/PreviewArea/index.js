@@ -1,5 +1,4 @@
 
-// ray test touch <
 import React from 'react';
 import clsx from 'clsx';
 
@@ -15,4 +14,3 @@ const PreviewArea = () => {
 };
 
 export default PreviewArea;
-// ray test touch >
