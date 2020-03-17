@@ -16,7 +16,7 @@ import MessageInput from 'components/PreviewArea/MessageInput';
 import { appTitle } from 'utils/constants';
 
 const Channel = () => (
-  <div className='message-panel'>
+  <div>
     <Toolbar
       title={appTitle}
       rightItems={[

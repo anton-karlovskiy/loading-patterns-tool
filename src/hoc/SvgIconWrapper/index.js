@@ -5,8 +5,8 @@ import './SvgIconWrapper.css';
 
 const SvgIconWrapper = ({
   style = {padding: '4px'},
-  width = 24,
-  height = 24,
+  width = 28,
+  height = 28,
   className = 'icon-button',
   viewBox = '0 0 24 24',
   children,

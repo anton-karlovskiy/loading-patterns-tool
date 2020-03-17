@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 
-import Message from 'components/PreviewArea/Message';
+import Message from './Message';
 import './MessageList.css';
 
 const MY_USER_ID = 'apple';
@@ -78,8 +78,8 @@ const MessageList = () => {
   
   useEffect(() => {
     const tempMessages = getTempMessages();
-    setMessages([...messages, ...tempMessages]);
-  },[]);
+    setMessages(prevMessages => [...prevMessages, ...tempMessages]);
+  }, []);
 
   const renderMessages = () => {
     const renderedMessages = messages.map((message, index) => {
