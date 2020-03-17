@@ -1,0 +1,41 @@
+
+.message-input {
+  /* ray test touch < */
+  position: sticky;
+  /* ray test touch > */
+  bottom: 0px;
+  padding: 8px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+@supports (backdrop-filter: blur(20px)) {
+  .message-input {
+    border: none;
+    background-color: #cac5c5cc;
+    backdrop-filter: blur(20px);
+  }
+}
+
+.text-input {
+  flex-grow: 1;
+  padding: 0 24px;
+  border-radius: 24px;
+  border: none;
+  font-size: 14px;
+  height: 40px;
+  background: #f1f1f4;
+}
+
+.text-input::placeholder {
+  opacity: 0.3;
+}
+
+.toolbar-button-set {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-left: 14px;
+}

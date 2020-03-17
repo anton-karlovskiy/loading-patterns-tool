@@ -1,10 +1,16 @@
 
 // ray test touch <
 import React from 'react';
+import clsx from 'clsx';
+
+import Channel from './Channel';
+import styles from './style.module.css';
 
 const PreviewArea = () => {
   return (
-    <div>PreviewArea</div>
+    <div className={clsx(styles['scrollable'], styles['content'])}>
+      <Channel />
+    </div>
   );
 };
 

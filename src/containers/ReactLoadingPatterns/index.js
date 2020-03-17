@@ -22,8 +22,11 @@ import PreviewArea from 'components/PreviewArea';
 // ray test touch >
 import ConceptOptionList from 'components/ConceptOptionList';
 import TextDescription from 'components/TextDescription';
-import styles from './style.module.css';
 import { reactLoadingPatterns } from 'utils/data/concepts';
+// ray test touch <
+import { appTitle } from 'utils/constants';
+// ray test touch >
+import styles from './style.module.css';
 
 const checkHashWithPatternId = hashWithoutSharp => {
   const isMatchedWithPatternId = reactLoadingPatterns.findIndex(reactLoadingPattern => reactLoadingPattern.id === hashWithoutSharp) > -1;
@@ -47,15 +50,15 @@ const ReactLoadingPatterns = () => {
 
   return (
     <div>
-      <h2>React Loading Patterns</h2>
+      <h2>{appTitle}</h2>
       <div className={styles['upper-section']}>
         <ConceptOptionList
           selectOption={selectPatternHandler}
           selectedOptionId={selectedPatternId} />
         {/* ray test touch < */}
         <div className={styles['left-side']}>
+          <PreviewArea />
           <CodeSnippetArea selectedPatternId={selectedPatternId} />
-          {/* <PreviewArea /> */}
         </div>
         {/* ray test touch > */}
       </div>

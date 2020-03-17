@@ -1,0 +1,14 @@
+
+.icon-button {
+  fill: #00cfba;
+}
+
+.icon-button:hover {
+  cursor: pointer;
+  fill: #009082;
+}
+
+.icon-button:active {
+  fill: #00cfba;
+  opacity: 0.25;
+}

@@ -1,0 +1,13 @@
+
+/* ray test touch < */
+.scrollable {
+  position: relative;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.content {
+  background: white;
+  color: #000;
+}
+/* ray test touch > */
