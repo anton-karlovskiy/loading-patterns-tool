@@ -6,6 +6,7 @@
 }
 
 .content {
-  background: white;
   color: #000;
+  max-height: 600px;
+  background: white;
 }
