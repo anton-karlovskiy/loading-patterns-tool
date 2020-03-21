@@ -1,37 +1,23 @@
 
-// ray test touch <
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useState } from 'react';
 import 'emoji-mart/css/emoji-mart.css';
 import data from 'emoji-mart/data/facebook.json';
 import { NimblePicker } from 'emoji-mart';
 
 import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
+import { useClickAway } from 'utils/hooks';
 import './EmojiPicker.css';
 
 const EmojiPicker = () => {
-  const node = useRef();
   const [open, setOpen] = useState(false);
-  const handleClick = event => {
-    if (node.current.contains(event.target)) {
-      // inside click
-      return;
-    }
-    // outside click
-    setOpen(false);
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClick);
-
-    return () => {
-      document.removeEventListener('mousedown', handleClick);
-    };
-  }, []);
-
   const openEmojiPickerHandler = () => {
     setOpen(true);
   };
-
+  const closeEmojiPickerHandler = () => {
+    setOpen(false);
+  };
+  const node = useClickAway({ onClickOutside: closeEmojiPickerHandler });
+  
   return (
     <div ref={node} className='emoji-picker'>
       <TagFacesIcon
@@ -60,4 +46,3 @@ const EmojiPicker = () => {
 };
 
 export default EmojiPicker;
-// ray test touch >
