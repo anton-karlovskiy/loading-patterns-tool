@@ -12,7 +12,7 @@ const getTempMessages = () => {
     {
       id: 1,
       author: 'apple',
-      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
@@ -24,7 +24,7 @@ const getTempMessages = () => {
     {
       id: 3,
       author: 'orange',
-      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
@@ -36,7 +36,7 @@ const getTempMessages = () => {
     {
       id: 5,
       author: 'apple',
-      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
@@ -48,7 +48,7 @@ const getTempMessages = () => {
     {
       id: 7,
       author: 'orange',
-      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
@@ -60,7 +60,7 @@ const getTempMessages = () => {
     {
       id: 9,
       author: 'apple',
-      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
