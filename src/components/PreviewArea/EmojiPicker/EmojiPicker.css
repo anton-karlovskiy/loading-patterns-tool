@@ -1,0 +1,15 @@
+
+/* ray test touch < */
+.emoji-picker {
+  position: relative;
+  pointer-events: none;
+}
+
+.emoji-picker .emoji-mart-scroll {
+  height: 100px;
+}
+
+.emoji-picker .emoji-mart-preview {
+  height: 52px;
+}
+/* ray test touch > */

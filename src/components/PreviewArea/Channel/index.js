@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
+import EmojiPicker from '../EmojiPicker';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
@@ -21,10 +21,7 @@ const Channel = () => (
       ]} />
     <MessageList />
     <MessageInput rightItems={[
-      <TagFacesIcon
-        type='button'
-        key='emoji'
-        style={{padding: '4px', pointerEvents: 'auto'}} />
+      <EmojiPicker key='emoji' />
     ]} />
   </div>
 );

@@ -20,7 +20,7 @@ const SvgIconWrapper = ({
     style={style}
     height={height}
     viewBox={viewBox}
-    className={clsx('icon', {['icon-button']: type === 'button'}, className)}
+    className={clsx('icon', type === 'button' && 'icon-button', className)}
     xmlns='http://www.w3.org/2000/svg'
     xmlnsXlink='http://www.w3.org/1999/xlink'>
       {children.constructor === Array
