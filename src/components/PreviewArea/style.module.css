@@ -8,8 +8,6 @@
 .content {
   color: #000;
   background: white;
-  /* ray test touch < */
   max-height: 300px;
   pointer-events: none;
-  /* ray test touch > */
 }
