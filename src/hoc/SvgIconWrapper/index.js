@@ -1,5 +1,6 @@
 
 import React, { cloneElement } from 'react';
+import clsx from 'clsx';
 
 import './SvgIconWrapper.css';
 
@@ -7,7 +8,8 @@ const SvgIconWrapper = ({
   style = {padding: '4px'},
   width = 28,
   height = 28,
-  className = 'icon-button',
+  type,
+  className,
   viewBox = '0 0 24 24',
   children,
   ...rest
@@ -18,7 +20,7 @@ const SvgIconWrapper = ({
     style={style}
     height={height}
     viewBox={viewBox}
-    className={className}
+    className={clsx('icon', {['icon-button']: type === 'button'}, className)}
     xmlns='http://www.w3.org/2000/svg'
     xmlnsXlink='http://www.w3.org/1999/xlink'>
       {children.constructor === Array

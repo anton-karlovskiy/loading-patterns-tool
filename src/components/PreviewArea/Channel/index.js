@@ -21,7 +21,10 @@ const Channel = () => (
       ]} />
     <MessageList />
     <MessageInput rightItems={[
-      <TagFacesIcon key='emoji' />
+      <TagFacesIcon
+        type='button'
+        key='emoji'
+        style={{padding: '4px', pointerEvents: 'auto'}} />
     ]} />
   </div>
 );
