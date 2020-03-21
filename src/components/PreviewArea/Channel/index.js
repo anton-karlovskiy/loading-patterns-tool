@@ -19,7 +19,9 @@ const Channel = () => (
         <VideoCamIcon key='video' />,
         <PhoneInTalkIcon key='phone' />
       ]} />
-    <MessageList />
+    {/* ray test touch < */}
+    <MessageList delay={1000} />
+    {/* ray test touch > */}
     <MessageInput rightItems={[
       <EmojiPicker key='emoji' />
     ]} />

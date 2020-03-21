@@ -5,7 +5,7 @@ import data from 'emoji-mart/data/facebook.json';
 import { NimblePicker } from 'emoji-mart';
 
 import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
-import { useClickAway } from 'utils/hooks';
+import useClickAway from 'utils/hooks/use-click-away';
 import './EmojiPicker.css';
 
 const EmojiPicker = () => {
@@ -37,7 +37,6 @@ const EmojiPicker = () => {
           useButton={false}
           emojiTooltip={false}
           title=''
-          set='google'
           style={{
             position: 'absolute',
             bottom: '32px',

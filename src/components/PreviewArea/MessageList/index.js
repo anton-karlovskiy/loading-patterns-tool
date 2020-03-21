@@ -3,6 +3,9 @@ import React, { useEffect, useState } from 'react';
 
 import Message from './Message';
 import './MessageList.css';
+// ray test touch <
+import withDelayedRender from 'hoc/withDelayedRender';
+// ray test touch >
 
 const MY_USER_ID = 'apple';
 
@@ -11,61 +14,61 @@ const getTempMessages = () => {
     {
       id: 1,
       author: 'apple',
-      message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
       id: 2,
       author: 'orange',
-      message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+      message: 'Emoji picker looks good!',
       timestamp: new Date().getTime()
     },
     {
       id: 3,
       author: 'orange',
-      message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
       id: 4,
       author: 'apple',
-      message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+      message: 'Emoji picker looks good!',
       timestamp: new Date().getTime()
     },
     {
       id: 5,
       author: 'apple',
-      message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
       id: 6,
       author: 'apple',
-      message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+      message: 'Emoji picker looks good!',
       timestamp: new Date().getTime()
     },
     {
       id: 7,
       author: 'orange',
-      message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
       id: 8,
       author: 'orange',
-      message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+      message: 'Emoji picker looks good!',
       timestamp: new Date().getTime()
     },
     {
       id: 9,
       author: 'apple',
-      message: 'Hello world! This is a long message that will hopefully get wrapped by our message bubble component! We will see how well it works.',
+      message: 'Hello world! Please click emoji icon on the bottom right corner to open emoji picker.',
       timestamp: new Date().getTime()
     },
     {
       id: 10,
       author: 'orange',
-      message: 'It looks like it wraps exactly as it is supposed to. Lets see what a reply looks like!',
+      message: 'Emoji picker looks good!',
       timestamp: new Date().getTime()
     }
   ];
@@ -134,4 +137,6 @@ const MessageList = () => {
   );
 };
 
-export default MessageList;
+// ray test touch <
+export default withDelayedRender(MessageList);
+// ray test touch >
