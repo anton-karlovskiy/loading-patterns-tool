@@ -5,11 +5,6 @@ import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
-import PhotoCameraIcon from 'components/SvgIcons/PhotoCameraIcon';
-import ImageIcon from 'components/SvgIcons/ImageIcon';
-import MicIcon from 'components/SvgIcons/MicIcon';
-import PaymentIcon from 'components/SvgIcons/PaymentIcon';
-import VideoGameAssetIcon from 'components/SvgIcons/VideoGameAssetIcon';
 import Toolbar from 'components/PreviewArea/Toolbar';
 import MessageList from 'components/PreviewArea/MessageList';
 import MessageInput from 'components/PreviewArea/MessageInput';
@@ -26,11 +21,6 @@ const Channel = () => (
       ]} />
     <MessageList />
     <MessageInput rightItems={[
-      <PhotoCameraIcon key='photo' />,
-      <ImageIcon key='image' />,
-      <MicIcon key='audio' />,
-      <PaymentIcon key='money' />,
-      <VideoGameAssetIcon key='games' />,
       <TagFacesIcon key='emoji' />
     ]} />
   </div>
