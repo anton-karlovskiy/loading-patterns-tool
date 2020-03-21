@@ -2,6 +2,7 @@
 import React from 'react';
 
 import './MessageInput.css';
+import withDelayedRender from 'hoc/withDelayedRender';
 
 const MessageInput = ({ rightItems }) => (
   <div className='message-input'>
@@ -15,4 +16,4 @@ const MessageInput = ({ rightItems }) => (
   </div>
 );
 
-export default MessageInput;
+export default withDelayedRender(MessageInput);

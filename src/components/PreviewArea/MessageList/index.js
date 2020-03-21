@@ -3,9 +3,7 @@ import React, { useEffect, useState } from 'react';
 
 import Message from './Message';
 import './MessageList.css';
-// ray test touch <
 import withDelayedRender from 'hoc/withDelayedRender';
-// ray test touch >
 
 const MY_USER_ID = 'apple';
 
@@ -137,6 +135,4 @@ const MessageList = () => {
   );
 };
 
-// ray test touch <
 export default withDelayedRender(MessageList);
-// ray test touch >

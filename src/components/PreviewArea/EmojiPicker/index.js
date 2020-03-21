@@ -7,6 +7,7 @@ import { NimblePicker } from 'emoji-mart';
 import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
 import useClickAway from 'utils/hooks/use-click-away';
 import './EmojiPicker.css';
+import withDelayedRender from 'hoc/withDelayedRender';
 
 const EmojiPicker = () => {
   const [open, setOpen] = useState(false);
@@ -47,4 +48,4 @@ const EmojiPicker = () => {
   );
 };
 
-export default EmojiPicker;
+export default withDelayedRender(EmojiPicker);
