@@ -16,12 +16,15 @@ const EmojiPicker = () => {
   const closeEmojiPickerHandler = () => {
     setOpen(false);
   };
+  const onTagFacesIconClickHandler = () => {
+    open ? closeEmojiPickerHandler() : openEmojiPickerHandler();
+  };
   const node = useClickAway({ onClickOutside: closeEmojiPickerHandler });
   
   return (
     <div ref={node} className='emoji-picker'>
       <TagFacesIcon
-        onClick={openEmojiPickerHandler}
+        onClick={onTagFacesIconClickHandler}
         type='button'
         style={{padding: '4px', pointerEvents: 'auto'}} />
       {open && (
