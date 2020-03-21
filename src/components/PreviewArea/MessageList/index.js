@@ -12,61 +12,61 @@ const getTempMessages = () => {
     {
       id: 1,
       author: 'apple',
-      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! The messenger components are designed to simulate different react loading patterns by being rendered with some delay. <MessageList /> is delayed by 1000ms, <MessageInput /> 1500ms, <EmojiPicker /> 2000ms.',
       timestamp: new Date().getTime()
     },
     {
       id: 2,
       author: 'orange',
-      message: 'Emoji picker looks good!',
+      message: 'Once refreshing, I can see those components being rendered with some delay!',
       timestamp: new Date().getTime()
     },
     {
       id: 3,
       author: 'orange',
-      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! The messenger components are designed to simulate different react loading patterns by being rendered with some delay. <MessageList /> is delayed by 1000ms, <MessageInput /> 1500ms, <EmojiPicker /> 2000ms.',
       timestamp: new Date().getTime()
     },
     {
       id: 4,
       author: 'apple',
-      message: 'Emoji picker looks good!',
+      message: 'Once refreshing, I can see those components being rendered with some delay!',
       timestamp: new Date().getTime()
     },
     {
       id: 5,
       author: 'apple',
-      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! The messenger components are designed to simulate different react loading patterns by being rendered with some delay. <MessageList /> is delayed by 1000ms, <MessageInput /> 1500ms, <EmojiPicker /> 2000ms.',
       timestamp: new Date().getTime()
     },
     {
       id: 6,
       author: 'apple',
-      message: 'Emoji picker looks good!',
+      message: 'Once refreshing, I can see those components being rendered with some delay!',
       timestamp: new Date().getTime()
     },
     {
       id: 7,
       author: 'orange',
-      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! The messenger components are designed to simulate different react loading patterns by being rendered with some delay. <MessageList /> is delayed by 1000ms, <MessageInput /> 1500ms, <EmojiPicker /> 2000ms.',
       timestamp: new Date().getTime()
     },
     {
       id: 8,
       author: 'orange',
-      message: 'Emoji picker looks good!',
+      message: 'Once refreshing, I can see those components being rendered with some delay!',
       timestamp: new Date().getTime()
     },
     {
       id: 9,
       author: 'apple',
-      message: 'Hello world! Please click face icon on the bottom right corner to open emoji picker.',
+      message: 'Hello world! The messenger components are designed to simulate different react loading patterns by being rendered with some delay. <MessageList /> is delayed by 1000ms, <MessageInput /> 1500ms, <EmojiPicker /> 2000ms.',
       timestamp: new Date().getTime()
     },
     {
       id: 10,
       author: 'orange',
-      message: 'Emoji picker looks good!',
+      message: 'Once refreshing, I can see those components being rendered with some delay!',
       timestamp: new Date().getTime()
     }
   ];
