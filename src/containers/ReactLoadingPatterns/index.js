@@ -20,8 +20,8 @@ import CodeSnippetArea from 'components/CodeSnippetArea';
 import PreviewArea from 'components/PreviewArea';
 import ConceptOptionList from 'components/ConceptOptionList';
 import TextDescription from 'components/TextDescription';
+import Title from 'components/Title';
 import { reactLoadingPatterns } from 'utils/data/concepts';
-import { appTitle } from 'utils/constants';
 import styles from './style.module.css';
 
 const checkHashWithPatternId = hashWithoutSharp => {
@@ -46,7 +46,7 @@ const ReactLoadingPatterns = () => {
 
   return (
     <div>
-      <h2>{appTitle}</h2>
+      <Title />
       <div className={styles['upper-section']}>
         <ConceptOptionList
           selectOption={selectPatternHandler}
