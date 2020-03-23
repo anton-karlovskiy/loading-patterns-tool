@@ -52,8 +52,8 @@ const ReactLoadingPatterns = () => {
           selectOption={selectPatternHandler}
           selectedOptionId={selectedPatternId} />
         <div className={styles['left-side']}>
-          <PreviewArea />
           <CodeSnippetArea selectedPatternId={selectedPatternId} />
+          <PreviewArea />
         </div>
       </div>
       <TextDescription selectedPatternId={selectedPatternId} />
