@@ -10,7 +10,7 @@ import './EmojiPicker.css';
 import withDelayedRender from 'hoc/withDelayedRender';
 
 const EmojiPicker = () => {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const openEmojiPickerHandler = () => {
     setOpen(true);
   };
