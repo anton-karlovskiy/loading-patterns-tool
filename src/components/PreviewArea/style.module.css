@@ -11,3 +11,13 @@
   max-height: 300px;
   pointer-events: none;
 }
+
+.content::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+}
+
+.content::-webkit-scrollbar-thumb {
+  border: none;
+  background-color: #5c739c;
+}

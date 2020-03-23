@@ -23,6 +23,16 @@
   overflow-y: auto;
 }
 
+.root > pre::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 4px;
+}
+
+.root > pre::-webkit-scrollbar-thumb {
+  border: none;
+  background-color: #5c739c;
+}
+
 @media only screen and (max-width: 600px) {
   .root {
     font-size: 8px;
