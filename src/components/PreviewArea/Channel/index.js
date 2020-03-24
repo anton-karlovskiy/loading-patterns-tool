@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 import EmojiPicker from '../EmojiPicker';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
@@ -12,13 +12,6 @@ import { appTitle } from 'utils/constants';
 import delays from 'utils/data/delays';
 
 const Channel = ({ selectedPatternId }) => {
-  const [shown, setShown] = useState(false);
-  useEffect(() => {
-    shown && setShown(false);
-    const timeout = setTimeout(() => setShown(true), 100);
-    return () => clearTimeout(timeout);
-  }, [selectedPatternId]);
-
   const { messageList, messageInput, emojiPicker } = delays[selectedPatternId];
   
   return (
@@ -30,16 +23,19 @@ const Channel = ({ selectedPatternId }) => {
           <VideoCamIcon key='video' />,
           <PhoneInTalkIcon key='phone' />
         ]} />
-      {shown && (
         <>
-          <MessageList delay={messageList} />
+          <MessageList
+            key={`message-list-${selectedPatternId}`}
+            delay={messageList} />
           <MessageInput
+            key={`message-input-${selectedPatternId}`}
             delay={messageInput}
             rightItems={[
-              <EmojiPicker key='emoji' delay={emojiPicker} />
+              <EmojiPicker
+                key={`emoji-picker-${selectedPatternId}`}
+                delay={emojiPicker} />
             ]} />
         </>
-      )}
     </div>
   );
 };
