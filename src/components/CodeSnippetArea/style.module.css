@@ -19,8 +19,7 @@
 }
 
 .root > pre {
-  height: 512px;
-  overflow-y: auto;
+  height: 400px;
 }
 
 @media only screen and (max-width: 600px) {
