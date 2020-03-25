@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from 'react';
 
 import Message from './Message';
-import './MessageList.css';
 import withDelayedRender from 'hoc/withDelayedRender';
+import styles from './style.module.css';
+import AriaText from '../AriaText';
 
 const MY_USER_ID = 'apple';
 
@@ -74,7 +75,7 @@ const getTempMessages = () => {
   return tempMessages;
 };
 
-const MessageList = () => {
+const MessageList = ({ ariaText }) => {
   const [messages, setMessages] = useState([]);
   
   useEffect(() => {
@@ -131,7 +132,10 @@ const MessageList = () => {
   };
 
   return (
-    <div className='message-list'>{renderMessages()}</div>
+    <div className={styles['message-list']}>
+      {renderMessages()}
+      <AriaText className={styles['aria-text']} text={ariaText} />
+    </div>
   );
 };
 

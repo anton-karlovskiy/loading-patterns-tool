@@ -1,0 +1,11 @@
+
+.message-list {
+  padding: 10px;
+  padding-bottom: 70px;
+}
+
+.aria-text {
+  position: absolute;
+  top: 8px;
+  left: 2px;
+}

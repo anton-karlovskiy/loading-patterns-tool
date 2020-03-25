@@ -1,0 +1,11 @@
+
+.emoji-mart {
+  position: relative;
+}
+
+.aria-text {
+  position: absolute;
+  bottom: 176px;
+  right: 350px;
+  width: 320px;
+}

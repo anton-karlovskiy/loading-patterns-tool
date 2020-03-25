@@ -6,7 +6,7 @@ import useClickAway from 'utils/hooks/use-click-away';
 import './EmojiPicker.css';
 import withDelayedRender from 'hoc/withDelayedRender';
 
-const EmojiPicker = () => {
+const EmojiPicker = ({ ariaText }) => {
   const [emojiMartEl, setEmojiMartEl] = useState(null);
   useEffect(() => {
     openEmojiPickerHandler();
@@ -17,7 +17,7 @@ const EmojiPicker = () => {
     !emojiMartEl && import(/* webpackChunkName: "emoji-mart" */ './EmojiMart')
       .then(module => module.default)
       .then(emojiMart => {
-        setEmojiMartEl(createElement(emojiMart));
+        setEmojiMartEl(createElement(emojiMart, {ariaText}));
       });
   };
   const closeEmojiPickerHandler = () => {
