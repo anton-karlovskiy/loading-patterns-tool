@@ -6,6 +6,21 @@ import { NimblePicker } from 'emoji-mart';
 
 import AriaText from 'components/PreviewArea/AriaText';
 import styles from './style.module.css';
+import { checkIsSmallViewport } from 'utils/helpers';
+
+const isSmallViewport = checkIsSmallViewport();
+const exclude = isSmallViewport ? [
+  'flags',
+  'symbols',
+  'objects',
+  'places',
+  'activity',
+  'recent',
+  'search'
+]: [
+  'recent',
+  'search'
+];
 
 const EmojiMart = ({ ariaText }) => (
   <div className={styles['emoji-mart']}>
@@ -13,7 +28,8 @@ const EmojiMart = ({ ariaText }) => (
       set='facebook'
       data={data}
       sheetSize={32}
-      exclude={['recent', 'search']}
+      perLine={isSmallViewport ? 6 : 9}
+      exclude={exclude}
       showSkinTones={false}
       useButton={false}
       emojiTooltip={false}

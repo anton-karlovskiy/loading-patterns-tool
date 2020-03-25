@@ -6,3 +6,9 @@
   border-radius: 8px;
   background-color: #fffc09;
 }
+
+@media only screen and (max-width: 600px) {
+  .aria-text {
+    max-width: 320px;
+  }
+}

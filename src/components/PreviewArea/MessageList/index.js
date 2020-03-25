@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Message from './Message';
 import withDelayedRender from 'hoc/withDelayedRender';
 import styles from './style.module.css';
-import AriaText from '../AriaText';
+import AriaText from 'components/PreviewArea/AriaText';
 
 const MY_USER_ID = 'apple';
 
