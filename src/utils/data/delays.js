@@ -1,5 +1,4 @@
 
-// ray test touch <
 const delays = {
   'static-import': {
     messageList: {
@@ -172,4 +171,3 @@ const delays = {
 };
 
 export default delays;
-// ray test touch >

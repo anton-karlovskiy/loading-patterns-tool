@@ -27,7 +27,6 @@ const Channel = ({ selectedPatternId }) => {
           <VideoCamIcon key='video' />,
           <PhoneInTalkIcon key='phone' />
         ]} />
-        {/* ray test touch < */}
         <>
           <MessageList
             key={`message-list-${selectedPatternId}`}
@@ -44,7 +43,6 @@ const Channel = ({ selectedPatternId }) => {
                 ariaText={emojiPicker.label} />
             ]} />
         </>
-        {/* ray test touch > */}
     </div>
   );
 };
