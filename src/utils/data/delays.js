@@ -1,65 +1,175 @@
 
+// ray test touch <
 const delays = {
   'static-import': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 0
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 0,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'dynamic-import': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 1500
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay:0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 1500,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'route-based-code-splitting': {
-    messageList: 1000,
-    messageInput: 1000,
-    emojiPicker: 0
+    messageList: {
+      delay: 1000,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 1000,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 0,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'dynamic-with-error-boundary': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 1500
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 1500,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'import-on-interaction': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 0
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 0,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'loadable-components': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 1500
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 1500,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'loadable-components-ssr': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 1500
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 1500,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'streaming-rendering': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 1500
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 1500,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'progressive-hydration': {
-    messageList: 1000,
-    messageInput: 1000,
-    emojiPicker: 0
+    messageList: {
+      delay: 1000,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 1000,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 0,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'import-on-visibility': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 2000
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 2000,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'prefetch': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 0
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 0,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   },
   'preload': {
-    messageList: 0,
-    messageInput: 0,
-    emojiPicker: 0
+    messageList: {
+      delay: 0,
+      label: 'MessageList is server-rendered.'
+    },
+    messageInput: {
+      delay: 0,
+      label: 'MessageInput is server-rendered but we static imported JS to make it interactive.'
+    },
+    emojiPicker: {
+      delay: 0,
+      label: 'EmojiPicker JS was lazy-loaded on user interacting with the button.'
+    }
   }
 };
 
 export default delays;
+// ray test touch >

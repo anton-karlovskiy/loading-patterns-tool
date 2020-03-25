@@ -12,7 +12,11 @@ import { appTitle } from 'utils/constants';
 import delays from 'utils/data/delays';
 
 const Channel = ({ selectedPatternId }) => {
-  const { messageList, messageInput, emojiPicker } = delays[selectedPatternId];
+  const {
+    messageList,
+    messageInput,
+    emojiPicker
+  } = delays[selectedPatternId];
   
   return (
     <div>
@@ -23,19 +27,24 @@ const Channel = ({ selectedPatternId }) => {
           <VideoCamIcon key='video' />,
           <PhoneInTalkIcon key='phone' />
         ]} />
+        {/* ray test touch < */}
         <>
           <MessageList
             key={`message-list-${selectedPatternId}`}
-            delay={messageList} />
+            delay={messageList.delay}
+            ariaText={messageList.label} />
           <MessageInput
             key={`message-input-${selectedPatternId}`}
-            delay={messageInput}
+            delay={messageInput.delay}
+            ariaText={messageInput.label}
             rightItems={[
               <EmojiPicker
                 key={`emoji-picker-${selectedPatternId}`}
-                delay={emojiPicker} />
+                delay={emojiPicker.delay}
+                ariaText={emojiPicker.label} />
             ]} />
         </>
+        {/* ray test touch > */}
     </div>
   );
 };
