@@ -38,3 +38,11 @@
   width: fit-content;
   margin-left: 14px;
 }
+
+/* ray test touch < */
+.aria-text {
+  position: absolute;
+  left: 2px;
+  top: 4px;
+}
+/* ray test touch > */

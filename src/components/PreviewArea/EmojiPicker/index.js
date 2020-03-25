@@ -10,6 +10,7 @@ const EmojiPicker = () => {
   const [emojiMartEl, setEmojiMartEl] = useState(null);
   useEffect(() => {
     openEmojiPickerHandler();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const openEmojiPickerHandler = () => {

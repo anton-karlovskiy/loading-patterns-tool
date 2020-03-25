@@ -17,7 +17,7 @@ const Channel = ({ selectedPatternId }) => {
     messageInput,
     emojiPicker
   } = delays[selectedPatternId];
-  
+
   return (
     <div>
       <Toolbar
