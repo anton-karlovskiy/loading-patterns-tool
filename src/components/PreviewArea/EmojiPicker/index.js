@@ -1,31 +1,26 @@
 
-import React, { useEffect, useState, createElement } from 'react';
+import React, { useState } from 'react';
 
 import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
 import useClickAway from 'utils/hooks/use-click-away';
 import './EmojiPicker.css';
 import withDelayedRender from 'hoc/withDelayedRender';
+import EmojiMart from './EmojiMart';
 
-const EmojiPicker = ({ ariaText }) => {
-  const [emojiMartEl, setEmojiMartEl] = useState(null);
-  useEffect(() => {
-    openEmojiPickerHandler();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+const EmojiPicker = ({ ariaText, martDelay = 0 }) => {
+  const [open, setOpen] = useState(true);
 
   const openEmojiPickerHandler = () => {
-    !emojiMartEl && import(/* webpackChunkName: "emoji-mart" */ './EmojiMart')
-      .then(module => module.default)
-      .then(emojiMart => {
-        setEmojiMartEl(createElement(emojiMart, {ariaText}));
-      });
+    !open && setOpen(true);
   };
   const closeEmojiPickerHandler = () => {
-    emojiMartEl && setEmojiMartEl(null);
+    // ray test touch <
+    // open && setOpen(false);
+    // ray test touch >
   };
 
   const onTagFacesIconClickHandler = () => {
-    emojiMartEl ? closeEmojiPickerHandler() : openEmojiPickerHandler();
+    open ? closeEmojiPickerHandler() : openEmojiPickerHandler();
   };
   const node = useClickAway({onClickOutside: closeEmojiPickerHandler});
   
@@ -35,7 +30,7 @@ const EmojiPicker = ({ ariaText }) => {
         onClick={onTagFacesIconClickHandler}
         type='button'
         style={{padding: '4px', pointerEvents: 'auto'}} />
-      {emojiMartEl}
+      {open && <EmojiMart ariaText={ariaText} delay={martDelay} />}
     </div>
   );
 };

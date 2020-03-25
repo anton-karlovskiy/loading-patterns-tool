@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-import EmojiPicker from '../EmojiPicker';
+import EmojiPicker from 'components/PreviewArea/EmojiPicker';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
@@ -9,14 +9,14 @@ import Toolbar from 'components/PreviewArea/Toolbar';
 import MessageList from 'components/PreviewArea/MessageList';
 import MessageInput from 'components/PreviewArea/MessageInput';
 import { appTitle } from 'utils/constants';
-import delays from 'utils/data/delays';
+import delaysAndLabels from 'utils/data/delays-and-labels';
 
 const Channel = ({ selectedPatternId }) => {
   const {
     messageList,
     messageInput,
     emojiPicker
-  } = delays[selectedPatternId];
+  } = delaysAndLabels[selectedPatternId];
 
   return (
     <div>
@@ -40,6 +40,7 @@ const Channel = ({ selectedPatternId }) => {
               <EmojiPicker
                 key={`emoji-picker-${selectedPatternId}`}
                 delay={emojiPicker.delay}
+                martDelay={emojiPicker.martDelay}
                 ariaText={emojiPicker.label} />
             ]} />
         </>

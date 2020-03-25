@@ -29,7 +29,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      {isEmojiPickerOpen && <EmojiPicker />}
+      {emojiPickerOpen && <EmojiPicker />}
     </div>
   );
 };`,
@@ -51,7 +51,9 @@ codeSnippet:
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
-const EmojiPicker = lazy(() => import('./EmojiPicker'));
+const EmojiPicker = lazy(
+  () => import('./EmojiPicker')
+);
 
 const Channel = () => {
   ...
@@ -59,7 +61,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      {isEmojiPickerOpen && (
+      {emojiPickerOpen && (
         <Suspense fallback={<p>Loading...</p>}>
           <EmojiPicker />
         </Suspense>
@@ -76,7 +78,7 @@ The \`React.lazy\` function provides a built-in way to separate components in an
 * [(web.dev) Code splitting with React.lazy and Suspense](https://web.dev/code-splitting-suspense/)  
 * [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
-linesInPrimary: [1, 5, 14, 16]
+linesInPrimary: [1, 5, 6, 7, 16, 18]
 },
 {
 id: 'route-based-code-splitting',
@@ -85,18 +87,35 @@ codeSnippet:
 `import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 
-const Home = lazy(() => import(/* webpackChunkName: "home" */ './Home'));
-const Channel = lazy(() => import(/* webpackChunkName: "channel" */ './Channel'));
-const Threads = lazy(() => import(/* webpackChunkName: "threads" */ './Threads'));
-const Contacts = lazy(() => import(/* webpackChunkName: "contacts" */ './Contacts'));
+const Home = lazy(
+  () => import(/* webpackChunkName: "home" */ './Home')
+);
+const Channel = lazy(
+  () => import(/* webpackChunkName: "channel" */ './Channel')
+);
+const Threads = lazy(
+  () => import(/* webpackChunkName: "threads" */ './Threads')
+);
+const Contacts = lazy(
+  () => import(/* webpackChunkName: "contacts" */ './Contacts')
+);
 
 const App = () => {
   <Suspense fallback={<div>Loading...</div>}>
     <Switch>
-      <Route exact path="/" component={Home} />
-      <Route path="/pages/channel?id=engineering" component={Channel} />
-      <Route path="/pages/threads" component={Threads} />
-      <Route path="/pages/contacts" component={Contacts} />
+      <Route
+        exact
+        path="/"
+        component={Home} />
+      <Route
+        path="/pages/channel?id=engineering"
+        component={Channel} />
+      <Route
+        path="/pages/threads"
+        component={Threads} />
+      <Route
+        path="/pages/contacts"
+        component={Contacts} />
     </Switch>
   </Suspense>
 };`,
@@ -109,7 +128,7 @@ A good place to start is with routes. Most people on the web are used to page tr
 * [(React docs) Code-Splitting / Route-based code splitting](https://reactjs.org/docs/code-splitting.html#route-based-code-splitting)  
 * [(developers.google) Reduce JavaScript Payloads with Code Splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/)  
 `,
-linesInPrimary: [1, 2, 4, 5, 6, 7, 10, 11, 12, 13, 14, 15, 16, 17]
+linesInPrimary: [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
 },
 {
 id: 'dynamic-with-error-boundary',
@@ -147,7 +166,7 @@ const Channel = () => {
       <div>
         <MessageList />
         <MessageInput />
-        {isEmojiPickerOpen && (
+        {emojiPickerOpen && (
           <Suspense fallback={<p>Loading...</p>}>
             <EmojiPicker />
           </Suspense>
@@ -229,7 +248,7 @@ const Channel = () => {
       <div>
         <MessageList />
         <MessageInput />
-        {isEmojiPickerOpen && (
+        {emojiPickerOpen && (
           <EmojiPicker />
         )}
       </div>
@@ -316,7 +335,7 @@ const Channel = () => {
       <div>
         <MessageList />
         <MessageInput />
-        {isEmojiPickerOpen && (
+        {emojiPickerOpen && (
           <EmojiPicker />
         )}
       </div>
@@ -411,7 +430,7 @@ const Channel = () => {
       <div>
         <MessageList />
         <MessageInput />
-        {isEmojiPickerOpen && (
+        {emojiPickerOpen && (
           <EmojiPicker />
         )}
       </div>
@@ -511,7 +530,7 @@ const Channel = () => {
         <Suspense fallback={<h2>Loading MessageInput...</h2>}>
           <MessageInput />
         </Suspense>
-        {isEmojiPickerOpen && (
+        {emojiPickerOpen && (
           <Suspense fallback={<h2>Loading EmojiPicker...</h2>}>
             <EmojiPicker />
           </Suspense>
@@ -557,7 +576,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      {isEmojiPickerOpen && (
+      {emojiPickerOpen && (
         <EmojiPicker />
       )}
     </div>
@@ -590,7 +609,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      {isEmojiPickerOpen && (
+      {emojiPickerOpen && (
         <Suspense fallback={<p>Loading...</p>}>
           <EmojiPicker />
         </Suspense>
@@ -628,7 +647,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      {isEmojiPickerOpen && (
+      {emojiPickerOpen && (
         <Suspense fallback={<p>Loading...</p>}>
           <EmojiPicker />
         </Suspense>

@@ -7,6 +7,7 @@ import { NimblePicker } from 'emoji-mart';
 import AriaText from 'components/PreviewArea/AriaText';
 import styles from './style.module.css';
 import { checkIsSmallViewport } from 'utils/helpers';
+import withDelayedRender from 'hoc/withDelayedRender';
 
 const isSmallViewport = checkIsSmallViewport();
 const exclude = isSmallViewport ? [
@@ -43,4 +44,4 @@ const EmojiMart = ({ ariaText }) => (
   </div>
 );
 
-export default EmojiMart
+export default withDelayedRender(EmojiMart);
