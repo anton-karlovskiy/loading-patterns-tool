@@ -176,18 +176,18 @@ import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const Channel = () => {
-  const [emojiPickerComp, setEmojiPickerComp] = useState(null);
+  const [emojiPickerEl, setEmojiPickerEl] = useState(null);
 
   const openEmojiPickerHandler = () => {
-    import('./EmojiPicker')
+    import(/* webpackChunkName: "emoji-picker" */ './EmojiPicker')
       .then(module => module.default)
       .then(emojiPicker => {
-        setEmojiPickerComp(createElement(emojiPicker));
+        setEmojiPickerEl(createElement(emojiPicker));
       });
   };
 
   const closeEmojiPickerHandler = () => {
-    setEmojiPickerComp(null);
+    setEmojiPickerEl(null);
   };
 
   return (
@@ -195,7 +195,7 @@ const Channel = () => {
       <div>
         <MessageList />
         <MessageInput onClick={openEmojiPickerHandler} />
-        {emojiPickerComp}
+        {emojiPickerEl}
       </div>
     </ErrorBoundary>
   );
