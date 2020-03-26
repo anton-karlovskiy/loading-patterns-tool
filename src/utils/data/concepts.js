@@ -237,9 +237,11 @@ import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
-const EmojiPicker = loadable(() => import('./EmojiPicker'), {
-  fallback: <p>Loading...</p>
-});
+const EmojiPicker = loadable(
+  () => import('./EmojiPicker'), {
+    fallback: <p>Loading...</p>
+  }
+);
 
 const Channel = () => {
   ...
@@ -265,7 +267,7 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 * [(Loadable Components doc) Comparison with React.lazy](https://loadable-components.com/docs/loadable-vs-react-lazy/)  
 * [(Loadable Components doc) Error Boundaries](https://loadable-components.com/docs/error-boundaries/)  
 `,
-linesInPrimary: [1, 6, 7, 8, 13, 21]
+linesInPrimary: [1, 6, 7, 8, 9, 10, 15, 23]
 },
 {
 id: 'loadable-components-ssr',
@@ -562,13 +564,17 @@ id: 'import-on-visibility',
 optionName: 'Import on visibility',
 codeSnippet:
 `import React from 'react';
-import loadableVisibility from 'react-loadable-visibility/loadable-components';
+import
+  loadableVisibility
+    from 'react-loadable-visibility/loadable-components';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
-const EmojiPicker = loadableVisibility(() => import('./EmojiPicker'), {
-  fallback: <p>Loading...</p>
-});
+const EmojiPicker = loadableVisibility(
+  () => import('./EmojiPicker'), {
+    fallback: <p>Loading...</p>
+  }
+);
 
 const Channel = () => {
   ...
@@ -591,7 +597,7 @@ Therefore, it will only function in [browsers that have the IntersectionObserver
 * [react-loadable-visibility README](https://github.com/stratiformltd/react-loadable-visibility)  
 * [progressive react](https://houssein.me/progressive-react)
 `,
-linesInPrimary: [2, 6, 7, 8, 16, 17, 18]
+linesInPrimary: [2, 3, 4, 8, 9, 10, 11, 12, 20, 21, 22]
 },
 {
 id: 'prefetch',
@@ -601,7 +607,9 @@ codeSnippet:
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
-const EmojiPicker = lazy(() => import(/* webpackPrefetch: true */ './EmojiPicker'));
+const EmojiPicker = lazy(
+  () => import(/* webpackPrefetch: true */ './EmojiPicker')
+);
 
 const Channel = () => {
   ...
@@ -629,7 +637,7 @@ This tells webpack to inject the \`<link rel="prefetch">\` tag into the HTML doc
 * [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 * [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [5]
+linesInPrimary: [5, 6, 7]
 },
 {
 id: 'preload',
@@ -639,7 +647,9 @@ codeSnippet:
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
-const EmojiPicker = lazy(() => import(/* webpackPreload: true */ './EmojiPicker'));
+const EmojiPicker = lazy(
+  () => import(/* webpackPreload: true */ './EmojiPicker')
+);
 
 const Channel = () => {
   ...
@@ -669,7 +679,7 @@ With webpack version 4.6.0 or later, preloading is supported through the use of 
 * [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 * [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [5]
+linesInPrimary: [5, 6, 7]
 }
 ];
 
