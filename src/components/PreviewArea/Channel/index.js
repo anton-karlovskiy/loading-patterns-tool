@@ -17,7 +17,7 @@ const Channel = ({ selectedPatternId }) => {
     messageList,
     messageInput,
     emojiPicker
-  } = useMemo(() => delaysAndLabels[selectedPatternId]);;
+  } = useMemo(() => delaysAndLabels[selectedPatternId], [selectedPatternId]);;
 
   return (
     <div>
