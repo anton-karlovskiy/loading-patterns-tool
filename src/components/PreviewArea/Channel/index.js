@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import EmojiPicker from 'components/PreviewArea/EmojiPicker';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
@@ -17,7 +17,7 @@ const Channel = ({ selectedPatternId }) => {
     messageList,
     messageInput,
     emojiPicker
-  } = delaysAndLabels[selectedPatternId];
+  } = useMemo(() => delaysAndLabels[selectedPatternId]);;
 
   return (
     <div>

@@ -78,7 +78,7 @@ The \`React.lazy\` function provides a built-in way to separate components in an
 * [(web.dev) Code splitting with React.lazy and Suspense](https://web.dev/code-splitting-suspense/)  
 * [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
-linesInPrimary: [1, 5, 6, 7, 16, 18]
+linesInPrimary: [1, 5, 6, 7, 16, 17, 18]
 },
 {
 id: 'route-based-code-splitting',
@@ -100,7 +100,7 @@ const Contacts = lazy(
   () => import(/* webpackChunkName: "contacts" */ './Contacts')
 );
 
-const App = () => {
+const App = () => (
   <Suspense fallback={<div>Loading...</div>}>
     <Switch>
       <Route
@@ -118,7 +118,7 @@ const App = () => {
         component={Contacts} />
     </Switch>
   </Suspense>
-};`,
+);`,
 textDescription:
 `
 Deciding where in your app to introduce code splitting can be a bit tricky. You want to make sure you choose places that will split bundles evenly, but won’t disrupt the user experience.  
@@ -128,7 +128,8 @@ A good place to start is with routes. Most people on the web are used to page tr
 * [(React docs) Code-Splitting / Route-based code splitting](https://reactjs.org/docs/code-splitting.html#route-based-code-splitting)  
 * [(developers.google) Reduce JavaScript Payloads with Code Splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/)  
 `,
-linesInPrimary: [1, 2, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34]
+linesInPrimary: [1, 2, 4, 5, 6, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 27, 28, 29, 30, 31, 32, 33, 34],
+linesInSecondary: [7, 8, 9, 24, 25, 26]
 },
 {
 id: 'dynamic-with-error-boundary',

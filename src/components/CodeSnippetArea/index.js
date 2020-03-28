@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import clsx from 'clsx';
 
 import ReactCodeBlock from 'components/ReactCodeBlock';
@@ -22,7 +22,7 @@ import styles from './style.module.css';
 import { reactLoadingPatterns } from 'utils/data/concepts';
 
 const CodeSnippetArea = ({ selectedPatternId, className }) => {
-  const pattern = reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
+  const pattern = useMemo(() => reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId), [selectedPatternId]);
 
   return (
     <div className={clsx(styles['root'], className)}>
