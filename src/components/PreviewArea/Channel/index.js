@@ -10,6 +10,7 @@ import MessageList from 'components/PreviewArea/MessageList';
 import MessageInput from 'components/PreviewArea/MessageInput';
 import { appTitle } from 'utils/constants';
 import delaysAndLabels from 'utils/data/delays-and-labels';
+import Loading from 'components/PreviewArea/Loading';
 
 const Channel = ({ selectedPatternId }) => {
   const {
@@ -27,23 +28,24 @@ const Channel = ({ selectedPatternId }) => {
           <VideoCamIcon key='video' />,
           <PhoneInTalkIcon key='phone' />
         ]} />
-        <>
-          <MessageList
-            key={`message-list-${selectedPatternId}`}
-            delay={messageList.delay}
-            ariaText={messageList.label} />
-          <MessageInput
-            key={`message-input-${selectedPatternId}`}
-            delay={messageInput.delay}
-            ariaText={messageInput.label}
-            rightItems={[
-              <EmojiPicker
-                key={`emoji-picker-${selectedPatternId}`}
-                delay={emojiPicker.delay}
-                martDelay={emojiPicker.martDelay}
-                ariaText={emojiPicker.label} />
-            ]} />
-        </>
+      <MessageList
+        key={`message-list-${selectedPatternId}`}
+        delay={messageList.delay}
+        fallback={messageList.fallbackShown && <Loading />}
+        ariaText={messageList.label} />
+      <MessageInput
+        key={`message-input-${selectedPatternId}`}
+        delay={messageInput.delay}
+        fallback={messageInput.fallbackShown && <Loading />}
+        ariaText={messageInput.label}
+        rightItems={[
+          <EmojiPicker
+            key={`emoji-picker-${selectedPatternId}`}
+            delay={emojiPicker.delay}
+            fallback={emojiPicker.fallbackShown && <Loading />}
+            martDelay={emojiPicker.martDelay}
+            ariaText={emojiPicker.label} />
+        ]} />
     </div>
   );
 };

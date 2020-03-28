@@ -62,7 +62,7 @@ const Channel = () => {
       <MessageList />
       <MessageInput />
       {emojiPickerOpen && (
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <EmojiPicker />
         </Suspense>
       )}
@@ -167,7 +167,7 @@ const Channel = () => {
         <MessageList />
         <MessageInput />
         {emojiPickerOpen && (
-          <Suspense fallback={<p>Loading...</p>}>
+          <Suspense fallback={<div>Loading...</div>}>
             <EmojiPicker />
           </Suspense>
         )}
@@ -239,7 +239,7 @@ import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(
   () => import('./EmojiPicker'), {
-    fallback: <p>Loading...</p>
+    fallback: <div>Loading...</div>
   }
 );
 
@@ -327,7 +327,7 @@ import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
-  fallback: <p>Loading...</p>
+  fallback: <div>Loading...</div>
 });
 
 const Channel = () => {
@@ -422,7 +422,7 @@ import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
-  fallback: <p>Loading...</p>
+  fallback: <div>Loading...</div>
 });
 
 const Channel = () => {
@@ -572,7 +572,7 @@ import MessageInput from './MessageInput';
 
 const EmojiPicker = loadableVisibility(
   () => import('./EmojiPicker'), {
-    fallback: <p>Loading...</p>
+    fallback: <div>Loading...</div>
   }
 );
 
@@ -618,7 +618,7 @@ const Channel = () => {
       <MessageList />
       <MessageInput />
       {emojiPickerOpen && (
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <EmojiPicker />
         </Suspense>
       )}
@@ -658,7 +658,7 @@ const Channel = () => {
       <MessageList />
       <MessageInput />
       {emojiPickerOpen && (
-        <Suspense fallback={<p>Loading...</p>}>
+        <Suspense fallback={<div>Loading...</div>}>
           <EmojiPicker />
         </Suspense>
       )}

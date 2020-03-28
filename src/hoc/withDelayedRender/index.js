@@ -5,8 +5,8 @@ import useDelayedRender from 'utils/hooks/use-delayed-render';
 import { getDisplayName } from 'utils/helpers';
 
 const withDelayedRender = WrappedComponent => {
-  const WithDelayedRender = ({ delay, ...rest }) => {
-    const delayedRender = useDelayedRender(delay);
+  const WithDelayedRender = ({ delay, fallback, ...rest }) => {
+    const delayedRender = useDelayedRender(delay, fallback);
 
     return delayedRender(() => <WrappedComponent {...rest} />);
   };
