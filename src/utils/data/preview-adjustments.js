@@ -1,6 +1,8 @@
 
-const delaysAndLabels = {
-  'static-import': {
+import { LOADING_PATTERN_IDS } from 'utils/constants';
+
+const previewAdjustments = {
+  [LOADING_PATTERN_IDS.STATIC_IMPORT]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -17,7 +19,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'dynamic-import': {
+  [LOADING_PATTERN_IDS.DYNAMIC_IMPORT]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -34,7 +36,7 @@ const delaysAndLabels = {
       fallbackShown: true
     }
   },
-  'route-based-code-splitting': {
+  [LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING]: {
     messageList: {
       delay: 1500,
       label: 'The whole Channel is dynamic-imported based on Route-based code splitting.',
@@ -52,7 +54,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'dynamic-with-error-boundary': {
+  [LOADING_PATTERN_IDS.DYNAMIC_WITH_ERROR_BOUNDARY]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -69,7 +71,7 @@ const delaysAndLabels = {
       fallbackShown: true
     }
   },
-  'import-on-interaction': {
+  [LOADING_PATTERN_IDS.IMPORT_ON_INTERACTION]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -87,7 +89,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'loadable-components': {
+  [LOADING_PATTERN_IDS.LOADABLE_COMPONENTS]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -104,7 +106,7 @@ const delaysAndLabels = {
       fallbackShown: true
     }
   },
-  'loadable-components-ssr': {
+  [LOADING_PATTERN_IDS.LOADABLE_COMPONENTS_SSR]: {
     messageList: {
       delay: 0,
       label: 'MessageList is server-rendered.',
@@ -121,7 +123,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'streaming-rendering': {
+  [LOADING_PATTERN_IDS.STREAMING_RENDERING]: {
     messageList: {
       delay: 0,
       label: 'MessageList is server-stream-rendered.',
@@ -138,7 +140,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'progressive-hydration': {
+  [LOADING_PATTERN_IDS.PROGRESSIVE_HYDRATION]: {
     messageList: {
       delay: 0,
       label: 'MessageList is server-rendered but progressively hydrated by Concurrent Mode.',
@@ -155,7 +157,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'import-on-visibility': {
+  [LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -172,7 +174,7 @@ const delaysAndLabels = {
       fallbackShown: true
     }
   },
-  'prefetch': {
+  [LOADING_PATTERN_IDS.PREFETCH]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -189,7 +191,7 @@ const delaysAndLabels = {
       fallbackShown: false
     }
   },
-  'preload': {
+  [LOADING_PATTERN_IDS.PRELOAD]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -208,4 +210,4 @@ const delaysAndLabels = {
   }
 };
 
-export default delaysAndLabels;
+export default previewAdjustments;

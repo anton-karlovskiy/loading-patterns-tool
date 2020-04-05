@@ -14,9 +14,12 @@
  * limitations under the License.
  */
 
+import { LOADING_PATTERN_IDS } from 'utils/constants';
+
+
 const reactLoadingPatterns = [
 {
-id: 'static-import',
+id: LOADING_PATTERN_IDS.STATIC_IMPORT,
 optionName: 'Static Import',
 codeSnippet:
 `import MessageList from './MessageList';
@@ -44,7 +47,7 @@ Imported modules are in \`strict mode\` whether you declare them as such or not.
 linesInPrimary: [1, 2, 3]
 },
 {
-id: 'dynamic-import',
+id: LOADING_PATTERN_IDS.DYNAMIC_IMPORT,
 optionName: 'Dynamic Import',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
@@ -81,7 +84,7 @@ The \`React.lazy\` function provides a built-in way to separate components in an
 linesInPrimary: [1, 5, 6, 7, 16, 17, 18]
 },
 {
-id: 'route-based-code-splitting',
+id: LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING,
 optionName: 'Route-based code-splitting',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
@@ -132,7 +135,7 @@ linesInPrimary: [1, 2, 4, 5, 6, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 
 linesInSecondary: [7, 8, 9, 24, 25, 26]
 },
 {
-id: 'dynamic-with-error-boundary',
+id: LOADING_PATTERN_IDS.DYNAMIC_WITH_ERROR_BOUNDARY,
 optionName: 'Dynamic w/Error Boundary',
 codeSnippet:
 `import React, { lazy, Suspense, Component } from 'react';
@@ -187,7 +190,7 @@ Error boundaries are React components that \`catch JavaScript errors anywhere in
 linesInPrimary: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 29, 39]
 },
 {
-id: 'import-on-interaction',
+id: LOADING_PATTERN_IDS.IMPORT_ON_INTERACTION,
 optionName: 'Import on interaction',
 codeSnippet:
 `import React, { useState, createElement } from 'react';
@@ -230,7 +233,7 @@ The code that makes up the module does not get included into the initial bundle 
 linesInPrimary: [10, 11, 12, 13, 14]
 },
 {
-id: 'loadable-components',
+id: LOADING_PATTERN_IDS.LOADABLE_COMPONENTS,
 optionName: 'Loadable Components',
 codeSnippet:
 `import loadable from '@loadable/component';
@@ -271,7 +274,7 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 linesInPrimary: [1, 6, 7, 8, 9, 10, 15, 23]
 },
 {
-id: 'loadable-components-ssr',
+id: LOADING_PATTERN_IDS.LOADABLE_COMPONENTS_SSR,
 optionName: 'Loadable Components (SSR)',
 codeSnippet:
 `// server/index.js
@@ -379,7 +382,7 @@ textDescription:`
 linesInPrimary: [4, 5, 10, 11, 12, 13, 15, 16, 17, 38, 39, 42, 43, 44, 45, 49, 54, 55, 56]
 },
 {
-id: 'streaming-rendering',
+id: LOADING_PATTERN_IDS.STREAMING_RENDERING,
 optionName: 'Streaming Rendering',
 codeSnippet:
 `// server/index.js
@@ -475,7 +478,7 @@ textDescription:`
 linesInPrimary: [10, 11, 12, 13, 14, 16, 17, 18, 19]
 },
 {
-id: 'progressive-hydration',
+id: LOADING_PATTERN_IDS.PROGRESSIVE_HYDRATION,
 optionName: 'Progressive Hydration',
 codeSnippet:
 `// server/index.js
@@ -561,7 +564,7 @@ textDescription:`
 linesInPrimary: [4, 10, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
 },
 {
-id: 'import-on-visibility',
+id: LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY,
 optionName: 'Import on visibility',
 codeSnippet:
 `import React from 'react';
@@ -601,7 +604,7 @@ Therefore, it will only function in [browsers that have the IntersectionObserver
 linesInPrimary: [2, 3, 4, 8, 9, 10, 11, 12, 20, 21, 22]
 },
 {
-id: 'prefetch',
+id: LOADING_PATTERN_IDS.PREFETCH,
 optionName: 'Prefetch',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
@@ -641,7 +644,7 @@ This tells webpack to inject the \`<link rel="prefetch">\` tag into the HTML doc
 linesInPrimary: [5, 6, 7]
 },
 {
-id: 'preload',
+id: LOADING_PATTERN_IDS.PRELOAD,
 optionName: 'Preload',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';

@@ -10,7 +10,7 @@ import Toolbar from 'components/PreviewArea/Toolbar';
 import MessageList from 'components/PreviewArea/MessageList';
 import MessageInput from 'components/PreviewArea/MessageInput';
 import { appTitle } from 'utils/constants';
-import delaysAndLabels from 'utils/data/delays-and-labels';
+import previewAdjustments from 'utils/data/preview-adjustments';
 import Loading from 'components/PreviewArea/Loading';
 import styles from './style.module.css';
 
@@ -19,7 +19,7 @@ const Channel = ({ className, selectedPatternId }) => {
     messageList,
     messageInput,
     emojiPicker
-  } = useMemo(() => delaysAndLabels[selectedPatternId], [selectedPatternId]);;
+  } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);;
 
   return (
     <div className={clsx(className, styles['root'])}>
