@@ -22,7 +22,7 @@ const Channel = ({ className, selectedPatternId }) => {
   } = useMemo(() => delaysAndLabels[selectedPatternId], [selectedPatternId]);;
 
   return (
-    <div className={clsx(className, styles['scrollable'])}>
+    <div className={clsx(className, styles['root'])}>
       <Toolbar
         title={appTitle}
         rightItems={[

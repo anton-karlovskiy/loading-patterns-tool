@@ -1,7 +1,14 @@
 
 .gif-list-item {
-  width: 200px;
+  width: 212px;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  background-color: #fff;
+  margin-right: 8px;
+}
+
+.gif-list-item:last-child {
+  margin-right: 0;
 }

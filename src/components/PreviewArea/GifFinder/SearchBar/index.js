@@ -5,7 +5,11 @@ import styles from './style.module.css';
 
 const SearchBar = () => (
   <div className={styles['search-bar']}>
-    <label htmlFor='search-bar'></label>
+    <label
+      className={styles['text-label']}
+      htmlFor='search-bar'>
+      GIF Finder
+    </label>
     <input
       className={styles['text-input']}
       type='text'

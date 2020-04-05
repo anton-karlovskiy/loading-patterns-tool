@@ -2,8 +2,7 @@
 
 .content {
   color: #000;
-  background: white;
   /* ray test touch < */
-  /* pointer-events: none; */
+  pointer-events: none;
   /* ray test touch > */
 }

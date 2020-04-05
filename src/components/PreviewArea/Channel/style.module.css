@@ -1,7 +1,8 @@
 
-.scrollable {
+.root {
   height: 400px;
   position: relative;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  background: white;
 }

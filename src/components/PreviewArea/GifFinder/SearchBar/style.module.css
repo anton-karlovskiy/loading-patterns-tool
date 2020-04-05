@@ -1,6 +1,7 @@
 
 .search-bar {
   display: flex;
+  align-items: center;
 }
 
 .text-input {
@@ -10,10 +11,14 @@
   border: none;
   font-size: 14px;
   height: 40px;
-  background: #f1f1f4;
+  background: #fff;
   outline: none;
 }
 
 .text-input::placeholder {
   opacity: 0.3;
+}
+
+.text-label {
+  margin-right: 8px;
 }
