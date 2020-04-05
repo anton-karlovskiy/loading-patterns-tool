@@ -26,8 +26,9 @@
   /* app padding top (24px) */
   /* title height (32px) */
   /* title tb margin (40px) */
+  /* code pre tb margin (16px) */
   /* preview area height (300px) */
-  height: calc(100vh - 24px - 32px - 40px - 300px);
+  height: calc(100vh - 24px - 32px - 40px - 16px - 300px);
   /* ray test touch > */
 }
 
