@@ -157,6 +157,7 @@ const previewAdjustments = {
       fallbackShown: false
     }
   },
+  // ray test touch <
   [LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY]: {
     messageList: {
       delay: 0,
@@ -172,8 +173,14 @@ const previewAdjustments = {
       delay: 1500,
       label: 'EmojiPicker is lazy-loaded when it\'s visible on the page.',
       fallbackShown: true
+    },
+    gifFinder: {
+      delay: 2000,
+      label: 'GifFinder is lazy-loaded when it\'s visible on the page.',
+      fallbackShown: true
     }
   },
+  // ray test touch >
   [LOADING_PATTERN_IDS.PREFETCH]: {
     messageList: {
       delay: 0,

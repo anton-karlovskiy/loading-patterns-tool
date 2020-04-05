@@ -1,5 +1,4 @@
 
-// ray test touch <
 import { useState, useEffect, useRef } from 'react';
 
 const useIntersect = ({ root = null, rootMargin, threshold = 0 } = {}) => {
@@ -31,4 +30,3 @@ const useIntersect = ({ root = null, rootMargin, threshold = 0 } = {}) => {
 };
 
 export default useIntersect;
-// ray test touch >
