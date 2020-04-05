@@ -12,7 +12,7 @@ import { appTitle } from 'utils/constants';
 import delaysAndLabels from 'utils/data/delays-and-labels';
 import Loading from 'components/PreviewArea/Loading';
 
-const Channel = ({ selectedPatternId }) => {
+const Channel = ({ className, selectedPatternId }) => {
   const {
     messageList,
     messageInput,
@@ -20,7 +20,7 @@ const Channel = ({ selectedPatternId }) => {
   } = useMemo(() => delaysAndLabels[selectedPatternId], [selectedPatternId]);;
 
   return (
-    <div>
+    <div className={className}>
       <Toolbar
         title={appTitle}
         rightItems={[

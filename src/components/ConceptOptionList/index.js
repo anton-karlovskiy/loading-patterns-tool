@@ -22,7 +22,7 @@ import styles from './style.module.css';
 
 const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
   <div className={styles['flex-container']}>
-    <h3 className={styles['title']}>
+    <h3 className={styles['category']}>
       <strong>Category</strong>
     </h3>
     <select

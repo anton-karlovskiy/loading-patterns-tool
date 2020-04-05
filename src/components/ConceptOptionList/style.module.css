@@ -17,9 +17,12 @@
 .flex-container {
   display: flex;
   align-items: center;
+  /* ray test touch < */
+  height: 49px;
+  /* ray test touch > */
 }
 
-.title {
+.category {
   margin: 12px 8px;
 }
 

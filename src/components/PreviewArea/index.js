@@ -6,9 +6,11 @@ import Channel from './Channel';
 import styles from './style.module.css';
 
 const PreviewArea = ({ selectedPatternId }) => (
-  <div className={clsx(styles['scrollable'], styles['content'])}>
-    <Channel selectedPatternId={selectedPatternId} />
-  </div>
+  <>
+    <Channel
+      className={clsx(styles['scrollable'], styles['content'])}
+      selectedPatternId={selectedPatternId} />
+  </>
 );
 
 export default PreviewArea;
