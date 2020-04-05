@@ -19,20 +19,16 @@
 }
 
 .root > pre {
-  /* ray test touch < */
-  /* height: 400px; */
-
   /* TODO: hardcoded */
+  /* height: 400px; */
   /* app padding top (24px) */
   /* title height (32px) */
   /* title tb margin (40px) */
   /* code pre tb margin (16px) */
   /* preview area height (300px) */
   height: calc(100vh - 24px - 32px - 40px - 16px - 400px);
-  /* ray test touch > */
 }
 
-/* ray test touch < */
 @media only screen and (max-width: 1200px) {
   .root > pre {
     /* TODO: hardcoded */
@@ -45,7 +41,6 @@
     height: calc(100vh - 24px - 32px - 40px - 49px - 16px - 400px);
   }
 }
-/* ray test touch > */
 
 @media only screen and (max-width: 600px) {
   .root {
@@ -53,16 +48,13 @@
   }
 
   .root > pre {
-    /* ray test touch < */
-    /* height: 300px; */
-
     /* TODO: hardcoded */
+    /* height: 300px; */
     /* app padding top (16px) */
     /* title height (32px) */
     /* category height (49px) */
     /* code pre tb margin (8px) */
     /* preview area height (300px) */
     height: calc(100vh - 16px - 32px - 49px - 8px - 400px);
-    /* ray test touch > */
   }
 }

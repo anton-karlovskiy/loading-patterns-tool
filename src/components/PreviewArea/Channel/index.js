@@ -1,5 +1,6 @@
 
 import React, { useMemo } from 'react';
+import clsx from 'clsx';
 
 import EmojiPicker from 'components/PreviewArea/EmojiPicker';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
@@ -11,6 +12,7 @@ import MessageInput from 'components/PreviewArea/MessageInput';
 import { appTitle } from 'utils/constants';
 import delaysAndLabels from 'utils/data/delays-and-labels';
 import Loading from 'components/PreviewArea/Loading';
+import styles from './style.module.css';
 
 const Channel = ({ className, selectedPatternId }) => {
   const {
@@ -20,7 +22,7 @@ const Channel = ({ className, selectedPatternId }) => {
   } = useMemo(() => delaysAndLabels[selectedPatternId], [selectedPatternId]);;
 
   return (
-    <div className={className}>
+    <div className={clsx(className, styles['scrollable'])}>
       <Toolbar
         title={appTitle}
         rightItems={[

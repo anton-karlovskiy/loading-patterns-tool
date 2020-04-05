@@ -1,15 +1,16 @@
 
 import React from 'react';
-import clsx from 'clsx';
 
 import Channel from './Channel';
+import GifFinder from './GifFinder';
 import styles from './style.module.css';
 
 const PreviewArea = ({ selectedPatternId }) => (
   <>
     <Channel
-      className={clsx(styles['scrollable'], styles['content'])}
+      className={styles['content']}
       selectedPatternId={selectedPatternId} />
+    <GifFinder className={styles['content']} />
   </>
 );
 

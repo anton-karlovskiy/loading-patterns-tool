@@ -1,0 +1,19 @@
+
+.search-bar {
+  display: flex;
+}
+
+.text-input {
+  flex-grow: 1;
+  padding: 0 24px;
+  border-radius: 24px;
+  border: none;
+  font-size: 14px;
+  height: 40px;
+  background: #f1f1f4;
+  outline: none;
+}
+
+.text-input::placeholder {
+  opacity: 0.3;
+}

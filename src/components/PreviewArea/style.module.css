@@ -1,17 +1,8 @@
 
-.scrollable {
-  position: relative;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-}
 
 .content {
   color: #000;
   background: white;
-  /* ray test touch < */
-  height: 400px;
-  /* ray test touch > */
-  
   /* ray test touch < */
   /* pointer-events: none; */
   /* ray test touch > */
