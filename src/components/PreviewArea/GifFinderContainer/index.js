@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-// ray test touch <
 import React from 'react';
 
 import Loading from 'components/PreviewArea/Loading';
@@ -25,10 +24,11 @@ import GifFinder from './GifFinder';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 
+const { gifFinder } = previewAdjustments[LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY];
+
 const GifFinderContainer = ({ selectedPatternId, className }) => {
   const [ref, entry] = useIntersect({threshold: 0.1});
   const intersectionRatio = entry.intersectionRatio;
-  const { gifFinder } = previewAdjustments[selectedPatternId];
 
   console.log('[PreviewArea] intersectionRatio of GifFinder => ', intersectionRatio);
 
@@ -36,19 +36,21 @@ const GifFinderContainer = ({ selectedPatternId, className }) => {
     <div
       className={className}
       ref={ref}>
-      {selectedPatternId === LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY && intersectionRatio > 0.1 ? (
-        <GifFinder
-          key={`gif-finder-${selectedPatternId}`}
-          delay={gifFinder.delay}
-          fallback={gifFinder.fallbackShown && <Loading />} />
+      {selectedPatternId === LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY ? (
+        intersectionRatio > 0.1 && (
+          <GifFinder
+            key={`gif-finder-${selectedPatternId}`}
+            delay={gifFinder.delay}
+            ariaText={gifFinder.label}
+            fallback={gifFinder.fallbackShown && <Loading />} />
+        )
       ) : (
         <AriaText
-          text='GifFinder component is loaded based on Import on Visibility pattern when you select Import on visibility from Category.'
-          className={styles['aria-text']} />
+          text={gifFinder.label}
+          className={styles['aria-text-elsewhere']} />
       )}
     </div>
   );
 };
 
 export default GifFinderContainer;
-// ray test touch >

@@ -187,11 +187,12 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is lazy-loaded when it\'s visible on the page.',
-      fallbackShown: true
+      fallbackShown: true,
+      open: false
     },
     gifFinder: {
       delay: 2000,
-      label: 'GifFinder is lazy-loaded when it\'s visible on the page.',
+      label: 'GifFinder is lazy-loaded when it\'s visible in the viewport (available at Import on visibility option from Category).',
       fallbackShown: true
     }
   },

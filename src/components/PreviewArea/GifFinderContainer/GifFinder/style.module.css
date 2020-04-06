@@ -17,4 +17,11 @@
 .root {
   padding: 8px;
   background-color: #f1f1f4;
+  position: relative;
+}
+
+.aria-text-visibility {
+  position: absolute;
+  top: 4px;
+  right: 4px;
 }

@@ -26,7 +26,8 @@
   /* title tb margin (40px) */
   /* code pre tb margin (16px) */
   /* preview area height (300px) */
-  height: calc(100vh - 24px - 32px - 40px - 16px - 400px);
+  /* offset height (2px) */
+  height: calc(100vh - 24px - 32px - 40px - 16px - 400px + 2px);
 }
 
 @media only screen and (max-width: 1200px) {
@@ -38,7 +39,8 @@
     /* category height (49px) */
     /* code pre tb margin (16px) */
     /* preview area height (300px) */
-    height: calc(100vh - 24px - 32px - 40px - 49px - 16px - 400px);
+    /* offset height (2px) */
+    height: calc(100vh - 24px - 32px - 40px - 49px - 16px - 400px + 2px);
   }
 }
 
@@ -55,6 +57,7 @@
     /* category height (49px) */
     /* code pre tb margin (8px) */
     /* preview area height (300px) */
-    height: calc(100vh - 16px - 32px - 49px - 8px - 400px);
+    /* offset height (2px) */
+    height: calc(100vh - 16px - 32px - 49px - 8px - 400px + 2px);
   }
 }

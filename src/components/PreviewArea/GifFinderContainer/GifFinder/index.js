@@ -21,12 +21,16 @@ import SearchBar from './SearchBar';
 import GifList from './GifList';
 import styles from './style.module.css';
 import withDelayedRender from 'hoc/withDelayedRender';
+import AriaText from 'components/PreviewArea/AriaText';
 
-const GifFinder = ({ className }) => (
+const GifFinder = ({ className, ariaText }) => (
   <div
     className={clsx(styles['root'], className)}>
     <SearchBar />
     <GifList />
+    <AriaText
+      text={ariaText}
+      className={styles['aria-text-visibility']} />
   </div>
 );
 
