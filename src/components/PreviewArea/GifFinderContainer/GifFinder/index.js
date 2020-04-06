@@ -21,6 +21,7 @@ import SearchBar from './SearchBar';
 import GifList from './GifList';
 import styles from './style.module.css';
 import withDelayedRender from 'hoc/withDelayedRender';
+import withIfVisible from 'hoc/withIfVisible';
 import AriaText from 'components/PreviewArea/AriaText';
 
 const GifFinder = ({ className, ariaText }) => (
@@ -34,4 +35,4 @@ const GifFinder = ({ className, ariaText }) => (
   </div>
 );
 
-export default withDelayedRender(GifFinder);
+export default withIfVisible(withDelayedRender(GifFinder));

@@ -19,7 +19,6 @@ import React from 'react';
 import Loading from 'components/PreviewArea/Loading';
 import AriaText from 'components/PreviewArea/AriaText';
 import { LOADING_PATTERN_IDS } from 'utils/constants';
-import useIntersect from 'utils/hooks/use-intersect';
 import GifFinder from './GifFinder';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
@@ -27,23 +26,14 @@ import styles from './style.module.css';
 const { gifFinder } = previewAdjustments[LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY];
 
 const GifFinderContainer = ({ selectedPatternId, className }) => {
-  const [ref, entry] = useIntersect({threshold: 0.1});
-  const intersectionRatio = entry.intersectionRatio;
-
-  console.log('[PreviewArea] intersectionRatio of GifFinder => ', intersectionRatio);
-
   return (
-    <div
-      className={className}
-      ref={ref}>
+    <div className={className}>
       {selectedPatternId === LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY ? (
-        intersectionRatio > 0.1 && (
-          <GifFinder
-            key={`gif-finder-${selectedPatternId}`}
-            delay={gifFinder.delay}
-            ariaText={gifFinder.label}
-            fallback={gifFinder.fallbackShown && <Loading />} />
-        )
+        <GifFinder
+          key={`gif-finder-${selectedPatternId}`}
+          delay={gifFinder.delay}
+          ariaText={gifFinder.label}
+          fallback={gifFinder.fallbackShown && <Loading />} />
       ) : (
         <AriaText
           text={gifFinder.label}
