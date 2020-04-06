@@ -60,7 +60,8 @@ const Channel = ({ className, selectedPatternId }) => {
             key={`emoji-picker-${selectedPatternId}`}
             delay={emojiPicker.delay}
             fallback={emojiPicker.fallbackShown && <Loading />}
-            martDelay={emojiPicker.martDelay}
+            emojiMartDelay={emojiPicker.emojiMartDelay}
+            defaultOpen={emojiPicker.defaultOpen}
             ariaText={emojiPicker.label} />
         ]} />
     </div>

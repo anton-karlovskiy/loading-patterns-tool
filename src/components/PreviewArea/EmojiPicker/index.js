@@ -22,8 +22,8 @@ import './EmojiPicker.css';
 import withDelayedRender from 'hoc/withDelayedRender';
 import EmojiMart from './EmojiMart';
 
-const EmojiPicker = ({ ariaText, martDelay = 0 }) => {
-  const [open, setOpen] = useState(true);
+const EmojiPicker = ({ ariaText, emojiMartDelay = 0, defaultOpen = false }) => {
+  const [open, setOpen] = useState(defaultOpen);
 
   const openEmojiPickerHandler = () => {
     !open && setOpen(true);
@@ -45,7 +45,7 @@ const EmojiPicker = ({ ariaText, martDelay = 0 }) => {
         onClick={onTagFacesIconClickHandler}
         type='button'
         style={{padding: '4px', pointerEvents: 'auto'}} />
-      {open && <EmojiMart ariaText={ariaText} delay={martDelay} />}
+      {open && <EmojiMart ariaText={ariaText} delay={emojiMartDelay} />}
     </div>
   );
 };

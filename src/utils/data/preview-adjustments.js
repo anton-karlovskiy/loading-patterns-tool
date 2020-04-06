@@ -31,7 +31,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is static-imported.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.DYNAMIC_IMPORT]: {
@@ -48,7 +49,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is dynamic-imported.',
-      fallbackShown: true
+      fallbackShown: true,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING]: {
@@ -64,9 +66,10 @@ const previewAdjustments = {
     },
     emojiPicker: {
       delay: 0,
-      martDelay: 1000,
+      emojiMartDelay: 1000,
       label: '',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.DYNAMIC_WITH_ERROR_BOUNDARY]: {
@@ -83,7 +86,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is dynamic-imported and wrapped in ErrorBoundary.',
-      fallbackShown: true
+      fallbackShown: true,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.IMPORT_ON_INTERACTION]: {
@@ -99,9 +103,10 @@ const previewAdjustments = {
     },
     emojiPicker: {
       delay: 0,
-      martDelay: 1000,
+      emojiMartDelay: 1000,
       label: 'EmojiPicker is lazy-loaded on user interacting with the button.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.LOADABLE_COMPONENTS]: {
@@ -118,7 +123,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is dynamic-imported using Loadable Components.',
-      fallbackShown: true
+      fallbackShown: true,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.LOADABLE_COMPONENTS_SSR]: {
@@ -135,7 +141,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is dynamic-imported but we can see it without delay because it\'s server-rendered.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.STREAMING_RENDERING]: {
@@ -152,7 +159,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is dynamic-imported but we can see it without delay because it\'s server-stream-rendered.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.PROGRESSIVE_HYDRATION]: {
@@ -169,10 +177,10 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is server-rendered but progressively hydrated by Concurrent Mode.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
-  // ray test touch <
   [LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY]: {
     messageList: {
       delay: 0,
@@ -185,10 +193,10 @@ const previewAdjustments = {
       fallbackShown: false
     },
     emojiPicker: {
-      delay: 1500,
-      label: 'EmojiPicker is lazy-loaded when it\'s visible on the page.',
-      fallbackShown: true,
-      open: false
+      delay: 0,
+      label: '',
+      fallbackShown: false,
+      defaultOpen: false
     },
     gifFinder: {
       delay: 2000,
@@ -196,7 +204,6 @@ const previewAdjustments = {
       fallbackShown: true
     }
   },
-  // ray test touch >
   [LOADING_PATTERN_IDS.PREFETCH]: {
     messageList: {
       delay: 0,
@@ -211,7 +218,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is prefetched.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   },
   [LOADING_PATTERN_IDS.PRELOAD]: {
@@ -228,7 +236,8 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is preloaded.',
-      fallbackShown: false
+      fallbackShown: false,
+      defaultOpen: true
     }
   }
 };
