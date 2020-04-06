@@ -29,9 +29,7 @@ const EmojiPicker = ({ ariaText, emojiMartDelay = 0, defaultOpen = false }) => {
     !open && setOpen(true);
   };
   const closeEmojiPickerHandler = () => {
-    // ray test touch <
-    // open && setOpen(false);
-    // ray test touch >
+    open && setOpen(false);
   };
 
   const onTagFacesIconClickHandler = () => {

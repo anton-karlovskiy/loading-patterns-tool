@@ -574,8 +574,8 @@ import
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 
-const EmojiPicker = loadableVisibility(
-  () => import('./EmojiPicker'), {
+const GifFInder = loadableVisibility(
+  () => import('./GifFInder'), {
     fallback: <div>Loading...</div>
   }
 );
@@ -586,9 +586,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      {emojiPickerOpen && (
-        <EmojiPicker />
-      )}
+      <GifFInder />
     </div>
   );
 };`,
@@ -601,7 +599,7 @@ Therefore, it will only function in [browsers that have the IntersectionObserver
 * [react-loadable-visibility README](https://github.com/stratiformltd/react-loadable-visibility)  
 * [progressive react](https://houssein.me/progressive-react)
 `,
-linesInPrimary: [2, 3, 4, 8, 9, 10, 11, 12, 20, 21, 22]
+linesInPrimary: [2, 3, 4, 8, 9, 10, 11, 12, 20]
 },
 {
 id: LOADING_PATTERN_IDS.PREFETCH,
