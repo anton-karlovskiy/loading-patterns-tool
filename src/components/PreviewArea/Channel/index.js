@@ -29,13 +29,15 @@ import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 import Loading from 'components/PreviewArea/Loading';
 import EmojiPickerSkeleton from './Skeletons/EmojiPickerSkeleton';
+import withDelayedRender from 'hoc/withDelayedRender';
+import AriaText from 'components/PreviewArea/AriaText';
 
-const Channel = ({ className, selectedPatternId }) => {
+const Channel = ({ className, selectedPatternId, ariaText }) => {
   const {
     messageList,
     messageInput,
     emojiPicker
-  } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);;
+  } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);
 
   return (
     <div className={clsx(className, styles['root'])}>
@@ -47,26 +49,27 @@ const Channel = ({ className, selectedPatternId }) => {
           <PhoneInTalkIcon key='phone' />
         ]} />
       <MessageList
-        key={`message-list-${selectedPatternId}`}
+        key={messageList.delay > 0 ? `message-list-${selectedPatternId}` : 'message-list'}
         delay={messageList.delay}
         fallback={messageList.fallbackShown && <Loading />}
         ariaText={messageList.label} />
       <MessageInput
-        key={`message-input-${selectedPatternId}`}
+        key={messageInput.delay > 0 ? `message-input-${selectedPatternId}` : 'message-input'}
         delay={messageInput.delay}
         fallback={messageInput.fallbackShown && <Loading />}
         ariaText={messageInput.label}
         rightItems={[
           <EmojiPicker
-            key={`emoji-picker-${selectedPatternId}`}
+            key={emojiPicker.delay > 0 ? `emoji-picker-${selectedPatternId}` : 'emoji-picker'}
             delay={emojiPicker.delay}
             fallback={emojiPicker.fallbackShown && <EmojiPickerSkeleton />}
             emojiMartDelay={emojiPicker.emojiMartDelay}
             defaultOpen={emojiPicker.defaultOpen}
             ariaText={emojiPicker.label} />
         ]} />
+      <AriaText className={styles['aria-text']} text={ariaText} />
     </div>
   );
 };
 
-export default Channel;
+export default withDelayedRender(Channel);

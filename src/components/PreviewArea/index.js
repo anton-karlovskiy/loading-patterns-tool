@@ -14,21 +14,33 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import Channel from './Channel';
 import GifFinderContainer from './GifFinderContainer';
+import previewAdjustments from 'utils/data/preview-adjustments';
+import Loading from 'components/PreviewArea/Loading';
 import styles from './style.module.css';
 
-const PreviewArea = ({ selectedPatternId }) => (
-  <>
-    <Channel
-      className={styles['content']}
-      selectedPatternId={selectedPatternId} />
-    <GifFinderContainer
-      className={styles['content']}
-      selectedPatternId={selectedPatternId} />
-  </>
-);
+const PreviewArea = ({ selectedPatternId }) => {
+  const {
+    channel = {delay: 0, fallbackShown: false, label: ''}
+  } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);
+
+  return (
+    <>
+      <Channel
+        key={channel.delay > 0 ? `channel-${selectedPatternId}` : 'channel'}
+        delay={channel.delay}
+        fallback={channel.fallbackShown && <Loading />}
+        ariaText={channel.label}
+        className={styles['content']}
+        selectedPatternId={selectedPatternId} />
+      <GifFinderContainer
+        className={styles['content']}
+        selectedPatternId={selectedPatternId} />
+    </>
+  );
+};
 
 export default PreviewArea;

@@ -54,13 +54,18 @@ const previewAdjustments = {
     }
   },
   [LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING]: {
-    messageList: {
+    channel: {
       delay: 1500,
       label: 'The whole Channel is dynamic-imported based on Route-based code splitting.',
-      fallbackShown: true
+      fallbackShown: true,
+    },
+    messageList: {
+      delay: 0,
+      label: '',
+      fallbackShown: false
     },
     messageInput: {
-      delay: 1000,
+      delay: 0,
       label: '',
       fallbackShown: false
     },
