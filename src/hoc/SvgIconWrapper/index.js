@@ -20,7 +20,7 @@ import clsx from 'clsx';
 import './SvgIconWrapper.css';
 
 const SvgIconWrapper = ({
-  style = {padding: '4px'},
+  style,
   width = 28,
   height = 28,
   type,

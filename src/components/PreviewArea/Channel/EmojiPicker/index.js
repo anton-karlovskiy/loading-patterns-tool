@@ -18,8 +18,8 @@ import React, { useState } from 'react';
 
 import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
 import useClickAway from 'utils/hooks/use-click-away';
-import './EmojiPicker.css';
 import withDelayedRender from 'hoc/withDelayedRender';
+import './EmojiPicker.css';
 import EmojiMart from './EmojiMart';
 
 const EmojiPicker = ({ ariaText, emojiMartDelay = 0, defaultOpen = false }) => {
@@ -38,11 +38,15 @@ const EmojiPicker = ({ ariaText, emojiMartDelay = 0, defaultOpen = false }) => {
   const node = useClickAway({onClickOutside: closeEmojiPickerHandler});
   
   return (
-    <div ref={node} className='emoji-picker'>
+    <div
+      ref={node}
+      className='emoji-picker'>
       <TagFacesIcon
+        width={36}
+        height={36}
         onClick={onTagFacesIconClickHandler}
         type='button'
-        style={{padding: '4px', pointerEvents: 'auto'}} />
+        style={{pointerEvents: 'auto'}} />
       {open && <EmojiMart ariaText={ariaText} delay={emojiMartDelay} />}
     </div>
   );

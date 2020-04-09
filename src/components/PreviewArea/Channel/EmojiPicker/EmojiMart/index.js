@@ -52,7 +52,7 @@ const EmojiMart = ({ ariaText }) => (
       title=''
       style={{
         position: 'absolute',
-        bottom: '32px',
+        bottom: '36px',
         right: 0
       }} />
     <AriaText className={styles['aria-text']} text={ariaText} />

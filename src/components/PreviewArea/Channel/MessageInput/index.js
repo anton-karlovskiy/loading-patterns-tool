@@ -26,7 +26,7 @@ const MessageInput = ({ ariaText, rightItems }) => (
       type='text'
       className={styles['text-input']}
       placeholder='Type a message' />
-    <div className='toolbar-button-set'>
+    <div className={styles['toolbar-button-set']}>
       {rightItems}
     </div>
     <AriaText className={styles['aria-text']} text={ariaText} />

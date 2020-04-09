@@ -25,8 +25,6 @@ const withIfVisible = WrappedComponent => {
     const [ref, entry] = useIntersect({threshold: 0.1});
     const intersectionRatio = entry.intersectionRatio;
 
-    console.log('[withIfVisible] intersectionRatio => ', intersectionRatio);
-
     return  (
       <div ref={ref}>
         {intersectionRatio > 0.1 && <WrappedComponent {...props} />}

@@ -17,17 +17,18 @@
 import React, { useMemo } from 'react';
 import clsx from 'clsx';
 
-import EmojiPicker from 'components/PreviewArea/EmojiPicker';
+import EmojiPicker from './EmojiPicker';
+import Toolbar from './Toolbar';
+import MessageInput from './MessageInput';
+import MessageList from './MessageList';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
-import Toolbar from 'components/PreviewArea/Toolbar';
-import MessageList from 'components/PreviewArea/MessageList';
-import MessageInput from 'components/PreviewArea/MessageInput';
 import { appTitle } from 'utils/constants';
 import previewAdjustments from 'utils/data/preview-adjustments';
-import Loading from 'components/PreviewArea/Loading';
 import styles from './style.module.css';
+import Loading from 'components/PreviewArea/Loading';
+import EmojiPickerSkeleton from './Skeletons/EmojiPickerSkeleton';
 
 const Channel = ({ className, selectedPatternId }) => {
   const {
@@ -59,7 +60,7 @@ const Channel = ({ className, selectedPatternId }) => {
           <EmojiPicker
             key={`emoji-picker-${selectedPatternId}`}
             delay={emojiPicker.delay}
-            fallback={emojiPicker.fallbackShown && <Loading />}
+            fallback={emojiPicker.fallbackShown && <EmojiPickerSkeleton />}
             emojiMartDelay={emojiPicker.emojiMartDelay}
             defaultOpen={emojiPicker.defaultOpen}
             ariaText={emojiPicker.label} />
