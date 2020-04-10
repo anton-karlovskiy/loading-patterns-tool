@@ -26,7 +26,7 @@
   border: none;
   font-size: 14px;
   height: 40px;
-  background: #fff;
+  background-color: #fff;
   outline: none;
 }
 
@@ -36,4 +36,11 @@
 
 .text-label {
   margin-right: 8px;
+  font-weight: 500;
+}
+
+.text-label-skeleton {
+  width: 73.875px;
+  height: 21px;
+  border-radius: 8px;
 }

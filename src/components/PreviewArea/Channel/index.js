@@ -19,15 +19,16 @@ import clsx from 'clsx';
 
 import { appTitle } from 'utils/constants';
 import Toolbar from './Toolbar';
-import MessageInput from './MessageInput';
-import MessageList from './MessageList';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import withDelayedRender from 'hoc/withDelayedRender';
 import AriaText from 'components/PreviewArea/AriaText';
-import Loading from 'components/PreviewArea/Loading';
+import MessageList from './MessageList';
+import MessageListSkeleton from 'components/PreviewArea/Channel/MessageList/skeleton';
+import MessageInput from './MessageInput';
+import MessageInputSkeleton from 'components/PreviewArea/Channel/MessageInput/skeleton';
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
 import styles from './style.module.css';
@@ -51,12 +52,12 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
       <MessageList
         key={messageList.delay > 0 ? `message-list-${selectedPatternId}` : 'message-list'}
         delay={messageList.delay}
-        fallback={messageList.fallbackShown && <Loading />}
+        fallback={messageList.fallbackShown && <MessageListSkeleton />}
         ariaText={messageList.label} />
       <MessageInput
         key={messageInput.delay > 0 ? `message-input-${selectedPatternId}` : 'message-input'}
         delay={messageInput.delay}
-        fallback={messageInput.fallbackShown && <Loading />}
+        fallback={messageInput.fallbackShown && <MessageInputSkeleton />}
         ariaText={messageInput.label}
         rightItems={[
           <EmojiPicker

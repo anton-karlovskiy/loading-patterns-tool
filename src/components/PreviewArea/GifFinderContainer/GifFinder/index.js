@@ -19,14 +19,14 @@ import clsx from 'clsx';
 
 import SearchBar from './SearchBar';
 import GifList from './GifList';
-import styles from './style.module.css';
 import withDelayedRender from 'hoc/withDelayedRender';
 import withIfVisible from 'hoc/withIfVisible';
 import AriaText from 'components/PreviewArea/AriaText';
+import styles from './style.module.css';
 
 const GifFinder = ({ className, ariaText }) => (
   <div
-    className={clsx(styles['root'], className)}>
+    className={clsx(styles['gif-finder'], className)}>
     <SearchBar />
     <GifList />
     <AriaText

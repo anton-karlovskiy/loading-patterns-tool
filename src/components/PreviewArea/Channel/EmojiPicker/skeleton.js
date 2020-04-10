@@ -21,7 +21,7 @@ import './EmojiPicker.css';
 import skeletonStyles from 'components/PreviewArea/skeleton-style.module.css';
 
 const EmojiPickerSkeleton = () => (
-  <span className={clsx('emoji-picker-skeleton', skeletonStyles['skeleton-ui-element'])} />
+  <span className={clsx('emoji-picker-skeleton', skeletonStyles['skeleton-ui-effect'])} />
 );
 
 export default EmojiPickerSkeleton;

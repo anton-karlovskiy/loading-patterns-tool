@@ -16,12 +16,12 @@
 
 import React from 'react';
 
-import Loading from 'components/PreviewArea/Loading';
 import AriaText from 'components/PreviewArea/AriaText';
 import { LOADING_PATTERN_IDS } from 'utils/constants';
 import GifFinder from './GifFinder';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
+import GifFinderSkeleton from 'components/PreviewArea/GifFinderContainer/GifFinder/skeleton';
 
 const { gifFinder } = previewAdjustments[LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY];
 
@@ -33,7 +33,7 @@ const GifFinderContainer = ({ selectedPatternId, className }) => {
           key={`gif-finder-${selectedPatternId}`}
           delay={gifFinder.delay}
           ariaText={gifFinder.label}
-          fallback={gifFinder.fallbackShown && <Loading />} />
+          fallback={gifFinder.fallbackShown && <GifFinderSkeleton />} />
       ) : (
         <AriaText
           text={gifFinder.label}

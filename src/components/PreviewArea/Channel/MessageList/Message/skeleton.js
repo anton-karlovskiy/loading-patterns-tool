@@ -8,7 +8,7 @@ import skeletonStyles from 'components/PreviewArea/skeleton-style.module.css';
 const LineSkeleton = props => (
   <div
     {...props}
-    className={clsx('line-skeleton', skeletonStyles['skeleton-ui-element'])} />
+    className={clsx('line-skeleton', skeletonStyles['skeleton-ui-effect'])} />
 );
 
 const MessageSkeleton = ({ isMine, startsSequence, endsSequence, numberOfLines = 1 }) => {
