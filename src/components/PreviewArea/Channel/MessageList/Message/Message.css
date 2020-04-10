@@ -75,3 +75,21 @@
   border-top-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+
+.bubble-skeleton {
+  background-color: #cac5c5cc !important;
+  width: 75%;
+}
+
+.bubble-skeleton > .line-skeleton {
+  margin-bottom: 2px
+}
+
+.bubble-skeleton > .line-skeleton:last-child {
+  margin-bottom: 0
+}
+
+.line-skeleton {
+  width: 100%;
+  height: 16px;
+}

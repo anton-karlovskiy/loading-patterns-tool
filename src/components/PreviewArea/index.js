@@ -31,10 +31,7 @@ const PreviewArea = ({ selectedPatternId }) => {
     <>
       <Channel
         key={channel.delay > 0 ? `channel-${selectedPatternId}` : 'channel'}
-        // ray test touch <
-        // delay={channel.delay}
-        delay={100000}
-        // ray test touch >
+        delay={channel.delay}
         fallback={channel.fallbackShown && <ChannelSkeleton />}
         ariaText={channel.label}
         className={styles['content']}

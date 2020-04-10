@@ -15,6 +15,8 @@
  */
 
 import React from 'react';
+import clsx from 'clsx';
+
 import './Message.css';
 
 const Message = ({
@@ -27,12 +29,7 @@ const Message = ({
   const friendlyTimestamp = new Date(data.timestamp).toString();
 
   return (
-    <div className={[
-      'message',
-      isMine ? 'mine' : '',
-      startsSequence ? 'start' : '',
-      endsSequence ? 'end' : ''
-    ].filter(each => each !== '').join(' ')}>
+    <div className={clsx('message', isMine && 'mine', startsSequence && 'start', endsSequence && 'end')}>
       {showTimestamp && (
         <div className='timestamp'>
           {friendlyTimestamp}
