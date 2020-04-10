@@ -17,7 +17,6 @@
 import React, { useMemo } from 'react';
 import clsx from 'clsx';
 
-import EmojiPicker from './EmojiPicker';
 import Toolbar from './Toolbar';
 import MessageInput from './MessageInput';
 import MessageList from './MessageList';
@@ -28,7 +27,8 @@ import { appTitle } from 'utils/constants';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 import Loading from 'components/PreviewArea/Loading';
-import EmojiPickerSkeleton from './Skeletons/EmojiPickerSkeleton';
+import EmojiPicker from './EmojiPicker';
+import EmojiPickerSkeleton from './EmojiPicker/skeleton';
 import withDelayedRender from 'hoc/withDelayedRender';
 import AriaText from 'components/PreviewArea/AriaText';
 

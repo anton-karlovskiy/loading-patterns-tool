@@ -27,3 +27,25 @@
 .emoji-picker .emoji-mart-preview {
   height: 52px;
 }
+
+.emoji-picker-skeleton {
+  width: 30px;
+  height: 30px;
+  margin: 3px;
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #eee;
+  background-image: linear-gradient(90deg,#eee,#f5f5f5,#eee);
+  background-size: 200px 100%;
+  background-repeat: no-repeat;
+  animation: shine 0.5s ease-in-out infinite;
+}
+
+@keyframes shine {
+  0% {
+    background-position: -200px 0;
+  }
+  100% {
+    background-position: calc(200px + 100%) 0;
+  }
+}
