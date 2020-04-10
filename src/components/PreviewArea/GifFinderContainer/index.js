@@ -33,7 +33,7 @@ const GifFinderContainer = ({ selectedPatternId, className }) => {
           key={`gif-finder-${selectedPatternId}`}
           delay={gifFinder.delay}
           ariaText={gifFinder.label}
-          fallback={gifFinder.fallbackShown && <GifFinderSkeleton />} />
+          fallback={gifFinder.fallbackShown && <GifFinderSkeleton delay={200} />} />
       ) : (
         <AriaText
           text={gifFinder.label}
