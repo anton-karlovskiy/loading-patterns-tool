@@ -17,20 +17,20 @@
 import React, { useMemo } from 'react';
 import clsx from 'clsx';
 
+import { appTitle } from 'utils/constants';
 import Toolbar from './Toolbar';
 import MessageInput from './MessageInput';
 import MessageList from './MessageList';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
-import { appTitle } from 'utils/constants';
 import previewAdjustments from 'utils/data/preview-adjustments';
-import styles from './style.module.css';
+import withDelayedRender from 'hoc/withDelayedRender';
+import AriaText from 'components/PreviewArea/AriaText';
 import Loading from 'components/PreviewArea/Loading';
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
-import withDelayedRender from 'hoc/withDelayedRender';
-import AriaText from 'components/PreviewArea/AriaText';
+import styles from './style.module.css';
 
 const Channel = ({ className, selectedPatternId, ariaText }) => {
   const {

@@ -19,7 +19,7 @@ import React, { useMemo } from 'react';
 import Channel from './Channel';
 import GifFinderContainer from './GifFinderContainer';
 import previewAdjustments from 'utils/data/preview-adjustments';
-import Loading from 'components/PreviewArea/Loading';
+import ChannelSkeleton from './Channel/skeleton';
 import styles from './style.module.css';
 
 const PreviewArea = ({ selectedPatternId }) => {
@@ -31,8 +31,11 @@ const PreviewArea = ({ selectedPatternId }) => {
     <>
       <Channel
         key={channel.delay > 0 ? `channel-${selectedPatternId}` : 'channel'}
-        delay={channel.delay}
-        fallback={channel.fallbackShown && <Loading />}
+        // ray test touch <
+        // delay={channel.delay}
+        delay={100000}
+        // ray test touch >
+        fallback={channel.fallbackShown && <ChannelSkeleton />}
         ariaText={channel.label}
         className={styles['content']}
         selectedPatternId={selectedPatternId} />

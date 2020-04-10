@@ -21,7 +21,7 @@
   width: 100%;
   display: flex;
   align-items: center;
-  background: white;
+  background: #fff;
 }
 
 @supports (backdrop-filter: blur(20px)) {
@@ -58,4 +58,8 @@
   position: absolute;
   top: 4px;
   left: 2px;
+}
+
+.message-input-skeleton {
+  position: absolute;
 }
