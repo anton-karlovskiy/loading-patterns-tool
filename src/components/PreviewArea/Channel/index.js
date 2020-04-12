@@ -42,7 +42,7 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
   } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);
 
   return (
-    <div className={clsx(className, styles['root'])}>
+    <div className={clsx(className, styles['channel'])}>
       <Toolbar
         title={appTitle}
         rightItems={[

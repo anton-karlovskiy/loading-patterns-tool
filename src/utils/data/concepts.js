@@ -135,7 +135,40 @@ linesInPrimary: [1, 2, 4, 5, 6, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 
 linesInSecondary: [7, 8, 9, 24, 25, 26]
 },
 {
-id: LOADING_PATTERN_IDS.DYNAMIC_WITH_ERROR_BOUNDARY,
+id: LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING_WITH_SKELETON_UI,
+optionName: 'Route-based code-splitting w/Skeleton UI',
+codeSnippet:
+`import React, { lazy, Suspense } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import ChannelSkeleton from './Channel/skeleton';
+
+const Channel = lazy(
+  () => import(/* webpackChunkName: "channel" */ './Channel')
+);
+
+const App = () => (
+  <Suspense fallback={<ChannelSkeleton />}>
+    <Switch>
+      ...
+      <Route
+        path="/pages/channel?id=engineering"
+        component={Channel} />
+    </Switch>
+  </Suspense>
+);`,
+textDescription:
+`
+A skeleton screen is a technique of rendering placeholders for text, numbers, and other parts of a UI that haven't yet loaded. As a user interacts with the UI, they immediately see the illusion of new screen states—the skeleton—and this makes the app feel very fast. The skeleton layout is typically animated in some way to convey that data is still loading.  
+
+#### References:  
+* [(farmdev) The Art of UI Skeletons](http://farmdev.com/thoughts/108/the-art-of-ui-skeletons)  
+* [(GitHub) react-loading-skeleton](https://github.com/dvtng/react-loading-skeleton)  
+* [(Medium) Achieve skeleton loading with React](https://codeburst.io/achieve-skeleton-loading-with-react-a12404678030)  
+`,
+linesInPrimary: [3, 10]
+},
+{
+id: LOADING_PATTERN_IDS.DYNAMIC_IMPORT_WITH_ERROR_BOUNDARY,
 optionName: 'Dynamic Import w/Error Boundary',
 codeSnippet:
 `import React, { lazy, Suspense, Component } from 'react';

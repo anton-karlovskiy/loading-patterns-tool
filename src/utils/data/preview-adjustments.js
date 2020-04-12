@@ -77,13 +77,13 @@ const previewAdjustments = {
     },
     emojiPicker: {
       delay: 0,
-      emojiMartDelay: 1000,
+      emojiMartDelay: 0,
       label: '',
       fallbackType: '',
       defaultOpen: true
     }
   },
-  [LOADING_PATTERN_IDS.DYNAMIC_WITH_ERROR_BOUNDARY]: {
+  [LOADING_PATTERN_IDS.DYNAMIC_IMPORT_WITH_ERROR_BOUNDARY]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
@@ -247,6 +247,30 @@ const previewAdjustments = {
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is preloaded.',
+      fallbackType: '',
+      defaultOpen: true
+    }
+  },
+  [LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING_WITH_SKELETON_UI]: {
+    channel: {
+      delay: 1500,
+      label: 'The whole Channel is dynamic-imported based on Route-based code splitting.',
+      fallbackType: FALLBACK_TYPES.SKELETON_UI
+    },
+    messageList: {
+      delay: 0,
+      label: '',
+      fallbackType: ''
+    },
+    messageInput: {
+      delay: 0,
+      label: '',
+      fallbackType: ''
+    },
+    emojiPicker: {
+      delay: 0,
+      emojiMartDelay: 0,
+      label: '',
       fallbackType: '',
       defaultOpen: true
     }

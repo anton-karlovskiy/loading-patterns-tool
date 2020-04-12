@@ -15,13 +15,14 @@
  */
 
 import React from 'react';
+import clsx from 'clsx';
 
 import MessageListSkeleton from 'components/PreviewArea/Channel/MessageList/skeleton';
 import MessageInputSkeleton from 'components/PreviewArea/Channel/MessageInput/skeleton';
 import styles from './style.module.css';
 
 const ChannelSkeleton = () => (
-  <div className={styles['root']}>
+  <div className={clsx(styles['channel'], styles['channel-skeleton'])}>
     <MessageListSkeleton />
     <MessageInputSkeleton />
   </div>
