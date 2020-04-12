@@ -22,7 +22,6 @@ import Toolbar from './Toolbar';
 import InfoOutlineIcon from 'components/SvgIcons/InfoOutlineIcon';
 import VideoCamIcon from 'components/SvgIcons/VideoCamIcon';
 import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
-import previewAdjustments from 'utils/data/preview-adjustments';
 import withDelayedRender from 'hoc/withDelayedRender';
 import AriaText from 'components/PreviewArea/AriaText';
 import MessageList from './MessageList';
@@ -31,6 +30,8 @@ import MessageInput from './MessageInput';
 import MessageInputSkeleton from 'components/PreviewArea/Channel/MessageInput/skeleton';
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
+import Loading from 'components/PreviewArea/Loading';
+import previewAdjustments, { FALLBACK_TYPES } from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 
 const Channel = ({ className, selectedPatternId, ariaText }) => {
@@ -52,18 +53,36 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
       <MessageList
         key={`message-list-${selectedPatternId}`}
         delay={messageList.delay}
-        fallback={messageList.fallbackShown && <MessageListSkeleton />}
+        fallback={messageList.fallbackType && (
+          messageList.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+            <MessageListSkeleton />
+          ) : (
+            <Loading />
+          )
+        )}
         ariaText={messageList.label} />
       <MessageInput
         key={`message-input-${selectedPatternId}`}
         delay={messageInput.delay}
-        fallback={messageInput.fallbackShown && <MessageInputSkeleton />}
+        fallback={messageInput.fallbackType && (
+          messageInput.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+            <MessageInputSkeleton />
+          ) : (
+            <Loading />
+          )
+        )}
         ariaText={messageInput.label}
         rightItems={[
           <EmojiPicker
             key={`emoji-picker-${selectedPatternId}`}
             delay={emojiPicker.delay}
-            fallback={emojiPicker.fallbackShown && <EmojiPickerSkeleton />}
+            fallback={emojiPicker.fallbackType && (
+              emojiPicker.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+                <EmojiPickerSkeleton />
+              ) : (
+                <Loading />
+              )
+            )}
             emojiMartDelay={emojiPicker.emojiMartDelay}
             defaultOpen={emojiPicker.defaultOpen}
             ariaText={emojiPicker.label} />

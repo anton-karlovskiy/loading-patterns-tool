@@ -18,13 +18,14 @@ import React, { useMemo } from 'react';
 
 import Channel from './Channel';
 import GifFinderContainer from './GifFinderContainer';
-import previewAdjustments from 'utils/data/preview-adjustments';
 import ChannelSkeleton from './Channel/skeleton';
+import previewAdjustments, { FALLBACK_TYPES } from 'utils/data/preview-adjustments';
+import Loading from 'components/PreviewArea/Loading';
 import styles from './style.module.css';
 
 const PreviewArea = ({ selectedPatternId }) => {
   const {
-    channel = {delay: 0, fallbackShown: false, label: ''}
+    channel = {delay: 0, fallbackType: '', label: ''}
   } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);
 
   return (
@@ -32,7 +33,13 @@ const PreviewArea = ({ selectedPatternId }) => {
       <Channel
         key={channel.delay > 0 ? `channel-${selectedPatternId}` : 'channel'}
         delay={channel.delay}
-        fallback={channel.fallbackShown && <ChannelSkeleton />}
+        fallback={channel.fallbackType && (
+          channel.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+            <ChannelSkeleton />
+          ) : (
+            <Loading />
+          )
+        )}
         ariaText={channel.label}
         className={styles['content']}
         selectedPatternId={selectedPatternId} />

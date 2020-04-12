@@ -16,22 +16,28 @@
 
 import { LOADING_PATTERN_IDS } from 'utils/constants';
 
+const FALLBACK_TYPES = {
+  SKELETON_UI: 'skeleton-ui',
+  LOADING_SPINNER: 'loading-spinner',
+  LOADING_TEXT: 'loading-text'
+};
+
 const previewAdjustments = {
   [LOADING_PATTERN_IDS.STATIC_IMPORT]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is static-imported.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -39,17 +45,17 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay:0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is dynamic-imported.',
-      fallbackShown: true,
+      fallbackType: FALLBACK_TYPES.LOADING_TEXT,
       defaultOpen: true
     }
   },
@@ -57,23 +63,23 @@ const previewAdjustments = {
     channel: {
       delay: 1500,
       label: 'The whole Channel is dynamic-imported based on Route-based code splitting.',
-      fallbackShown: true,
+      fallbackType: FALLBACK_TYPES.LOADING_TEXT
     },
     messageList: {
       delay: 0,
       label: '',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: '',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       emojiMartDelay: 1000,
       label: '',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -81,17 +87,17 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is dynamic-imported and wrapped in ErrorBoundary.',
-      fallbackShown: true,
+      fallbackType: FALLBACK_TYPES.LOADING_TEXT,
       defaultOpen: true
     }
   },
@@ -99,18 +105,18 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       emojiMartDelay: 1000,
       label: 'EmojiPicker is lazy-loaded on user interacting with the button.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -118,17 +124,17 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 1500,
       label: 'EmojiPicker is dynamic-imported using Loadable Components.',
-      fallbackShown: true,
+      fallbackType: FALLBACK_TYPES.LOADING_TEXT,
       defaultOpen: true
     }
   },
@@ -136,17 +142,17 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is server-rendered.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is server-rendered but we static-imported JS to make it interactive.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is dynamic-imported but we can see it without delay because it\'s server-rendered.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -154,17 +160,17 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is server-stream-rendered.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is server-stream-rendered but we static-imported JS to make it interactive..',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is dynamic-imported but we can see it without delay because it\'s server-stream-rendered.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -172,17 +178,17 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is server-rendered but progressively hydrated by Concurrent Mode.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is server-rendered but progressively hydrated by Concurrent Mode.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is server-rendered but progressively hydrated by Concurrent Mode.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -190,40 +196,40 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: '',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: false
     },
     gifFinder: {
       delay: 2000,
       label: 'GifFinder is lazy-loaded when it\'s visible in the viewport (available at Import on visibility option from Category).',
-      fallbackShown: true
+      fallbackType: FALLBACK_TYPES.LOADING_TEXT
     }
   },
   [LOADING_PATTERN_IDS.PREFETCH]: {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is prefetched.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   },
@@ -231,20 +237,24 @@ const previewAdjustments = {
     messageList: {
       delay: 0,
       label: 'MessageList is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     messageInput: {
       delay: 0,
       label: 'MessageInput is static-imported.',
-      fallbackShown: false
+      fallbackType: ''
     },
     emojiPicker: {
       delay: 0,
       label: 'EmojiPicker is preloaded.',
-      fallbackShown: false,
+      fallbackType: '',
       defaultOpen: true
     }
   }
+};
+
+export {
+  FALLBACK_TYPES
 };
 
 export default previewAdjustments;
