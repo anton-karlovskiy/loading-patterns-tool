@@ -50,18 +50,18 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
           <PhoneInTalkIcon key='phone' />
         ]} />
       <MessageList
-        key={messageList.delay > 0 ? `message-list-${selectedPatternId}` : 'message-list'}
+        key={`message-list-${selectedPatternId}`}
         delay={messageList.delay}
         fallback={messageList.fallbackShown && <MessageListSkeleton />}
         ariaText={messageList.label} />
       <MessageInput
-        key={messageInput.delay > 0 ? `message-input-${selectedPatternId}` : 'message-input'}
+        key={`message-input-${selectedPatternId}`}
         delay={messageInput.delay}
         fallback={messageInput.fallbackShown && <MessageInputSkeleton />}
         ariaText={messageInput.label}
         rightItems={[
           <EmojiPicker
-            key={emojiPicker.delay > 0 ? `emoji-picker-${selectedPatternId}` : 'emoji-picker'}
+            key={`emoji-picker-${selectedPatternId}`}
             delay={emojiPicker.delay}
             fallback={emojiPicker.fallbackShown && <EmojiPickerSkeleton />}
             emojiMartDelay={emojiPicker.emojiMartDelay}
