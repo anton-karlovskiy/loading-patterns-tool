@@ -136,7 +136,7 @@ linesInSecondary: [7, 8, 9, 24, 25, 26]
 },
 {
 id: LOADING_PATTERN_IDS.DYNAMIC_WITH_ERROR_BOUNDARY,
-optionName: 'Dynamic w/Error Boundary',
+optionName: 'Dynamic Import w/Error Boundary',
 codeSnippet:
 `import React, { lazy, Suspense, Component } from 'react';
 import MessageList from './MessageList';
