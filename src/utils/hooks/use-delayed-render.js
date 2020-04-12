@@ -16,7 +16,7 @@
 
 import { useEffect, useState } from 'react';
 
-const useDelayedRender = (delay, fallback) => {
+const useDelayedRender = (delay = 0, fallback) => {
   const [delayed, setDelayed] = useState(true);
   
   useEffect(() => {
@@ -27,7 +27,7 @@ const useDelayedRender = (delay, fallback) => {
     }
   }, [delay]);
 
-  return fn => (delay <= 0 || !delayed) ? fn() : fallback || null;
+  return fn => (!delay || !delayed) ? fn() : fallback || null;
 };
 
 export default useDelayedRender;
