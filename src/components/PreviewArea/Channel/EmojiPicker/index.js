@@ -32,7 +32,8 @@ const EmojiPicker = ({ ariaText, emojiMartDelay = 0, defaultOpen = false }) => {
     !open && setOpen(true);
   };
   const closeEmojiPickerHandler = () => {
-    open && setOpen(false);
+    // TODO: block for now
+    // open && setOpen(false);
   };
 
   const onTagFacesIconClickHandler = () => {

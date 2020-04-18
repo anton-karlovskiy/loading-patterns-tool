@@ -22,11 +22,11 @@ import GifFinder from './GifFinder';
 import styles from './style.module.css';
 import GifFinderSkeleton from 'components/PreviewArea/GifFinderContainer/GifFinder/skeleton';
 import Loading from 'components/PreviewArea/Loading';
-import previewAdjustments, { FALLBACK_TYPES } from 'utils/data/preview-adjustments';
+import previewAdjustments from 'utils/data/preview-adjustments';
 
 const { gifFinder } = previewAdjustments[LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY];
 
-const GifFinderContainer = ({ selectedPatternId, className }) => {
+const GifFinderContainer = ({ selectedPatternId, className, skeletonUIChecked }) => {
   return (
     <div className={className}>
       {selectedPatternId === LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY ? (
@@ -34,8 +34,8 @@ const GifFinderContainer = ({ selectedPatternId, className }) => {
           key={`gif-finder-${selectedPatternId}`}
           delay={gifFinder.delay}
           ariaText={gifFinder.label}
-          fallback={gifFinder.fallbackType && (
-            gifFinder.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+          fallback={gifFinder.fallbackShown && (
+            skeletonUIChecked ? (
               <GifFinderSkeleton delay={200} />
             ) : (
               <Loading />

@@ -31,10 +31,10 @@ import MessageInputSkeleton from 'components/PreviewArea/Channel/MessageInput/sk
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
 import Loading from 'components/PreviewArea/Loading';
-import previewAdjustments, { FALLBACK_TYPES } from 'utils/data/preview-adjustments';
+import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 
-const Channel = ({ className, selectedPatternId, ariaText }) => {
+const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) => {
   const {
     messageList,
     messageInput,
@@ -53,8 +53,8 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
       <MessageList
         key={`message-list-${selectedPatternId}`}
         delay={messageList.delay}
-        fallback={messageList.fallbackType && (
-          messageList.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+        fallback={messageList.fallbackShown && (
+          skeletonUIChecked ? (
             <MessageListSkeleton />
           ) : (
             <Loading />
@@ -64,8 +64,8 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
       <MessageInput
         key={`message-input-${selectedPatternId}`}
         delay={messageInput.delay}
-        fallback={messageInput.fallbackType && (
-          messageInput.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+        fallback={messageInput.fallbackShown && (
+          skeletonUIChecked ? (
             <MessageInputSkeleton />
           ) : (
             <Loading />
@@ -76,8 +76,8 @@ const Channel = ({ className, selectedPatternId, ariaText }) => {
           <EmojiPicker
             key={`emoji-picker-${selectedPatternId}`}
             delay={emojiPicker.delay}
-            fallback={emojiPicker.fallbackType && (
-              emojiPicker.fallbackType === FALLBACK_TYPES.SKELETON_UI ? (
+            fallback={emojiPicker.fallbackShown && (
+              skeletonUIChecked ? (
                 <EmojiPickerSkeleton />
               ) : (
                 <Loading />

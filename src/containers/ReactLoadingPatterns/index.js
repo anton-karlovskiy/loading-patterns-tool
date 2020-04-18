@@ -65,7 +65,9 @@ const ReactLoadingPatterns = () => {
           <CodeSnippetArea
             selectedPatternId={selectedPatternId}
             skeletonUIChecked={skeletonUIChecked} />
-          <PreviewArea selectedPatternId={selectedPatternId} />
+          <PreviewArea
+            selectedPatternId={selectedPatternId}
+            skeletonUIChecked={skeletonUIChecked} />
         </div>
       </div>
       <TextDescription
