@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-import MessageSkeleton from 'components/PreviewArea/Channel/MessageList/Message/skeleton';
+import MessageSkeleton from './Message/skeleton';
 import styles from './style.module.css';
 
 const MessageListSkeleton = () => {

@@ -18,8 +18,8 @@ import React from 'react';
 import clsx from 'clsx';
 
 import withDelayedRender from 'hoc/withDelayedRender';
-import SearchBarSkeleton from 'components/PreviewArea/GifFinderContainer/GifFinder/SearchBar/skeleton';
-import GifListSkeleton from 'components/PreviewArea/GifFinderContainer/GifFinder/GifList/skeleton';
+import SearchBarSkeleton from './SearchBar/skeleton';
+import GifListSkeleton from './GifList/skeleton';
 import styles from './style.module.css';
 
 const GifFinderSkeleton = () => (

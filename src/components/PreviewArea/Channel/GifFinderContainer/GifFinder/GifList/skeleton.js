@@ -16,7 +16,7 @@
 
 import React from 'react';
 
-import GifListItemSkeleton from 'components/PreviewArea/GifFinderContainer/GifFinder/GifList/GifListItem/skeleton';
+import GifListItemSkeleton from './GifListItem/skeleton';
 import styles from './style.module.css';
 
 const LENGTH = 4;

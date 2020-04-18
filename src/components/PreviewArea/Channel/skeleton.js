@@ -17,8 +17,8 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import MessageListSkeleton from 'components/PreviewArea/Channel/MessageList/skeleton';
-import MessageInputSkeleton from 'components/PreviewArea/Channel/MessageInput/skeleton';
+import MessageListSkeleton from './MessageList/skeleton';
+import MessageInputSkeleton from './MessageInput/skeleton';
 import styles from './style.module.css';
 
 const ChannelSkeleton = () => (

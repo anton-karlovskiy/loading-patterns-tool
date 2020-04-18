@@ -15,7 +15,6 @@
  */
 
 import React, { useMemo } from 'react';
-import clsx from 'clsx';
 
 import { appTitle } from 'utils/constants';
 import Toolbar from './Toolbar';
@@ -25,11 +24,12 @@ import PhoneInTalkIcon from 'components/SvgIcons/PhoneInTalkIcon';
 import withDelayedRender from 'hoc/withDelayedRender';
 import AriaText from 'components/PreviewArea/AriaText';
 import MessageList from './MessageList';
-import MessageListSkeleton from 'components/PreviewArea/Channel/MessageList/skeleton';
+import MessageListSkeleton from './MessageList/skeleton';
 import MessageInput from './MessageInput';
-import MessageInputSkeleton from 'components/PreviewArea/Channel/MessageInput/skeleton';
+import MessageInputSkeleton from './MessageInput/skeleton';
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
+import GifFinderContainer from './GifFinderContainer';
 import Loading from 'components/PreviewArea/Loading';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
@@ -42,52 +42,57 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
   } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);
 
   return (
-    <div className={clsx(className, styles['channel'])}>
-      <Toolbar
-        title={appTitle}
-        rightItems={[
-          <InfoOutlineIcon key='info' />,
-          <VideoCamIcon key='video' />,
-          <PhoneInTalkIcon key='phone' />
-        ]} />
-      <MessageList
-        key={`message-list-${selectedPatternId}`}
-        delay={messageList.delay}
-        fallback={messageList.fallbackShown && (
-          skeletonUIChecked ? (
-            <MessageListSkeleton />
-          ) : (
-            <Loading />
-          )
-        )}
-        ariaText={messageList.label} />
-      <MessageInput
-        key={`message-input-${selectedPatternId}`}
-        delay={messageInput.delay}
-        fallback={messageInput.fallbackShown && (
-          skeletonUIChecked ? (
-            <MessageInputSkeleton />
-          ) : (
-            <Loading />
-          )
-        )}
-        ariaText={messageInput.label}
-        rightItems={[
-          <EmojiPicker
-            key={`emoji-picker-${selectedPatternId}`}
-            delay={emojiPicker.delay}
-            fallback={emojiPicker.fallbackShown && (
-              skeletonUIChecked ? (
-                <EmojiPickerSkeleton />
-              ) : (
-                <Loading />
-              )
-            )}
-            emojiMartDelay={emojiPicker.emojiMartDelay}
-            defaultOpen={emojiPicker.defaultOpen}
-            ariaText={emojiPicker.label} />
-        ]} />
-      <AriaText className={styles['aria-text']} text={ariaText} />
+    <div className={className}>
+      <div className={styles['channel']}>
+        <Toolbar
+          title={appTitle}
+          rightItems={[
+            <InfoOutlineIcon key='info' />,
+            <VideoCamIcon key='video' />,
+            <PhoneInTalkIcon key='phone' />
+          ]} />
+        <MessageList
+          key={`message-list-${selectedPatternId}`}
+          delay={messageList.delay}
+          fallback={messageList.fallbackShown && (
+            skeletonUIChecked ? (
+              <MessageListSkeleton />
+            ) : (
+              <Loading />
+            )
+          )}
+          ariaText={messageList.label} />
+        <MessageInput
+          key={`message-input-${selectedPatternId}`}
+          delay={messageInput.delay}
+          fallback={messageInput.fallbackShown && (
+            skeletonUIChecked ? (
+              <MessageInputSkeleton />
+            ) : (
+              <Loading />
+            )
+          )}
+          ariaText={messageInput.label}
+          rightItems={[
+            <EmojiPicker
+              key={`emoji-picker-${selectedPatternId}`}
+              delay={emojiPicker.delay}
+              fallback={emojiPicker.fallbackShown && (
+                skeletonUIChecked ? (
+                  <EmojiPickerSkeleton />
+                ) : (
+                  <Loading />
+                )
+              )}
+              emojiMartDelay={emojiPicker.emojiMartDelay}
+              defaultOpen={emojiPicker.defaultOpen}
+              ariaText={emojiPicker.label} />
+          ]} />
+        <AriaText className={styles['aria-text']} text={ariaText} />
+      </div>
+      <GifFinderContainer
+        selectedPatternId={selectedPatternId}
+        skeletonUIChecked={skeletonUIChecked} />
     </div>
   );
 };
