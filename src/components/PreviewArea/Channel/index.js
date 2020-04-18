@@ -29,16 +29,18 @@ import MessageInput from './MessageInput';
 import MessageInputSkeleton from './MessageInput/skeleton';
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
-import GifFinderContainer from './GifFinderContainer';
+import GifFinder from './GifFinder';
+import GifFinderSkeleton from './GifFinder/skeleton';
 import Loading from 'components/PreviewArea/Loading';
-import previewAdjustments from 'utils/data/preview-adjustments';
+import previewAdjustments, { GIF_FINDER_LABEL } from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 
 const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) => {
   const {
     messageList,
     messageInput,
-    emojiPicker
+    emojiPicker,
+    gifFinder
   } = useMemo(() => previewAdjustments[selectedPatternId], [selectedPatternId]);
 
   return (
@@ -90,9 +92,23 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
           ]} />
         <AriaText className={styles['aria-text']} text={ariaText} />
       </div>
-      <GifFinderContainer
-        selectedPatternId={selectedPatternId}
-        skeletonUIChecked={skeletonUIChecked} />
+      {gifFinder ? (
+        <GifFinder
+          key={`gif-finder-${selectedPatternId}`}
+          delay={gifFinder.delay}
+          ariaText={gifFinder.label}
+          fallback={gifFinder.fallbackShown && (
+            skeletonUIChecked ? (
+              <GifFinderSkeleton delay={200} />
+            ) : (
+              <Loading />
+            )
+          )} />
+      ) : (
+        <AriaText
+          text={GIF_FINDER_LABEL}
+          className={styles['gif-finder-availability']} />
+      )}
     </div>
   );
 };

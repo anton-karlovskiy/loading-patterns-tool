@@ -16,6 +16,8 @@
 
 import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 
+const GIF_FINDER_LABEL = 'GifFinder is lazy-loaded when it\'s visible in the viewport (available at Import on visibility option from Category).';
+
 const previewAdjustments = {
   [LOADING_PATTERN_IDS.STATIC_IMPORT]: {
     messageList: {
@@ -205,7 +207,7 @@ const previewAdjustments = {
     },
     gifFinder: {
       delay: 2000,
-      label: 'GifFinder is lazy-loaded when it\'s visible in the viewport (available at Import on visibility option from Category).',
+      label: GIF_FINDER_LABEL,
       fallbackShown: true
     }
   },
@@ -269,6 +271,10 @@ const previewAdjustments = {
       defaultOpen: true
     }
   }
+};
+
+export {
+  GIF_FINDER_LABEL
 };
 
 export default previewAdjustments;

@@ -28,6 +28,10 @@
   left: 2px;
 }
 
+.gif-finder-availability {
+  margin-top: 4px;
+}
+
 @media only screen and (max-width: 600px) {
   .aria-text {
     top: 4px;
