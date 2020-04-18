@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import { LOADING_PATTERN_IDS } from 'utils/constants';
+import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 
 const FALLBACK_TYPES = {
   SKELETON_UI: 'skeleton-ui',

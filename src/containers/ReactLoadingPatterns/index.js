@@ -22,17 +22,16 @@ import PatternOptionList from 'components/PatternOptionList';
 import TextDescription from 'components/TextDescription';
 import SkeletonUIFallbackCheckbox from 'components/SkeletonUIFallbackCheckbox';
 import Title from 'components/Title';
-import { reactLoadingPatterns } from 'utils/data/loadingPatterns';
+import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 import styles from './style.module.css';
 
 const checkHashWithPatternId = hashWithoutSharp => {
-  const isMatchedWithPatternId = reactLoadingPatterns.findIndex(reactLoadingPattern => reactLoadingPattern.id === hashWithoutSharp) > -1;
-  return isMatchedWithPatternId;
+  return !!LOADING_PATTERN_IDS[hashWithoutSharp];
 };
 
 const ReactLoadingPatterns = () => {
-  const [selectedPatternId, setSelectedPatternId] = useState(reactLoadingPatterns[0].id);
-  const [isSkeletonUIFallback, setIsSkeletonUIFallback] = useState(false);
+  const [selectedPatternId, setSelectedPatternId] = useState(LOADING_PATTERN_IDS.STATIC_IMPORT);
+  const [skeletonUIChecked, setSkeletonUIChecked] = useState(false);
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -47,8 +46,8 @@ const ReactLoadingPatterns = () => {
     setSelectedPatternId(event.currentTarget.value);
   };
 
-  const checkSkeletonUIFallbackHandler = checked => {
-    setIsSkeletonUIFallback(checked);
+  const checkSkeletonUIHandler = checked => {
+    setSkeletonUIChecked(checked);
   };
 
   return (
@@ -58,17 +57,22 @@ const ReactLoadingPatterns = () => {
         <div className={styles['right-side']}>
           <PatternOptionList
             selectOption={selectPatternHandler}
-            selectedOptionId={selectedPatternId} />
+            selectedOptionId={selectedPatternId}
+            skeletonUIChecked={skeletonUIChecked} />
           <SkeletonUIFallbackCheckbox
-            checked={isSkeletonUIFallback}
-            onChange={checkSkeletonUIFallbackHandler} />
+            checked={skeletonUIChecked}
+            onChange={checkSkeletonUIHandler} />
         </div>
         <div className={styles['left-side']}>
-          <CodeSnippetArea selectedPatternId={selectedPatternId} />
+          <CodeSnippetArea
+            selectedPatternId={selectedPatternId}
+            skeletonUIChecked={skeletonUIChecked} />
           <PreviewArea selectedPatternId={selectedPatternId} />
         </div>
       </div>
-      <TextDescription selectedPatternId={selectedPatternId} />
+      <TextDescription
+        selectedPatternId={selectedPatternId}
+        skeletonUIChecked={skeletonUIChecked} />
     </div>
   );
 };

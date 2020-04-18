@@ -19,15 +19,15 @@ import React from 'react';
 import styles from './style.module.css';
 
 const PatternOptionListItem = ({ value, caption, checked, selectOption }) => (
-  <div className={styles['flex-container']}>
+  <div className={styles['pattern-option-list-item-radio']}>
     <input
       checked={checked}
       onChange={selectOption}
-      className={styles['radio']}
+      className={styles["input[type='radio']"]}
       type='radio'
       name='react-loading-patterns'
       value={value} />
-    <span>&nbsp;{caption}</span>
+    <label htmlFor='react-loading-patterns'>{caption}</label>
   </div>
 );
 

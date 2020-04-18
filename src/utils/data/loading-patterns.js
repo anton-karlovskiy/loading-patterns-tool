@@ -14,8 +14,35 @@
  * limitations under the License.
  */
 
-import { LOADING_PATTERN_IDS } from 'utils/constants';
+import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 
+const LOADING_TEXT = '<div>Loading...</div>';
+const LOADING_MESSAGE_LIST_TEXT = '<div>Loading MessageList...</div>';
+const LOADING_MESSAGE_INPUT_TEXT = '<div>Loading MessageInput...</div>';
+const LOADING_EMOJI_PICKER_TEXT = '<div>Loading EmojiPicker...</div>';
+
+const EMOJI_PICKER_SKELETON_UI = {
+  JSX: '<EmojiPickerSkeleton />',
+  IMPORT: 'import EmojiPickerSkeleton from \'./EmojiPickerSkeleton\';'
+};
+const CHANNEL_SKELETON_UI = {
+  JSX: '<ChannelSkeleton />',
+  IMPORT: 'import ChannelSkeleton from \'./ChannelSkeleton\';'
+};
+const GIF_FINDER_SKELETON_UI = {
+  JSX: '<GifFinderSkeleton />',
+  IMPORT: 'import GifFinderSkeleton from \'./GifFinderSkeleton\';'
+};
+const MESSAGE_LIST_SKELETON_UI = {
+  JSX: '<MessageListSkeleton />',
+  IMPORT: 'import MessageListSkeleton from \'./MessageListSkeleton\';'
+};
+const MESSAGE_INPUT_SKELETON_UI = {
+  JSX: '<MessageInputSkeleton />',
+  IMPORT: 'import MessageInputSkeleton from \'./MessageInputSkeleton\';'
+};
+
+const getReactLoadingPatterns = (skeletonUIChecked = false) => {
 
 const reactLoadingPatterns = [
 {
@@ -53,6 +80,7 @@ codeSnippet:
 `import React, { lazy, Suspense } from 'react';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = lazy(
   () => import('./EmojiPicker')
@@ -65,7 +93,7 @@ const Channel = () => {
       <MessageList />
       <MessageInput />
       {emojiPickerOpen && (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}}>
           <EmojiPicker />
         </Suspense>
       )}
@@ -81,7 +109,8 @@ The \`React.lazy\` function provides a built-in way to separate components in an
 * [(web.dev) Code splitting with React.lazy and Suspense](https://web.dev/code-splitting-suspense/)  
 * [(React docs) Code-Splitting / import()](https://reactjs.org/docs/code-splitting.html#import)
 `,
-linesInPrimary: [1, 5, 6, 7, 16, 17, 18]
+linesInPrimary: skeletonUIChecked ? [1, 6, 7, 8, 18, 19] : [1, 6, 7, 8, 17, 18, 19],
+linesInSecondary: skeletonUIChecked ? [4, 17] : []
 },
 {
 id: LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING,
@@ -89,6 +118,7 @@ optionName: 'Route-based code-splitting',
 codeSnippet:
 `import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
+${skeletonUIChecked ? CHANNEL_SKELETON_UI.IMPORT  : ''}
 
 const Home = lazy(
   () => import(/* webpackChunkName: "home" */ './Home')
@@ -104,14 +134,14 @@ const Contacts = lazy(
 );
 
 const App = () => (
-  <Suspense fallback={<div>Loading...</div>}>
+  <Suspense fallback={${skeletonUIChecked ? CHANNEL_SKELETON_UI.JSX : LOADING_TEXT}}>
     <Switch>
       <Route
         exact
         path="/"
         component={Home} />
       <Route
-        path="/pages/channel?id=engineering"
+        path="/pages/channel"
         component={Channel} />
       <Route
         path="/pages/threads"
@@ -131,8 +161,8 @@ A good place to start is with routes. Most people on the web are used to page tr
 * [(React docs) Code-Splitting / Route-based code splitting](https://reactjs.org/docs/code-splitting.html#route-based-code-splitting)  
 * [(developers.google) Reduce JavaScript Payloads with Code Splitting](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/code-splitting/)  
 `,
-linesInPrimary: [1, 2, 4, 5, 6, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 27, 28, 29, 30, 31, 32, 33, 34],
-linesInSecondary: [7, 8, 9, 24, 25, 26]
+linesInPrimary: skeletonUIChecked ? [1, 2, 5, 6, 7, 11, 12, 13, 14, 15, 16, 20, 21, 22, 23, 24, 28, 29, 30, 31, 32, 33, 34, 35] : [1, 2, 5, 6, 7, 11, 12, 13, 14, 15, 16, 19, 20, 21, 22, 23, 24, 28, 29, 30, 31, 32, 33, 34, 35],
+linesInSecondary: skeletonUIChecked ? [3, 8, 9, 10, 19, 25, 26, 27] : [8, 9, 10, 25, 26, 27]
 },
 {
 id: LOADING_PATTERN_IDS.DYNAMIC_IMPORT_WITH_ERROR_BOUNDARY,
@@ -141,6 +171,7 @@ codeSnippet:
 `import React, { lazy, Suspense, Component } from 'react';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = lazy(() => import('./EmojiPicker'));
 
@@ -171,7 +202,7 @@ const Channel = () => {
         <MessageList />
         <MessageInput />
         {emojiPickerOpen && (
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}}>
             <EmojiPicker />
           </Suspense>
         )}
@@ -187,7 +218,8 @@ Error boundaries are React components that \`catch JavaScript errors anywhere in
 * [(React docs) Error Boundaries](https://reactjs.org/docs/error-boundaries.html)  
 * [(web.dev) Code splitting with React.lazy and Suspense / Handle loading failures](https://web.dev/code-splitting-suspense/#handle-loading-failures)
 `,
-linesInPrimary: [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 29, 39]
+linesInPrimary: [8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 40],
+linesInSecondary: skeletonUIChecked ? [4, 35] : []
 },
 {
 id: LOADING_PATTERN_IDS.IMPORT_ON_INTERACTION,
@@ -240,10 +272,11 @@ codeSnippet:
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = loadable(
   () => import('./EmojiPicker'), {
-    fallback: <div>Loading...</div>
+    fallback: ${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}
   }
 );
 
@@ -271,7 +304,8 @@ Suspense is not available server-side and \`React.lazy\` can only work with Susp
 * [(Loadable Components doc) Comparison with React.lazy](https://loadable-components.com/docs/loadable-vs-react-lazy/)  
 * [(Loadable Components doc) Error Boundaries](https://loadable-components.com/docs/error-boundaries/)  
 `,
-linesInPrimary: [1, 6, 7, 8, 9, 10, 15, 23]
+linesInPrimary: skeletonUIChecked ? [1, 7, 8, 10, 11, 16, 24] : [1, 7, 8, 9, 10, 11, 16, 24],
+linesInSecondary: skeletonUIChecked ? [5, 9] : []
 },
 {
 id: LOADING_PATTERN_IDS.LOADABLE_COMPONENTS_SSR,
@@ -329,9 +363,10 @@ import loadable from '@loadable/component';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
-  fallback: <div>Loading...</div>
+  fallback: ${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}
 });
 
 const Channel = () => {
@@ -379,7 +414,8 @@ textDescription:`
 #### References:  
 * [(Loadable Components doc) Server Side Rendering](https://loadable-components.com/docs/server-side-rendering/)
 `,
-linesInPrimary: [4, 5, 10, 11, 12, 13, 15, 16, 17, 38, 39, 42, 43, 44, 45, 49, 54, 55, 56]
+linesInPrimary: skeletonUIChecked ? [4, 5, 10, 11, 12, 13, 15, 16, 17, 38, 39, 42, 43, 44, 45, 49, 55, 57] : [4, 5, 10, 11, 12, 13, 15, 16, 17, 38, 39, 42, 43, 44, 45, 49, 55, 56, 57],
+linesInSecondary: skeletonUIChecked ? [53, 56] : []
 },
 {
 id: LOADING_PATTERN_IDS.STREAMING_RENDERING,
@@ -424,9 +460,10 @@ import loadable from '@loadable/component';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
 import ErrorBoundary from './ErrorBoundary';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = loadable(() => import('./EmojiPicker'), {
-  fallback: <div>Loading...</div>
+  fallback: ${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}
 });
 
 const Channel = () => {
@@ -475,7 +512,8 @@ textDescription:`
 * [(Loadable Components doc) Server Side Rendering / Streaming rendering](https://loadable-components.com/docs/server-side-rendering/#streaming-rendering)
 * [(React docs) ReactDOMServer / renderToNodeStream()](https://reactjs.org/docs/react-dom-server.html#rendertonodestream)
 `,
-linesInPrimary: [10, 11, 12, 13, 14, 16, 17, 18, 19]
+linesInPrimary: [10, 11, 12, 13, 14, 16, 17, 18, 19],
+linesInSecondary: skeletonUIChecked ? [40, 43] : []
 },
 {
 id: LOADING_PATTERN_IDS.PROGRESSIVE_HYDRATION,
@@ -520,24 +558,32 @@ ReactDOM.createRoot(rootElement, {
 // client/App.js
 import React, { lazy, Suspense } from 'react';
 import ErrorBoundary from './ErrorBoundary';
+${skeletonUIChecked
+? `${MESSAGE_LIST_SKELETON_UI.IMPORT}
+${MESSAGE_INPUT_SKELETON_UI.IMPORT}
+${EMOJI_PICKER_SKELETON_UI.IMPORT}
 
 const MessageList = lazy(() => import('./MessageList'));
 const MessageInput = lazy(() => import('./MessageInput'));
-const EmojiPicker = lazy(() => import('./EmojiPicker'));
+const EmojiPicker = lazy(() => import('./EmojiPicker'));`
+: `
+const MessageList = lazy(() => import('./MessageList'));
+const MessageInput = lazy(() => import('./MessageInput'));
+const EmojiPicker = lazy(() => import('./EmojiPicker'));`}
 
 const Channel = () => {
   ...
   return (
     <ErrorBoundary>
       <div>
-        <Suspense fallback={<h2>Loading MessageList...</h2>}>
+        <Suspense fallback={${skeletonUIChecked ? MESSAGE_LIST_SKELETON_UI.JSX : LOADING_MESSAGE_LIST_TEXT}}>
           <MessageList />
         </Suspense>
-        <Suspense fallback={<h2>Loading MessageInput...</h2>}>
+        <Suspense fallback={${skeletonUIChecked ? MESSAGE_INPUT_SKELETON_UI.JSX : LOADING_MESSAGE_INPUT_TEXT}}>
           <MessageInput />
         </Suspense>
         {emojiPickerOpen && (
-          <Suspense fallback={<h2>Loading EmojiPicker...</h2>}>
+          <Suspense fallback={${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_EMOJI_PICKER_TEXT}}>
             <EmojiPicker />
           </Suspense>
         )}
@@ -561,7 +607,8 @@ textDescription:`
 * [(CodeSandBox) React Progressive Hydration Demo](https://codesandbox.io/s/floral-worker-xwbwv)
 * [(Glitch) React Chats App Demo with Progressive Hydration](https://anton-karlovskiy-cra-chats-demo-with-progressive-hydration.glitch.me)  
 `,
-linesInPrimary: [4, 10, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60]
+linesInPrimary: skeletonUIChecked ? [4, 10, 33, 34, 35, 54, 55, 57, 58, 59, 61, 62, 63] : [4, 10, 33, 34, 35, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60],
+linesInSecondary: skeletonUIChecked ? [40, 41, 42, 53, 56, 60] : []
 },
 {
 id: LOADING_PATTERN_IDS.IMPORT_ON_VISIBILITY,
@@ -573,10 +620,11 @@ import
     from 'react-loadable-visibility/loadable-components';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
+${skeletonUIChecked ? GIF_FINDER_SKELETON_UI.IMPORT  : ''}
 
-const GifFInder = loadableVisibility(
+const GifFinder = loadableVisibility(
   () => import('./GifFInder'), {
-    fallback: <div>Loading...</div>
+    fallback: ${skeletonUIChecked ? GIF_FINDER_SKELETON_UI.JSX : LOADING_TEXT}
   }
 );
 
@@ -586,7 +634,7 @@ const Channel = () => {
     <div>
       <MessageList />
       <MessageInput />
-      <GifFInder />
+      <GifFinder />
     </div>
   );
 };`,
@@ -599,7 +647,8 @@ Therefore, it will only function in [browsers that have the IntersectionObserver
 * [react-loadable-visibility README](https://github.com/stratiformltd/react-loadable-visibility)  
 * [progressive react](https://houssein.me/progressive-react)
 `,
-linesInPrimary: [2, 3, 4, 8, 9, 10, 11, 12, 20]
+linesInPrimary: skeletonUIChecked ? [2, 3, 4, 9, 10, 12, 13, 21] : [2, 3, 4, 9, 10, 11, 12, 13, 21],
+linesInSecondary: skeletonUIChecked ? [7, 11] : []
 },
 {
 id: LOADING_PATTERN_IDS.PREFETCH,
@@ -608,6 +657,7 @@ codeSnippet:
 `import React, { lazy, Suspense } from 'react';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = lazy(
   () => import(/* webpackPrefetch: true */ './EmojiPicker')
@@ -620,7 +670,7 @@ const Channel = () => {
       <MessageList />
       <MessageInput />
       {emojiPickerOpen && (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}}>
           <EmojiPicker />
         </Suspense>
       )}
@@ -639,7 +689,8 @@ This tells webpack to inject the \`<link rel="prefetch">\` tag into the HTML doc
 * [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 * [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [5, 6, 7]
+linesInPrimary: [6, 7, 8],
+linesInSecondary: skeletonUIChecked ? [4, 17] : []
 },
 {
 id: LOADING_PATTERN_IDS.PRELOAD,
@@ -648,6 +699,7 @@ codeSnippet:
 `import React, { lazy, Suspense } from 'react';
 import MessageList from './MessageList';
 import MessageInput from './MessageInput';
+${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.IMPORT  : ''}
 
 const EmojiPicker = lazy(
   () => import(/* webpackPreload: true */ './EmojiPicker')
@@ -660,7 +712,7 @@ const Channel = () => {
       <MessageList />
       <MessageInput />
       {emojiPickerOpen && (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={${skeletonUIChecked ? EMOJI_PICKER_SKELETON_UI.JSX : LOADING_TEXT}}>
           <EmojiPicker />
         </Suspense>
       )}
@@ -681,10 +733,14 @@ With webpack version 4.6.0 or later, preloading is supported through the use of 
 * [(Medium) Preload, Prefetch And Priorities in Chrome](https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf)  
 * [(Medium) <link rel=”prefetch/preload”> in webpack](https://medium.com/webpack/link-rel-prefetch-preload-in-webpack-51a52358f84c)
 `,
-linesInPrimary: [5, 6, 7]
+linesInPrimary: [6, 7, 8],
+linesInSecondary: skeletonUIChecked ? [4, 17] : []
 }
 ];
 
+return reactLoadingPatterns; 
+};
+
 export {
-  reactLoadingPatterns
+  getReactLoadingPatterns
 };

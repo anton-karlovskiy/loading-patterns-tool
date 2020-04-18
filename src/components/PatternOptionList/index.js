@@ -14,45 +14,49 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import PatternOptionListItem from './PatternOptionListItem';
-import { reactLoadingPatterns } from 'utils/data/loadingPatterns';
+import { getReactLoadingPatterns } from 'utils/data/loading-patterns';
 import styles from './style.module.css';
 
-const PatternOptionList = ({ selectedOptionId, selectOption }) => (
-  <div className={styles['pattern-option-list']}>
-    <h3 className={styles['category-title']}>
-      <strong>Category</strong>
-    </h3>
-    <select
-      value={selectedOptionId}
-      className={styles['mobile']}
-      onChange={selectOption}>
-      {reactLoadingPatterns.map(reactLoadingPattern => {
-        return (
-          <option
-            key={reactLoadingPattern.id}
-            value={reactLoadingPattern.id}>
-            {reactLoadingPattern.optionName}
-          </option>
-        );
-      })}
-    </select>
-    <div className={styles['desktop']}>
-      {reactLoadingPatterns.map(reactLoadingPattern => {
-        const checked = reactLoadingPattern.id === selectedOptionId;
-        return (
-          <PatternOptionListItem
-            checked={checked}
-            selectOption={selectOption}
-            key={reactLoadingPattern.id}
-            value={reactLoadingPattern.id}
-            caption={reactLoadingPattern.optionName} />
-        );
-      })}
+const PatternOptionList = ({ selectedOptionId, selectOption, skeletonUIChecked }) => {
+  const reactLoadingPatterns = useMemo(() => getReactLoadingPatterns(skeletonUIChecked), [skeletonUIChecked]);
+
+  return (
+    <div className={styles['pattern-option-list']}>
+      <h3 className={styles['category-title']}>
+        <strong>Category</strong>
+      </h3>
+      <select
+        value={selectedOptionId}
+        className={styles['mobile']}
+        onChange={selectOption}>
+        {reactLoadingPatterns.map(reactLoadingPattern => {
+          return (
+            <option
+              key={reactLoadingPattern.id}
+              value={reactLoadingPattern.id}>
+              {reactLoadingPattern.optionName}
+            </option>
+          );
+        })}
+      </select>
+      <div className={styles['desktop']}>
+        {reactLoadingPatterns.map(reactLoadingPattern => {
+          const checked = reactLoadingPattern.id === selectedOptionId;
+          return (
+            <PatternOptionListItem
+              checked={checked}
+              selectOption={selectOption}
+              key={reactLoadingPattern.id}
+              value={reactLoadingPattern.id}
+              caption={reactLoadingPattern.optionName} />
+          );
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default PatternOptionList;

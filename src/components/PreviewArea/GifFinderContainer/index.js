@@ -17,7 +17,7 @@
 import React from 'react';
 
 import AriaText from 'components/PreviewArea/AriaText';
-import { LOADING_PATTERN_IDS } from 'utils/constants';
+import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 import GifFinder from './GifFinder';
 import styles from './style.module.css';
 import GifFinderSkeleton from 'components/PreviewArea/GifFinderContainer/GifFinder/skeleton';

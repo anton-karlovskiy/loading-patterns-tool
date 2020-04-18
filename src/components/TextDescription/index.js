@@ -14,15 +14,20 @@
  * limitations under the License.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import GitHubMarkdownWrapper from 'hoc/GitHubMarkdownWrapper';
 import ReactMarkdownWithRenderers from 'components/ReactMarkdownWithRenderers';
-import { reactLoadingPatterns } from 'utils/data/loadingPatterns';
+import { getReactLoadingPatterns } from 'utils/data/loading-patterns';
 import styles from './style.module.css';
 
-const TextDescription = ({ selectedPatternId }) => {
-  const pattern = reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
+const TextDescription = ({ selectedPatternId, skeletonUIChecked }) => {
+  const pattern = useMemo(() => {
+    const reactLoadingPatterns = getReactLoadingPatterns(skeletonUIChecked);
+    const pattern = reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
+
+    return pattern;
+  }, [skeletonUIChecked, selectedPatternId]);
 
   return (
     <GitHubMarkdownWrapper className={styles['code-font']}>

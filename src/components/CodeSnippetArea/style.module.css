@@ -38,9 +38,10 @@
     /* title tb margin (40px) */
     /* category height (49px) */
     /* code pre tb margin (16px) */
-    /* preview area height (300px) */
-    /* offset height (2px) */
+    /* preview area height (400px) */
+    /* offset height (4px) */
     height: calc(100vh - 24px - 32px - 40px - 49px - 16px - 400px + 4px);
+    
   }
 }
 
@@ -51,13 +52,13 @@
 
   .root > pre {
     /* TODO: hardcoded */
-    /* height: 300px; */
+    /* height: 400px; */
     /* app padding top (16px) */
     /* title height (32px) */
     /* category height (49px) */
     /* code pre tb margin (8px) */
-    /* preview area height (300px) */
-    /* offset height (2px) */
+    /* preview area height (400px) */
+    /* offset height (4px) */
     height: calc(100vh - 16px - 32px - 49px - 8px - 400px + 4px);
   }
 }
