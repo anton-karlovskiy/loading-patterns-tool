@@ -23,23 +23,23 @@ const LOADING_EMOJI_PICKER_TEXT = '<div>Loading EmojiPicker...</div>';
 
 const EMOJI_PICKER_SKELETON_UI = {
   JSX: '<EmojiPickerSkeleton />',
-  IMPORT: 'import EmojiPickerSkeleton from \'./EmojiPickerSkeleton\';'
+  IMPORT: 'import EmojiPickerSkeleton from \'./EmojiPicker/skeleton\';'
 };
 const CHANNEL_SKELETON_UI = {
   JSX: '<ChannelSkeleton />',
-  IMPORT: 'import ChannelSkeleton from \'./ChannelSkeleton\';'
+  IMPORT: 'import ChannelSkeleton from \'./Channel/skeleton\';'
 };
 const GIF_FINDER_SKELETON_UI = {
   JSX: '<GifFinderSkeleton />',
-  IMPORT: 'import GifFinderSkeleton from \'./GifFinderSkeleton\';'
+  IMPORT: 'import GifFinderSkeleton from \'./GifFinder/skeleton\';'
 };
 const MESSAGE_LIST_SKELETON_UI = {
   JSX: '<MessageListSkeleton />',
-  IMPORT: 'import MessageListSkeleton from \'./MessageListSkeleton\';'
+  IMPORT: 'import MessageListSkeleton from \'./MessageList/skeleton\';'
 };
 const MESSAGE_INPUT_SKELETON_UI = {
   JSX: '<MessageInputSkeleton />',
-  IMPORT: 'import MessageInputSkeleton from \'./MessageInputSkeleton\';'
+  IMPORT: 'import MessageInputSkeleton from \'./MessageInput/skeleton\';'
 };
 
 const getLoadingPatterns = (skeletonUIChecked = false) => {

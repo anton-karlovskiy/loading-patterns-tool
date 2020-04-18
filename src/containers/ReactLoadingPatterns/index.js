@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import CodeSnippetArea from 'components/CodeSnippetArea';
 import PreviewArea from 'components/PreviewArea';
@@ -26,20 +26,18 @@ import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 import styles from './style.module.css';
 
 const checkHashWithPatternId = hashWithoutSharp => {
-  return !!LOADING_PATTERN_IDS[hashWithoutSharp];
+  return Object.values(LOADING_PATTERN_IDS).includes(hashWithoutSharp);
 };
 
 const ReactLoadingPatterns = () => {
-  const [selectedPatternId, setSelectedPatternId] = useState(LOADING_PATTERN_IDS.STATIC_IMPORT);
+  const hash = window.location.hash;
+  const hashWithoutSharp = hash.replace('#', '');
+  const [selectedPatternId, setSelectedPatternId] = useState(
+    checkHashWithPatternId(hashWithoutSharp)
+      ? hashWithoutSharp
+      : LOADING_PATTERN_IDS.STATIC_IMPORT
+  );
   const [skeletonUIChecked, setSkeletonUIChecked] = useState(false);
-
-  useEffect(() => {
-    const hash = window.location.hash;
-    const hashWithoutSharp = hash.replace('#', '');
-    if (checkHashWithPatternId(hashWithoutSharp)) {
-      setSelectedPatternId(hashWithoutSharp);
-    }
-  }, []);
 
   const selectPatternHandler = event => {
     window.history.pushState('object or string', 'Title', `/#${event.currentTarget.value}`);
