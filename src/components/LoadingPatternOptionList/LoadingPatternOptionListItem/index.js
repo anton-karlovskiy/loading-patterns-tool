@@ -18,17 +18,23 @@ import React from 'react';
 
 import styles from './style.module.css';
 
-const LoadingPatternOptionListItem = ({ value, caption, checked, selectOption }) => (
-  <div className={styles['loading-loading-pattern-option-list-item']}>
-    <input
-      checked={checked}
-      onChange={selectOption}
-      className={styles["input[type='radio']"]}
-      type='radio'
-      name='loading-pattern-option'
-      value={value} />
-    <label htmlFor='loading-pattern-option'>{caption}</label>
-  </div>
-);
+const LoadingPatternOptionListItem = ({ value, caption, checked, onChange }) => {
+  const onChangeHandler = event => {
+    onChange && onChange(event.currentTarget.value);
+  };
+
+  return (
+    <div className={styles['loading-loading-pattern-option-list-item']}>
+      <input
+        checked={checked}
+        onChange={onChangeHandler}
+        className={styles["input[type='radio']"]}
+        type='radio'
+        name='loading-pattern-option'
+        value={value} />
+      <label htmlFor='loading-pattern-option'>{caption}</label>
+    </div>
+  );
+};
 
 export default LoadingPatternOptionListItem;

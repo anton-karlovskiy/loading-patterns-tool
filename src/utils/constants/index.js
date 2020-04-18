@@ -16,6 +16,11 @@
 
 const appTitle = 'React Loading Patterns';
 
+const QUERY_PARAMS = {
+  SKELETON_UI: 'skeleton-ui'
+};
+
 export {
-  appTitle
+  appTitle,
+  QUERY_PARAMS
 };

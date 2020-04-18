@@ -23,6 +23,7 @@ import TextDescription from 'components/TextDescription';
 import SkeletonUICheckbox from 'components/SkeletonUICheckbox';
 import Title from 'components/Title';
 import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
+import { QUERY_PARAMS } from 'utils/constants';
 import styles from './style.module.css';
 
 const checkHashWithPatternId = hashWithoutSharp => {
@@ -37,15 +38,19 @@ const ReactLoadingPatterns = () => {
       ? hashWithoutSharp
       : LOADING_PATTERN_IDS.STATIC_IMPORT
   );
-  const [skeletonUIChecked, setSkeletonUIChecked] = useState(false);
+  const queryString = window.location.search;
+  const queryParams = new URLSearchParams(queryString);
+  const skeletonUIFlag = queryParams.get(QUERY_PARAMS.SKELETON_UI) === 'true';
+  const [skeletonUIChecked, setSkeletonUIChecked] = useState(skeletonUIFlag);
 
-  const selectPatternHandler = event => {
-    window.history.pushState('object or string', 'Title', `/#${event.currentTarget.value}`);
-    setSelectedPatternId(event.currentTarget.value);
+  const selectPatternHandler = newPatternId => {
+    window.history.pushState(null, null, `/?${QUERY_PARAMS.SKELETON_UI}=${skeletonUIChecked}#${newPatternId}`);
+    setSelectedPatternId(newPatternId);
   };
 
-  const checkSkeletonUIHandler = checked => {
-    setSkeletonUIChecked(checked);
+  const checkSkeletonUIHandler = newChecked => {
+    window.history.pushState(null, null, `/?${QUERY_PARAMS.SKELETON_UI}=${newChecked}#${selectedPatternId}`);
+    setSkeletonUIChecked(newChecked);
   };
 
   return (
@@ -54,8 +59,8 @@ const ReactLoadingPatterns = () => {
       <div className={styles['upper-section']}>
         <div className={styles['right-side']}>
           <LoadingPatternOptionList
-            selectOption={selectPatternHandler}
-            selectedOptionId={selectedPatternId}
+            onChange={selectPatternHandler}
+            value={selectedPatternId}
             skeletonUIChecked={skeletonUIChecked} />
           <SkeletonUICheckbox
             checked={skeletonUIChecked}

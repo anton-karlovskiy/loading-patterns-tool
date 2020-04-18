@@ -20,8 +20,11 @@ import LoadingPatternOptionListItem from './LoadingPatternOptionListItem';
 import { getLoadingPatterns } from 'utils/data/loading-patterns';
 import styles from './style.module.css';
 
-const LoadingPatternOptionList = ({ selectedOptionId, selectOption, skeletonUIChecked }) => {
+const LoadingPatternOptionList = ({ value, onChange, skeletonUIChecked }) => {
   const loadingPatterns = useMemo(() => getLoadingPatterns(skeletonUIChecked), [skeletonUIChecked]);
+  const onChangeHandler = event => {
+    onChange && onChange(event.currentTarget.value);
+  };
 
   return (
     <div className={styles['loading-pattern-option-list']}>
@@ -29,9 +32,9 @@ const LoadingPatternOptionList = ({ selectedOptionId, selectOption, skeletonUICh
         <strong>Category</strong>
       </h3>
       <select
-        value={selectedOptionId}
+        value={value}
         className={styles['mobile']}
-        onChange={selectOption}>
+        onChange={onChangeHandler}>
         {loadingPatterns.map(loadingPattern => {
           return (
             <option
@@ -44,11 +47,11 @@ const LoadingPatternOptionList = ({ selectedOptionId, selectOption, skeletonUICh
       </select>
       <div className={styles['desktop']}>
         {loadingPatterns.map(loadingPattern => {
-          const checked = loadingPattern.id === selectedOptionId;
+          const checked = loadingPattern.id === value;
           return (
             <LoadingPatternOptionListItem
               checked={checked}
-              selectOption={selectOption}
+              onChange={onChange}
               key={loadingPattern.id}
               value={loadingPattern.id}
               caption={loadingPattern.optionName} />
