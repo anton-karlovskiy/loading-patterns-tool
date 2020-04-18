@@ -54,7 +54,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
             <PhoneInTalkIcon key='phone' />
           ]} />
         <MessageList
-          key={`message-list-${selectedPatternId}`}
+          key={`message-list-${selectedPatternId}-${skeletonUIChecked}`}
           delay={messageList.delay}
           fallback={messageList.fallbackShown && (
             skeletonUIChecked ? (
@@ -65,7 +65,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
           )}
           ariaText={messageList.label} />
         <MessageInput
-          key={`message-input-${selectedPatternId}`}
+          key={`message-input-${selectedPatternId}-${skeletonUIChecked}`}
           delay={messageInput.delay}
           fallback={messageInput.fallbackShown && (
             skeletonUIChecked ? (
@@ -77,7 +77,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
           ariaText={messageInput.label}
           rightItems={[
             <EmojiPicker
-              key={`emoji-picker-${selectedPatternId}`}
+              key={`emoji-picker-${selectedPatternId}-${skeletonUIChecked}`}
               delay={emojiPicker.delay}
               fallback={emojiPicker.fallbackShown && (
                 skeletonUIChecked ? (
@@ -94,7 +94,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
       </div>
       {gifFinder ? (
         <GifFinder
-          key={`gif-finder-${selectedPatternId}`}
+          key={`gif-finder-${selectedPatternId}-${skeletonUIChecked}`}
           delay={gifFinder.delay}
           ariaText={gifFinder.label}
           fallback={gifFinder.fallbackShown && (

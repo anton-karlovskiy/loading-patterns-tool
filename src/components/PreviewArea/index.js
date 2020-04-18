@@ -29,7 +29,7 @@ const PreviewArea = ({ selectedPatternId, skeletonUIChecked }) => {
 
   return (
     <Channel
-      key={channel.delay > 0 ? `channel-${selectedPatternId}` : 'channel'}
+      key={channel.delay > 0 ? `channel-${selectedPatternId}-${skeletonUIChecked}` : 'channel'}
       delay={channel.delay}
       fallback={channel.fallbackShown && (
         skeletonUIChecked ? (
