@@ -18,10 +18,11 @@ import React, { useState, useEffect } from 'react';
 
 import CodeSnippetArea from 'components/CodeSnippetArea';
 import PreviewArea from 'components/PreviewArea';
-import ConceptOptionList from 'components/ConceptOptionList';
+import PatternOptionList from 'components/PatternOptionList';
 import TextDescription from 'components/TextDescription';
+import SkeletonUIFallbackCheckbox from 'components/SkeletonUIFallbackCheckbox';
 import Title from 'components/Title';
-import { reactLoadingPatterns } from 'utils/data/concepts';
+import { reactLoadingPatterns } from 'utils/data/loadingPatterns';
 import styles from './style.module.css';
 
 const checkHashWithPatternId = hashWithoutSharp => {
@@ -48,9 +49,12 @@ const ReactLoadingPatterns = () => {
     <div>
       <Title />
       <div className={styles['upper-section']}>
-        <ConceptOptionList
-          selectOption={selectPatternHandler}
-          selectedOptionId={selectedPatternId} />
+        <div className={styles['right-side']}>
+          <PatternOptionList
+            selectOption={selectPatternHandler}
+            selectedOptionId={selectedPatternId} />
+          <SkeletonUIFallbackCheckbox />
+        </div>
         <div className={styles['left-side']}>
           <CodeSnippetArea selectedPatternId={selectedPatternId} />
           <PreviewArea selectedPatternId={selectedPatternId} />

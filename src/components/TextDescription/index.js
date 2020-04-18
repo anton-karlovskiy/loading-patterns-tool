@@ -18,7 +18,7 @@ import React from 'react';
 
 import GitHubMarkdownWrapper from 'hoc/GitHubMarkdownWrapper';
 import ReactMarkdownWithRenderers from 'components/ReactMarkdownWithRenderers';
-import { reactLoadingPatterns } from 'utils/data/concepts';
+import { reactLoadingPatterns } from 'utils/data/loadingPatterns';
 import styles from './style.module.css';
 
 const TextDescription = ({ selectedPatternId }) => {

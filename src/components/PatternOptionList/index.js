@@ -16,13 +16,13 @@
 
 import React from 'react';
 
-import ConceptOptionListItem from './ConceptOptionListItem';
-import { reactLoadingPatterns } from 'utils/data/concepts';
+import PatternOptionListItem from './PatternOptionListItem';
+import { reactLoadingPatterns } from 'utils/data/loadingPatterns';
 import styles from './style.module.css';
 
-const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
-  <div className={styles['flex-container']}>
-    <h3 className={styles['category']}>
+const PatternOptionList = ({ selectedOptionId, selectOption }) => (
+  <div className={styles['pattern-option-list']}>
+    <h3 className={styles['category-title']}>
       <strong>Category</strong>
     </h3>
     <select
@@ -43,7 +43,7 @@ const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
       {reactLoadingPatterns.map(reactLoadingPattern => {
         const checked = reactLoadingPattern.id === selectedOptionId;
         return (
-          <ConceptOptionListItem
+          <PatternOptionListItem
             checked={checked}
             selectOption={selectOption}
             key={reactLoadingPattern.id}
@@ -55,4 +55,4 @@ const ConceptOptionList = ({ selectedOptionId, selectOption }) => (
   </div>
 );
 
-export default ConceptOptionList;
+export default PatternOptionList;

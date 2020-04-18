@@ -42,7 +42,7 @@ The static \`import\` statement is used to import bindings which are exported by
 Imported modules are in \`strict mode\` whether you declare them as such or not. The \`import\` statement cannot be used in embedded scripts unless such script has a \`type="module"\`.  
 
 #### References:  
-* [(MDN web docs) import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import,)
+* [(MDN web docs) import](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import)
 `,
 linesInPrimary: [1, 2, 3]
 },
@@ -133,39 +133,6 @@ A good place to start is with routes. Most people on the web are used to page tr
 `,
 linesInPrimary: [1, 2, 4, 5, 6, 10, 11, 12, 13, 14, 15, 18, 19, 20, 21, 22, 23, 27, 28, 29, 30, 31, 32, 33, 34],
 linesInSecondary: [7, 8, 9, 24, 25, 26]
-},
-{
-id: LOADING_PATTERN_IDS.ROUTE_BASED_CODE_SPLITTING_WITH_SKELETON_UI,
-optionName: 'Route-based code-splitting w/Skeleton UI',
-codeSnippet:
-`import React, { lazy, Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import ChannelSkeleton from './Channel/skeleton';
-
-const Channel = lazy(
-  () => import(/* webpackChunkName: "channel" */ './Channel')
-);
-
-const App = () => (
-  <Suspense fallback={<ChannelSkeleton />}>
-    <Switch>
-      ...
-      <Route
-        path="/pages/channel?id=engineering"
-        component={Channel} />
-    </Switch>
-  </Suspense>
-);`,
-textDescription:
-`
-A skeleton screen is a technique of rendering placeholders for text, numbers, and other parts of a UI that haven't yet loaded. As a user interacts with the UI, they immediately see the illusion of new screen states—the skeleton—and this makes the app feel very fast. The skeleton layout is typically animated in some way to convey that data is still loading.  
-
-#### References:  
-* [(farmdev) The Art of UI Skeletons](http://farmdev.com/thoughts/108/the-art-of-ui-skeletons)  
-* [(GitHub) react-loading-skeleton](https://github.com/dvtng/react-loading-skeleton)  
-* [(Medium) Achieve skeleton loading with React](https://codeburst.io/achieve-skeleton-loading-with-react-a12404678030)  
-`,
-linesInPrimary: [3, 10]
 },
 {
 id: LOADING_PATTERN_IDS.DYNAMIC_IMPORT_WITH_ERROR_BOUNDARY,

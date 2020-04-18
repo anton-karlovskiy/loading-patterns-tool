@@ -24,8 +24,19 @@
   flex-grow: 1;
 }
 
+.right-side {
+  height: 49px;
+  display: flex;
+  align-items: center;
+}
+
 @media screen and (min-width: 1200px) {
   .upper-section {
     flex-direction: row-reverse;
   }
+
+  .right-side {
+    height: 49px;
+    flex-direction: column;
+  } 
 }
