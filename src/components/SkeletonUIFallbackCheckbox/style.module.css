@@ -1,0 +1,14 @@
+
+.skeleton-ui-fallback-checkbox {
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0;
+  margin-right: 8px;
+}
