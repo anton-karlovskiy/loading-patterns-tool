@@ -18,13 +18,13 @@ import React, { useMemo } from 'react';
 
 import GitHubMarkdownWrapper from 'hoc/GitHubMarkdownWrapper';
 import ReactMarkdownWithRenderers from 'components/ReactMarkdownWithRenderers';
-import { getReactLoadingPatterns } from 'utils/data/loading-patterns';
+import { getLoadingPatterns } from 'utils/data/loading-patterns';
 import styles from './style.module.css';
 
 const TextDescription = ({ selectedPatternId, skeletonUIChecked }) => {
   const pattern = useMemo(() => {
-    const reactLoadingPatterns = getReactLoadingPatterns(skeletonUIChecked);
-    const pattern = reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
+    const loadingPatterns = getLoadingPatterns(skeletonUIChecked);
+    const pattern = loadingPatterns.find(loadingPattern => loadingPattern.id === selectedPatternId);
 
     return pattern;
   }, [skeletonUIChecked, selectedPatternId]);

@@ -3,13 +3,13 @@ import React from 'react';
 
 import styles from './style.module.css';
 
-const SkeletonUIFallbackCheckbox = ({ checked, onChange }) => {
+const SkeletonUICheckbox = ({ checked, onChange }) => {
   const onChangeHandler = event => {
     onChange && onChange(event.target.checked);
   };
 
   return (
-    <div className={styles['skeleton-ui-fallback-checkbox']}>
+    <div className={styles['skeleton-ui-checkbox']}>
       <input
         className={styles["input[type='checkbox']"]}
         type='checkbox'
@@ -21,4 +21,4 @@ const SkeletonUIFallbackCheckbox = ({ checked, onChange }) => {
   );
 };
 
-export default SkeletonUIFallbackCheckbox;
+export default SkeletonUICheckbox;

@@ -14,21 +14,16 @@
  * limitations under the License.
  */
 
-import React from 'react';
+.loading-loading-pattern-option-list-item {
+  display: flex;
+  align-items: center;
+  margin: 16px 0;
+}
 
-import styles from './style.module.css';
-
-const PatternOptionListItem = ({ value, caption, checked, selectOption }) => (
-  <div className={styles['pattern-option-list-item-radio']}>
-    <input
-      checked={checked}
-      onChange={selectOption}
-      className={styles["input[type='radio']"]}
-      type='radio'
-      name='react-loading-patterns'
-      value={value} />
-    <label htmlFor='react-loading-patterns'>{caption}</label>
-  </div>
-);
-
-export default PatternOptionListItem;
+input[type='radio'] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-left: 8px;
+  margin-right: 8px;
+}

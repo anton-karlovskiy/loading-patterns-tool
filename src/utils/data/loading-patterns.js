@@ -42,9 +42,9 @@ const MESSAGE_INPUT_SKELETON_UI = {
   IMPORT: 'import MessageInputSkeleton from \'./MessageInputSkeleton\';'
 };
 
-const getReactLoadingPatterns = (skeletonUIChecked = false) => {
+const getLoadingPatterns = (skeletonUIChecked = false) => {
 
-const reactLoadingPatterns = [
+const loadingPatterns = [
 {
 id: LOADING_PATTERN_IDS.STATIC_IMPORT,
 optionName: 'Static Import',
@@ -738,9 +738,9 @@ linesInSecondary: skeletonUIChecked ? [4, 17] : []
 }
 ];
 
-return reactLoadingPatterns; 
+return loadingPatterns; 
 };
 
 export {
-  getReactLoadingPatterns
+  getLoadingPatterns
 };

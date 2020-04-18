@@ -19,12 +19,12 @@ import clsx from 'clsx';
 
 import ReactCodeBlock from 'components/ReactCodeBlock';
 import styles from './style.module.css';
-import { getReactLoadingPatterns } from 'utils/data/loading-patterns';
+import { getLoadingPatterns } from 'utils/data/loading-patterns';
 
 const CodeSnippetArea = ({ selectedPatternId, skeletonUIChecked, className }) => {
   const pattern = useMemo(() => {
-    const reactLoadingPatterns = getReactLoadingPatterns(skeletonUIChecked);
-    return reactLoadingPatterns.find(reactLoadingPattern => reactLoadingPattern.id === selectedPatternId);
+    const loadingPatterns = getLoadingPatterns(skeletonUIChecked);
+    return loadingPatterns.find(loadingPattern => loadingPattern.id === selectedPatternId);
   }, [selectedPatternId, skeletonUIChecked]);
 
   return (

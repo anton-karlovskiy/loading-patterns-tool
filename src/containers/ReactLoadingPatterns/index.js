@@ -18,9 +18,9 @@ import React, { useState, useEffect } from 'react';
 
 import CodeSnippetArea from 'components/CodeSnippetArea';
 import PreviewArea from 'components/PreviewArea';
-import PatternOptionList from 'components/PatternOptionList';
+import LoadingPatternOptionList from 'components/LoadingPatternOptionList';
 import TextDescription from 'components/TextDescription';
-import SkeletonUIFallbackCheckbox from 'components/SkeletonUIFallbackCheckbox';
+import SkeletonUICheckbox from 'components/SkeletonUICheckbox';
 import Title from 'components/Title';
 import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 import styles from './style.module.css';
@@ -55,11 +55,11 @@ const ReactLoadingPatterns = () => {
       <Title />
       <div className={styles['upper-section']}>
         <div className={styles['right-side']}>
-          <PatternOptionList
+          <LoadingPatternOptionList
             selectOption={selectPatternHandler}
             selectedOptionId={selectedPatternId}
             skeletonUIChecked={skeletonUIChecked} />
-          <SkeletonUIFallbackCheckbox
+          <SkeletonUICheckbox
             checked={skeletonUIChecked}
             onChange={checkSkeletonUIHandler} />
         </div>

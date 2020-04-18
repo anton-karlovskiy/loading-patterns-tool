@@ -14,32 +14,21 @@
  * limitations under the License.
  */
 
-.pattern-option-list {
-  display: flex;
-  align-items: center;
-}
+import React from 'react';
 
-.category-title {
-  margin: 12px 8px;
-}
+import styles from './style.module.css';
 
-.desktop {
-  display: none;
-}
+const LoadingPatternOptionListItem = ({ value, caption, checked, selectOption }) => (
+  <div className={styles['loading-loading-pattern-option-list-item']}>
+    <input
+      checked={checked}
+      onChange={selectOption}
+      className={styles["input[type='radio']"]}
+      type='radio'
+      name='loading-pattern-option'
+      value={value} />
+    <label htmlFor='loading-pattern-option'>{caption}</label>
+  </div>
+);
 
-@media screen and (min-width: 1200px) {
-  .pattern-option-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .mobile {
-    display: none;
-  }
-
-  .desktop {
-    display: block;
-    min-width: 360px;
-  }
-}
+export default LoadingPatternOptionListItem;

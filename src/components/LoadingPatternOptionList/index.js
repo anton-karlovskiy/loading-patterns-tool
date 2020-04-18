@@ -16,15 +16,15 @@
 
 import React, { useMemo } from 'react';
 
-import PatternOptionListItem from './PatternOptionListItem';
-import { getReactLoadingPatterns } from 'utils/data/loading-patterns';
+import LoadingPatternOptionListItem from './LoadingPatternOptionListItem';
+import { getLoadingPatterns } from 'utils/data/loading-patterns';
 import styles from './style.module.css';
 
-const PatternOptionList = ({ selectedOptionId, selectOption, skeletonUIChecked }) => {
-  const reactLoadingPatterns = useMemo(() => getReactLoadingPatterns(skeletonUIChecked), [skeletonUIChecked]);
+const LoadingPatternOptionList = ({ selectedOptionId, selectOption, skeletonUIChecked }) => {
+  const loadingPatterns = useMemo(() => getLoadingPatterns(skeletonUIChecked), [skeletonUIChecked]);
 
   return (
-    <div className={styles['pattern-option-list']}>
+    <div className={styles['loading-pattern-option-list']}>
       <h3 className={styles['category-title']}>
         <strong>Category</strong>
       </h3>
@@ -32,26 +32,26 @@ const PatternOptionList = ({ selectedOptionId, selectOption, skeletonUIChecked }
         value={selectedOptionId}
         className={styles['mobile']}
         onChange={selectOption}>
-        {reactLoadingPatterns.map(reactLoadingPattern => {
+        {loadingPatterns.map(loadingPattern => {
           return (
             <option
-              key={reactLoadingPattern.id}
-              value={reactLoadingPattern.id}>
-              {reactLoadingPattern.optionName}
+              key={loadingPattern.id}
+              value={loadingPattern.id}>
+              {loadingPattern.optionName}
             </option>
           );
         })}
       </select>
       <div className={styles['desktop']}>
-        {reactLoadingPatterns.map(reactLoadingPattern => {
-          const checked = reactLoadingPattern.id === selectedOptionId;
+        {loadingPatterns.map(loadingPattern => {
+          const checked = loadingPattern.id === selectedOptionId;
           return (
-            <PatternOptionListItem
+            <LoadingPatternOptionListItem
               checked={checked}
               selectOption={selectOption}
-              key={reactLoadingPattern.id}
-              value={reactLoadingPattern.id}
-              caption={reactLoadingPattern.optionName} />
+              key={loadingPattern.id}
+              value={loadingPattern.id}
+              caption={loadingPattern.optionName} />
           );
         })}
       </div>
@@ -59,4 +59,4 @@ const PatternOptionList = ({ selectedOptionId, selectOption, skeletonUIChecked }
   );
 };
 
-export default PatternOptionList;
+export default LoadingPatternOptionList;
