@@ -3,7 +3,7 @@ import React from 'react';
 
 import styles from './style.module.css';
 
-const SkeletonUIFallbackCheckbox = ({ isSkeletonUIFallback, onChange }) => {
+const SkeletonUIFallbackCheckbox = ({ checked, onChange }) => {
   const onChangeHandler = event => {
     onChange && onChange(event.target.checked);
   };
@@ -14,9 +14,9 @@ const SkeletonUIFallbackCheckbox = ({ isSkeletonUIFallback, onChange }) => {
         className={styles["input[type='checkbox']"]}
         type='checkbox'
         name='skeleton-ui'
-        checked={isSkeletonUIFallback}
+        checked={checked}
         onChange={onChangeHandler} />
-      <label htmlFor='skeleton-ui'>Skeleton UI</label>
+      <label htmlFor='skeleton-ui'>Do you want to experience Skeleton UI?</label>
     </div>
   );
 };

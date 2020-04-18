@@ -32,6 +32,8 @@ const checkHashWithPatternId = hashWithoutSharp => {
 
 const ReactLoadingPatterns = () => {
   const [selectedPatternId, setSelectedPatternId] = useState(reactLoadingPatterns[0].id);
+  const [isSkeletonUIFallback, setIsSkeletonUIFallback] = useState(false);
+
   useEffect(() => {
     const hash = window.location.hash;
     const hashWithoutSharp = hash.replace('#', '');
@@ -45,6 +47,10 @@ const ReactLoadingPatterns = () => {
     setSelectedPatternId(event.currentTarget.value);
   };
 
+  const checkSkeletonUIFallbackHandler = checked => {
+    setIsSkeletonUIFallback(checked);
+  };
+
   return (
     <div>
       <Title />
@@ -53,7 +59,9 @@ const ReactLoadingPatterns = () => {
           <PatternOptionList
             selectOption={selectPatternHandler}
             selectedOptionId={selectedPatternId} />
-          <SkeletonUIFallbackCheckbox />
+          <SkeletonUIFallbackCheckbox
+            checked={isSkeletonUIFallback}
+            onChange={checkSkeletonUIFallbackHandler} />
         </div>
         <div className={styles['left-side']}>
           <CodeSnippetArea selectedPatternId={selectedPatternId} />
