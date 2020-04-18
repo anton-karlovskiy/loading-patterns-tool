@@ -45,7 +45,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
 
   return (
     <div className={className}>
-      <div className={styles['channel']}>
+      <div className={styles['messenger']}>
         <Toolbar
           title={appTitle}
           rightItems={[
