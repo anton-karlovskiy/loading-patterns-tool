@@ -32,12 +32,13 @@
   font-size: 14px;
 }
 
-@media screen and (min-width: 1200px) {
+@media only screen and (min-width: 1200px) {
   .upper-section {
     flex-direction: row-reverse;
   }
 
   .right-side {
+    height: unset;
     align-items: center;
     justify-content: flex-start;
     font-size: inherit;
