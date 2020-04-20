@@ -21,6 +21,7 @@ import ChannelSkeleton from './Channel/skeleton';
 import previewAdjustments from 'utils/data/preview-adjustments';
 import Loading from 'components/PreviewArea/Loading';
 import styles from './style.module.css';
+import channelStyles from './Channel/style.module.css';
 
 const PreviewArea = ({ selectedPatternId, skeletonUIChecked }) => {
   const {
@@ -35,7 +36,7 @@ const PreviewArea = ({ selectedPatternId, skeletonUIChecked }) => {
         skeletonUIChecked ? (
           <ChannelSkeleton />
         ) : (
-          <Loading />
+          <Loading className={channelStyles['messenger--height']} />
         )
       )}
       ariaText={channel.label}

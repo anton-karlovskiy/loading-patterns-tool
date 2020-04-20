@@ -15,11 +15,14 @@
  */
 
 .messenger {
-  height: 400px;
   position: relative;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   background: white;
+}
+
+.messenger--height {
+  height: 400px;
 }
 
 .aria-text {

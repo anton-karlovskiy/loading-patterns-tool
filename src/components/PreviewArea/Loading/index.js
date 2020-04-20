@@ -15,11 +15,12 @@
  */
 
 import React from 'react';
+import clsx from 'clsx';
 
 import styles from './style.module.css';
 
-const Loading = () => (
-  <div className={styles['loading']}>Loading...</div>
+const Loading = ({ className }) => (
+  <div className={clsx(styles['loading'], className)}>Loading...</div>
 );
 
 export default Loading;

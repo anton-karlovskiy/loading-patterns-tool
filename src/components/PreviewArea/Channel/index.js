@@ -15,6 +15,7 @@
  */
 
 import React, { useMemo } from 'react';
+import clsx from 'clsx';
 
 import { appTitle } from 'utils/constants';
 import Toolbar from './Toolbar';
@@ -45,7 +46,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
 
   return (
     <div className={className}>
-      <div className={styles['messenger']}>
+      <div className={clsx(styles['messenger'], styles['messenger--height'])}>
         <Toolbar
           title={appTitle}
           rightItems={[

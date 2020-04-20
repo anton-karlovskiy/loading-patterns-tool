@@ -22,7 +22,7 @@ import MessageInputSkeleton from './MessageInput/skeleton';
 import styles from './style.module.css';
 
 const ChannelSkeleton = () => (
-  <div className={clsx(styles['messenger'], styles['channel-skeleton'])}>
+  <div className={clsx(styles['messenger'], styles['messenger--height'], styles['channel-skeleton'])}>
     <MessageListSkeleton />
     <MessageInputSkeleton />
   </div>
