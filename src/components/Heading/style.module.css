@@ -14,16 +14,35 @@
  * limitations under the License.
  */
 
-import React from 'react';
+.heading {
+  display: flex;
+  align-items: center;
+}
 
-import styles from './style.module.css';
+.logo {
+  background-image: url('/assets/images/logo.svg');
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-import { appTitle } from 'utils/constants';
+.title {
+  height: 32px;
+  margin: 20px 8px;
+  display: flex;
+  align-items: center;
+}
 
-const Title = () => {
-  return (
-    <h2 className={styles['title']}>{appTitle}</h2>
-  )
-};
-
-export default Title;
+@media only screen and (max-width: 600px) {
+  .title {
+    margin: 0 8px;
+    font-size: 20px;
+  }
+  .logo {
+    width: 32px;
+    height: 32px;
+  }
+}

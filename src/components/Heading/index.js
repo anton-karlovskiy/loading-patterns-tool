@@ -14,13 +14,17 @@
  * limitations under the License.
  */
 
-.title {
-  height: 32px;
-  margin: 20px 0;
-}
+import React from 'react';
 
-@media only screen and (max-width: 600px) {
-  .title {
-    margin: 0;
-  }
-}
+import styles from './style.module.css';
+
+import { appTitle } from 'utils/constants';
+
+const Heading = () => (
+  <div className={styles['heading']}>
+    <div className={styles['logo']} />
+    <h2 className={styles['title']}>{appTitle}</h2>
+  </div>
+);
+
+export default Heading;

@@ -21,7 +21,7 @@ import PreviewArea from 'components/PreviewArea';
 import LoadingPatternOptionList from 'components/LoadingPatternOptionList';
 import TextDescription from 'components/TextDescription';
 import SkeletonUICheckbox from 'components/SkeletonUICheckbox';
-import Title from 'components/Title';
+import Heading from 'components/Heading';
 import LOADING_PATTERN_IDS from 'utils/data/loading-pattern-ids';
 import { QUERY_PARAMS } from 'utils/constants';
 import styles from './style.module.css';
@@ -55,7 +55,7 @@ const ReactLoadingPatterns = () => {
 
   return (
     <div>
-      <Title />
+      <Heading />
       <div className={styles['upper-section']}>
         <div className={styles['right-side']}>
           <LoadingPatternOptionList
