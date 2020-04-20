@@ -17,10 +17,12 @@
 .loading-pattern-option-list {
   display: flex;
   align-items: center;
+  padding: 8px 20px;
 }
 
 .category-title {
-  margin: 12px 8px;
+  margin: 0;
+  margin-right: 8px;
 }
 
 .desktop {

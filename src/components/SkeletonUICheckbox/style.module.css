@@ -1,7 +1,6 @@
 
 .skeleton-ui-checkbox {
-  padding: 4px 8px;
-  margin: 20px 8px;
+  padding: 8px 20px;
   display: flex;
   align-items: center;
 }
