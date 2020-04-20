@@ -22,22 +22,22 @@ import styles from './style.module.css';
 const gifs = [
   {
     id: 1,
-    src: '/assets/gifs/animated-flower-image-0008.gif',
+    src: '/assets/images/messenger-gifs/animated-flower-image-0008.gif',
     alt: ''
   },
   {
     id: 2,
-    src: '/assets/gifs/animated-flower-image-0015.gif',
+    src: '/assets/images/messenger-gifs/animated-flower-image-0015.gif',
     alt: ''
   },
   {
     id: 3,
-    src: '/assets/gifs/animated-flower-image-0017.gif',
+    src: '/assets/images/messenger-gifs/animated-flower-image-0017.gif',
     alt: ''
   },
   {
     id: 4,
-    src: '/assets/gifs/animated-flower-image-0050.gif',
+    src: '/assets/images/messenger-gifs/animated-flower-image-0050.gif',
     alt: ''
   }
 ];
