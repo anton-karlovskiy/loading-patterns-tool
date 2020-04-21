@@ -16,5 +16,7 @@
 
 .content {
   color: #000;
+  /* ray test touch < */
   pointer-events: none;
+  /* ray test touch > */
 }

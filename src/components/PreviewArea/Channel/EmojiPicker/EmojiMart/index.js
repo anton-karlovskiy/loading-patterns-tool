@@ -15,8 +15,10 @@
  */
 
 import React from 'react';
+// ray test touch <
 import 'emoji-mart/css/emoji-mart.css';
 import data from 'emoji-mart/data/facebook.json';
+// ray test touch >
 import { NimblePicker } from 'emoji-mart';
 
 import AriaText from 'components/PreviewArea/AriaText';

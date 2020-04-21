@@ -28,8 +28,10 @@ import MessageList from './MessageList';
 import MessageListSkeleton from './MessageList/skeleton';
 import MessageInput from './MessageInput';
 import MessageInputSkeleton from './MessageInput/skeleton';
+// ray test touch <
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
+// ray test touch >
 import GifFinder from './GifFinder';
 import GifFinderSkeleton from './GifFinder/skeleton';
 import Loading from 'components/PreviewArea/Loading';
@@ -77,6 +79,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
           )}
           ariaText={messageInput.label}
           rightItems={[
+            // ray test touch <
             <EmojiPicker
               key={`emoji-picker-${selectedPatternId}-${skeletonUIChecked}`}
               delay={emojiPicker.delay}
@@ -90,6 +93,7 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
               emojiMartDelay={emojiPicker.emojiMartDelay}
               defaultOpen={emojiPicker.defaultOpen}
               ariaText={emojiPicker.label} />
+            // ray test touch >
           ]} />
         <AriaText className={styles['aria-text']} text={ariaText} />
       </div>

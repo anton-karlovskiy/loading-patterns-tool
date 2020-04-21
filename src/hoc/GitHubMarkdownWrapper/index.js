@@ -15,10 +15,7 @@
  */
 
 import React from 'react';
-import 'github-markdown-css';
 import clsx from 'clsx';
-
-import './style.css';
 
 const GitHubMarkdownWrapper = ({ children, className }) => {
   return (

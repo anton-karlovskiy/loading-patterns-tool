@@ -14,13 +14,19 @@
  * limitations under the License.
  */
 
-import React, { useState } from 'react';
+// ray test touch <
+import React, { useState, lazy, Suspense } from 'react';
+// ray test touch >
 
 import TagFacesIcon from 'components/SvgIcons/TagFacesIcon';
 import useClickAway from 'utils/hooks/use-click-away';
 import withDelayedRender from 'hoc/withDelayedRender';
 import './EmojiPicker.css';
-import EmojiMart from './EmojiMart';
+
+// ray test touch <
+// import EmojiMart from './EmojiMart';
+const LazyEmojiMart = lazy(() => import(/* webpackChunkName: 'emoji-mart' */ './EmojiMart'));
+// ray test touch >
 
 const WIDTH = 36;
 const HEIGHT = 36;
@@ -53,7 +59,14 @@ const EmojiPicker = ({ ariaText, emojiMartDelay = 0, defaultOpen = false }) => {
         onClick={onTagFacesIconClickHandler}
         type='button'
         style={{pointerEvents: 'auto'}} />
-      {open && <EmojiMart ariaText={ariaText} delay={emojiMartDelay} />}
+      {/* ray test touch < */}
+      {/* {open && <EmojiMart ariaText={ariaText} delay={emojiMartDelay} />} */}
+      {open && (
+        <Suspense fallback={null}>
+          <LazyEmojiMart ariaText={ariaText} delay={emojiMartDelay} />
+        </Suspense>
+      )}
+      {/* ray test touch > */}
     </div>
   );
 };
