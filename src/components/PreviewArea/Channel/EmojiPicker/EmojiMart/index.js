@@ -16,8 +16,9 @@
 
 import React from 'react';
 // ray test touch <
-import 'emoji-mart/css/emoji-mart.css';
-import data from 'emoji-mart/data/facebook.json';
+// import 'emoji-mart/css/emoji-mart.css';
+// import data from 'emoji-mart/data/facebook.json';
+import data from './data';
 // ray test touch >
 import { NimblePicker } from 'emoji-mart';
 
@@ -44,7 +45,9 @@ const EmojiMart = ({ ariaText }) => (
   <div className={styles['emoji-mart']}>
     <NimblePicker
       set='facebook'
+      // ray test touch <
       data={data}
+      // ray test touch >
       sheetSize={32}
       perLine={isSmallViewport ? 6 : 9}
       exclude={exclude}
