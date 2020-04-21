@@ -14,7 +14,9 @@
  * limitations under the License.
  */
 
-import React, { useMemo } from 'react';
+// ray test touch <
+import React, { useMemo, lazy, Suspense } from 'react';
+// ray test touch >
 import clsx from 'clsx';
 
 import { appTitle } from 'utils/constants';
@@ -32,11 +34,20 @@ import MessageInputSkeleton from './MessageInput/skeleton';
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
 // ray test touch >
-import GifFinder from './GifFinder';
-import GifFinderSkeleton from './GifFinder/skeleton';
 import Loading from 'components/PreviewArea/Loading';
 import previewAdjustments, { GIF_FINDER_LABEL } from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
+
+// ray test touch <
+// import GifFinder from './GifFinder';
+// import GifFinderSkeleton from './GifFinder/skeleton';
+const PrefetchedGifFinder = lazy(
+  () => import(/* webpackPrefetch: true */ './GifFinder')
+);
+const PrefetchedGifFinderSkeleton = lazy(
+  () => import(/* webpackPrefetch: true */ './GifFinder/skeleton')
+);
+// ray test touch >
 
 const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) => {
   const {
@@ -98,17 +109,19 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
         <AriaText className={styles['aria-text']} text={ariaText} />
       </div>
       {gifFinder ? (
-        <GifFinder
-          key={`gif-finder-${selectedPatternId}-${skeletonUIChecked}`}
-          delay={gifFinder.delay}
-          ariaText={gifFinder.label}
-          fallback={gifFinder.fallbackShown && (
-            skeletonUIChecked ? (
-              <GifFinderSkeleton delay={200} />
-            ) : (
-              <Loading />
-            )
-          )} />
+        <Suspense fallback={null}>
+          <PrefetchedGifFinder
+            key={`gif-finder-${selectedPatternId}-${skeletonUIChecked}`}
+            delay={gifFinder.delay}
+            ariaText={gifFinder.label}
+            fallback={gifFinder.fallbackShown && (
+              skeletonUIChecked ? (
+                <PrefetchedGifFinderSkeleton delay={200} />
+              ) : (
+                <Loading />
+              )
+            )} />
+        </Suspense>
       ) : (
         <AriaText
           text={GIF_FINDER_LABEL}
