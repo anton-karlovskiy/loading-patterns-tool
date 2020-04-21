@@ -42,10 +42,10 @@ import styles from './style.module.css';
 // import GifFinder from './GifFinder';
 // import GifFinderSkeleton from './GifFinder/skeleton';
 const PrefetchedGifFinder = lazy(
-  () => import(/* webpackPrefetch: true */ './GifFinder')
+  () => import(/* webpackPrefetch: true, webpackChunkName: 'gif-finder' */ './GifFinder')
 );
 const PrefetchedGifFinderSkeleton = lazy(
-  () => import(/* webpackPrefetch: true */ './GifFinder/skeleton')
+  () => import(/* webpackPrefetch: true, webpackChunkName: 'gif-finder-skeleton' */ './GifFinder/skeleton')
 );
 // ray test touch >
 
