@@ -28,7 +28,7 @@ const CodeSnippetArea = ({ selectedPatternId, skeletonUIChecked, className }) =>
   }, [selectedPatternId, skeletonUIChecked]);
 
   return (
-    <div className={clsx(styles['root'], className)}>
+    <div className={clsx(styles['code-snippet-area'], className)}>
       <ReactCodeBlock
         linesInPrimary={pattern.linesInPrimary}
         linesInSecondary={pattern.linesInSecondary}

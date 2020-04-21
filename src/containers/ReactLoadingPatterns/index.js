@@ -54,7 +54,7 @@ const ReactLoadingPatterns = () => {
   };
 
   return (
-    <div>
+    <>
       <Heading />
       <div className={styles['upper-section']}>
         <div className={styles['right-side']}>
@@ -78,7 +78,7 @@ const ReactLoadingPatterns = () => {
       <TextDescription
         selectedPatternId={selectedPatternId}
         skeletonUIChecked={skeletonUIChecked} />
-    </div>
+    </>
   );
 };
 

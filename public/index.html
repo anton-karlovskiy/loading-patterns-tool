@@ -5,6 +5,9 @@
     <link rel="apple-touch-icon" sizes="180x180" href="%PUBLIC_URL%/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="%PUBLIC_URL%/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="%PUBLIC_URL%/favicon-16x16.png">
+    <noscript>
+      <link rel="stylesheet" href="/noscript-styles.css">
+    </noscript>
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -32,7 +35,133 @@
     <title>Loading Patterns Tool</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <noscript>
+      <div class="app">
+        <div class="heading">
+          <div class="logo"></div>
+          <h2 class="title">React Loading Patterns</h2>
+        </div>
+        <div class="upper-section">
+          <div class="right-side">
+            <div class="loading-pattern-option-list">
+              <h3 class="category-title">
+                <strong>Category</strong>
+              </h3>
+              <select class="mobile">
+                <option value="static-import">Static Import</option>
+              </select>
+              <div class="desktop">
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="static-import"
+                    checked>
+                  <span>&nbsp;Static Import</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="dynamic-import">
+                  <span>&nbsp;Dynamic Import</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="route-based-code-splitting">
+                  <span>&nbsp;Route-based code-splitting</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="route-based-code-splitting-with-skeleton-ui">
+                  <span>&nbsp;Route-based code-splitting w/Skeleton UI</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="dynamic-import-with-error-boundary">
+                  <span>&nbsp;Dynamic Import w/Error Boundary</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="import-on-interaction">
+                  <span>&nbsp;Import on interaction</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="loadable-components">
+                  <span>&nbsp;Loadable Components</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="loadable-components-ssr">
+                  <span>&nbsp;Loadable Components (SSR)</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="streaming-rendering">
+                  <span>&nbsp;Streaming Rendering</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="progressive-hydration">
+                  <span>&nbsp;Progressive Hydration</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="import-on-visibility">
+                  <span>&nbsp;Import on visibility</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="prefetch">
+                  <span>&nbsp;Prefetch</span>
+                </div>
+                <div class="loading-loading-pattern-option-list-item">
+                  <input
+                    type="radio"
+                    name="react-loading-patterns"
+                    value="preload">
+                  <span>&nbsp;Preload</span>
+                </div>
+              </div>
+            </div>
+            <div class="skeleton-ui-checkbox">
+              <input
+                type='checkbox'
+                name='skeleton-ui'>
+              <label htmlFor='skeleton-ui'>Do you want to experience Skeleton UI?</label>
+            </div>
+          </div>
+          <div class="left-side">
+            <div class="code-snippet-area">
+              <pre style="margin: 8px 0;"></pre>
+            </div>
+            <div class="content messenger messenger--height">
+            </div>
+          </div>
+        </div>
+      </div>
+    </noscript>
     <div id="root"></div>
     <!--
       This HTML file is a template.
