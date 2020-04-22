@@ -15,7 +15,7 @@
  */
 
 import React from 'react';
-import { facebookData } from './data';
+import { facebookData } from './dummy-data';
 import { NimblePicker } from 'emoji-mart';
 
 import AriaText from 'components/PreviewArea/AriaText';
@@ -49,6 +49,7 @@ const EmojiMart = ({ ariaText }) => (
       useButton={false}
       emojiTooltip={false}
       title=''
+      backgroundImageFn={((set, sheetSize) => `/assets/images/emoji-sheets/${set}/${sheetSize}.png`)}
       style={{
         position: 'absolute',
         bottom: '36px',

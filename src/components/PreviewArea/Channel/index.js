@@ -14,9 +14,7 @@
  * limitations under the License.
  */
 
-// ray test touch <
 import React, { useMemo, lazy, Suspense } from 'react';
-// ray test touch >
 import clsx from 'clsx';
 
 import { appTitle } from 'utils/constants';
@@ -30,24 +28,18 @@ import MessageList from './MessageList';
 import MessageListSkeleton from './MessageList/skeleton';
 import MessageInput from './MessageInput';
 import MessageInputSkeleton from './MessageInput/skeleton';
-// ray test touch <
 import EmojiPicker from './EmojiPicker';
 import EmojiPickerSkeleton from './EmojiPicker/skeleton';
-// ray test touch >
 import Loading from 'components/PreviewArea/Loading';
 import previewAdjustments, { GIF_FINDER_LABEL } from 'utils/data/preview-adjustments';
 import styles from './style.module.css';
 
-// ray test touch <
-// import GifFinder from './GifFinder';
-// import GifFinderSkeleton from './GifFinder/skeleton';
 const PrefetchedGifFinder = lazy(
   () => import(/* webpackPrefetch: true, webpackChunkName: 'gif-finder' */ './GifFinder')
 );
 const PrefetchedGifFinderSkeleton = lazy(
   () => import(/* webpackPrefetch: true, webpackChunkName: 'gif-finder-skeleton' */ './GifFinder/skeleton')
 );
-// ray test touch >
 
 const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) => {
   const {
@@ -90,7 +82,6 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
           )}
           ariaText={messageInput.label}
           rightItems={[
-            // ray test touch <
             <EmojiPicker
               key={`emoji-picker-${selectedPatternId}-${skeletonUIChecked}`}
               delay={emojiPicker.delay}
@@ -104,7 +95,6 @@ const Channel = ({ className, selectedPatternId, ariaText, skeletonUIChecked }) 
               emojiMartDelay={emojiPicker.emojiMartDelay}
               defaultOpen={emojiPicker.defaultOpen}
               ariaText={emojiPicker.label} />
-            // ray test touch >
           ]} />
         <AriaText className={styles['aria-text']} text={ariaText} />
       </div>
