@@ -42,7 +42,7 @@ const EmojiMart = ({ ariaText }) => (
     <NimblePicker
       set='facebook'
       data={facebookData}
-      sheetSize={32}
+      sheetSize={16}
       perLine={isSmallViewport ? 6 : 9}
       exclude={exclude}
       showSkinTones={false}
