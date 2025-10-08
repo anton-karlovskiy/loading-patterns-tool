@@ -59,7 +59,7 @@ The **React Loading Patterns Tool** is an interactive educational application th
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/google/loading-patterns-tool.git
+   git clone https://github.com/anton-karlovskiy/loading-patterns-tool.git
    cd loading-patterns-tool
    ```
 
@@ -217,9 +217,9 @@ This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENS
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/google/loading-patterns-tool/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/google/loading-patterns-tool/discussions)
-- **Documentation**: [Project Wiki](https://github.com/google/loading-patterns-tool/wiki)
+- **Issues**: [GitHub Issues](https://github.com/anton-karlovskiy/loading-patterns-tool/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/anton-karlovskiy/loading-patterns-tool/discussions)
+- **Documentation**: [Project Wiki](https://github.com/anton-karlovskiy/loading-patterns-tool/wiki)
 
 ---
 
